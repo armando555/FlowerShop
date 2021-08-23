@@ -8,24 +8,32 @@
 <!-- styles section -->
 <style>
     .div-botones {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-column: auto;
 
     }
 
     .btn-vista {
+        color: #ffffff;
         padding: 0.8rem;
         margin-top: 10px;
         border-radius: 1rem;
         background-color: #1abc9c;
-        color: white;
+        
+
         border: none;
-        text-decoration: bold;
+        text-decoration: none;
         font-size: x-large;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        cursor: pointer;
     }
 
     .btn-vista:hover {
         background-color: #1ea68b;
+        text-decoration: none;
+        color: #ffffff;
     }
 </style>
 
@@ -41,8 +49,8 @@
             <div class="divider-custom-line"></div>
         </div>
         <div class="div-botones">
-            <button class="btn-vista"> Actividad 2</button>
-            <button class="btn-vista"> Actividad 4</button>
+            <a class="btn-vista" href="{{route('create')}}"> Actividad 2</a>
+            <a class="btn-vista"> Actividad 4</a>
         </div>
     </div>
 </section>

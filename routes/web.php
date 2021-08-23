@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("home.index");
+Auth::routes();
 
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+Route::get('/create', [App\Http\Controllers\FormController::class, 'form'])->name("create");
+Route::post('/create/save', 'App\Http\Controllers\FormController@save')->name("create.save");
