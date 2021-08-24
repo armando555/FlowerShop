@@ -1,0 +1,32 @@
+.form-create{
+    display: flex;
+    flex-direction: column;
+}
+.input-create{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #2c3e50 ;
+}
+
+.btn-create{
+    margin-top: 15px;
+    color: #ffffff;
+    
+    border-radius: 0.5rem;
+    background-color: #1abc9c;
+    border: none;
+    text-decoration: none;
+    font-size: x-large;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.btn-create:hover{
+ background-color: #1ea68b;
+}
