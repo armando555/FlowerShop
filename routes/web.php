@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("home.index");
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
+
 Auth::routes();
 
 
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/create', 'App\Http\Controllers\FormController@form')->name("create");
+Route::get('/create/success', 'App\Http\Controllers\FormController@success')->name("create.success");
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/create', [App\Http\Controllers\FormController::class, 'form'])->name("create");
 Route::post('/create/save', 'App\Http\Controllers\FormController@save')->name("create.save");
+
+
+
+Route::get('/combos', 'App\Http\Controllers\CombosController@combos')->name("combos.list");
+Route::get('/combos/show/{id}', 'App\Http\Controllers\CombosController@showCombo')->name("combos.show");
+
+Route::delete('combo/delete/{id}','App\Http\Controllers\CombosController@deleteCombo')->name('combo.delete');
+

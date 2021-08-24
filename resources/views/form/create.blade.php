@@ -3,21 +3,8 @@
 @section('content')
 
 <!-- links Section-->
-
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/create.css') }}">
 <!-- styles section -->
-<style>
-    .form-create{
-        display: flex;
-        flex-direction: column;
-    }
-    .input-create{
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    .btn-create{
-        margin-top: 15px;
-    }
-</style>
 
 <!-- Portfolio Section-->
 <section class="page-section portfolio" id="portfolio">
@@ -30,14 +17,14 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-        <div class="">
+        <div>
             <form class="form-create" method="POST" action="{{route('create.save')}}">
                 @csrf
                 <input class="input-create" name="name" type="text" placeholder="Name" />
                 <input class="input-create" name="bouquetType" type="text" placeholder="Bouquet Type"/>
                 <input class="input-create" name="rate" type="text" placeholder="Rate"/>
                 <input class="input-create" name="price" type="text" placeholder="Price"/>
-                <input clss="btn-create" type="submit" value="Send" />
+                <input class="btn-create" type="submit" value="Send" />
             </form>
         </div>
     </div>

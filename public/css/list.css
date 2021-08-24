@@ -1,0 +1,30 @@
+.item-li{
+    margin-top: 20px;;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    border-color: black;
+}
+
+.btn-details{
+    color: #ffffff;
+    padding: 0.2rem;
+    margin-top: 10px;
+    border-radius: 1rem;
+    background-color: #1abc9c;
+    
+
+    border: none;
+    text-decoration: none;
+    font-size: large;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-details:hover {
+    background-color: #1ea68b;
+    text-decoration: none;
+    color: #ffffff;
+}

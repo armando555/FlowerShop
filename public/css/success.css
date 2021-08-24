@@ -1,0 +1,34 @@
+
+.div-success{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-success{
+    text-align: center;
+
+}
+.btn-volver {
+    color: #ffffff;
+    padding: 0.8rem;
+    margin-top: 10px;
+    border-radius: 1rem;
+    background-color: #1abc9c;
+    
+
+    border: none;
+    text-decoration: none;
+    font-size: x-large;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-volver:hover {
+    background-color: #1ea68b;
+    text-decoration: none;
+    color: #ffffff;
+}
