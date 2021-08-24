@@ -1,0 +1,13 @@
+Para correr el código:
+
+1. Modificar el .env para poner el usuario y la clave de la base de datos mysql, actualmente está por defecto, usuario = root y contraseña = ''
+
+2. Crear base de datos que se llame específicamente 'flowershop'
+
+3. Hacer migraciones
+
+	$>php artisan migrate
+
+4. Poner a correr la página
+	
+	$>php artisan serve
