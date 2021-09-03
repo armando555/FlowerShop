@@ -19,6 +19,10 @@ class CreateTableItems extends Migration
             $table->decimal('amount');
             $table->decimal('subtotal');
             $table->decimal('discount');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id','fk_items_orders')->references('id')->on('orders')->onDelete('cascade')->onUpdate('restrict');
+            $table->unsignedBigInteger('flower_id');
+            $table->foreign('flower_id','fk_items_flower')->references('id')->on('flowers')->onDelete('cascade')->onUpdate('restrict');
             $table->timestamps();
         });
     }
