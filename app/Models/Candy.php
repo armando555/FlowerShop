@@ -18,11 +18,13 @@ class Candy extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function bouquet(){
+    public function bouquet()
+    {
         return $this->belongsTo(Bouquet::class);
     }
 
-    public function combo(){
+    public function combo()
+    {
         return $this->belongsTo(Combo::class);
     }
 

@@ -13,7 +13,8 @@ class Bouquet extends Model
 
     protected $fillable = ['name', 'bouquetType', 'rate', 'price', 'urlImg'];
 
-    public function flowers(){
+    public function flowers()
+    {
         return $this->belongsToMany(Flower::class, 'bouquet_flowers', 'bouquet_id', 'flower_id');
     }
 
@@ -22,7 +23,8 @@ class Bouquet extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function candies(){
+    public function candies()
+    {
         return $this->hasMany(Candy::class);
     }
 

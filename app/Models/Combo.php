@@ -18,11 +18,13 @@ class Combo extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function flowers(){
+    public function flowers()
+    {
         return $this->belongsToMany(Flower::class, 'combo_flowers', 'combo_id', 'flower_id');
     }
 
-    public function candies(){
+    public function candies()
+    {
         return $this->hasMany(Candy::class);
     }
 

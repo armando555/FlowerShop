@@ -13,15 +13,17 @@ class CreateCombosTable extends Migration
      */
     public function up()
     {
-        Schema::create('combos', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('bouquetType');
-            $table->float('rate');
-            $table->float('price');
-            $table->string('urlImg',100);
-            $table->timestamps();
-        });
+        Schema::create(
+            'combos', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('bouquetType');
+                $table->float('rate');
+                $table->float('price');
+                $table->string('urlImg', 100);
+                $table->timestamps();
+            }
+        );
     }
 
     /**

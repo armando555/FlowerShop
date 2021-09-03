@@ -133,23 +133,28 @@ class Item extends Model
         $this->attributes['candy_id'] = $candy_id;
     }
 
-    public function candy(){
+    public function candy()
+    {
         return $this->belongsTo(Candy::class);
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
 
-    public function combo(){
+    public function combo()
+    {
         return $this->belongsTo(Combo::class);
     }
 
-    public function bouquet(){
+    public function bouquet()
+    {
         return $this->belongsTo(Bouquet::class);
     }
 
-    public function flower(){
+    public function flower()
+    {
         return $this->belongsTo(Flower::class);
     }
 

@@ -18,12 +18,14 @@ class Flower extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function bouquetFlowers(){
-        return $this->belongsToMany(Bouquet::class,'bouquet_flowers','flower_id','bouquet_id');
+    public function bouquetFlowers()
+    {
+        return $this->belongsToMany(Bouquet::class, 'bouquet_flowers', 'flower_id', 'bouquet_id');
     }
 
-    public function comboFlowers(){
-        return $this->belongsToMany(Combo::class,'combo_flowers','flower_id','combo_id');
+    public function comboFlowers()
+    {
+        return $this->belongsToMany(Combo::class, 'combo_flowers', 'flower_id', 'combo_id');
     }
 
     public function getId()

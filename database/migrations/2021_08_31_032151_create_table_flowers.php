@@ -13,16 +13,18 @@ class CreateTableFlowers extends Migration
      */
     public function up()
     {
-        Schema::create('flowers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',50);
-            $table->string('spice',50);
-            $table->integer('amountPerFlower');
-            $table->string('color',50);
-            $table->text('description',200);
-            $table->decimal('price');
-            $table->timestamps();
-        });
+        Schema::create(
+            'flowers', function (Blueprint $table) {
+                $table->id();
+                $table->string('name', 50);
+                $table->string('spice', 50);
+                $table->integer('amountPerFlower');
+                $table->string('color', 50);
+                $table->text('description', 200);
+                $table->decimal('price');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
