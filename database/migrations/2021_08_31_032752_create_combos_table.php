@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBouquetsTable extends Migration
+class CreateCombosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateBouquetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bouquets', function (Blueprint $table) {
-            $table->id('idBouquet');
+        Schema::create('combos', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->string('bouquetType');
             $table->float('rate');
             $table->float('price');
+            $table->string('urlImg',100);
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateBouquetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bouquets');
+        Schema::dropIfExists('combos');
     }
 }

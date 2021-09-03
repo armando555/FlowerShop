@@ -9,9 +9,9 @@ class Item extends Model
 {
     use HasFactory;
 
-    //attributes id, type, amount, subtotal, discount, order_id, created_at, updated_at
+    //attributes id, type, amount, subtotal, discount, order_id, flower_id, bouquet_id, candy_id, combo_id, created_at, updated_at
 
-    protected $fillable = ['type', 'amount', 'subtotal', 'discount','order_id','flower_id'];
+    protected $fillable = ['type', 'amount', 'subtotal', 'discount', 'order_id'];
     
     public function getId()
     {
@@ -20,18 +20,6 @@ class Item extends Model
     }
 
     public function setId($name)
-    {
-
-        $this->attributes['name'] = $name;
-    }
-
-    public function getName()
-    {
-
-        return $this->attributes['name'];
-    }
-
-    public function setName($name)
     {
 
         $this->attributes['name'] = $name;
@@ -107,6 +95,62 @@ class Item extends Model
     {
 
         $this->attributes['flower_id'] = $flower_id;
+    }
+
+    public function getBouquetId()
+    {
+
+        return $this->attributes['bouquet_id'];
+    }
+
+    public function setBouquetId($bouquet_id)
+    {
+
+        $this->attributes['bouquet_id'] = $bouquet_id;
+    }
+
+    public function getComboId()
+    {
+
+        return $this->attributes['combo_id'];
+    }
+
+    public function setComboId($combo_id)
+    {
+
+        $this->attributes['combo_id'] = $combo_id;
+    }
+
+    public function getCandyId()
+    {
+
+        return $this->attributes['candy_id'];
+    }
+
+    public function setCandyId($candy_id)
+    {
+
+        $this->attributes['candy_id'] = $candy_id;
+    }
+
+    public function candy(){
+        return $this->belongsTo(Candy::class);
+    }
+
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
+
+    public function combo(){
+        return $this->belongsTo(Combo::class);
+    }
+
+    public function bouquet(){
+        return $this->belongsTo(Bouquet::class);
+    }
+
+    public function flower(){
+        return $this->belongsTo(Flower::class);
     }
 
 }
