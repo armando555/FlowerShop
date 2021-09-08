@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+
 class Item extends Model
 {
     use HasFactory;
@@ -13,6 +14,16 @@ class Item extends Model
 
     protected $fillable = ['type', 'amount', 'subtotal', 'discount', 'order_id'];
     
+    public static function validate(Request $request){
+        $request->validate([
+            "type" => "required",
+            "amount" => "required|numeric|gt:0",
+            "subtotal" => "required|numeric|gt:0",
+            "discount" => "required|numeric|gt:0",
+            "order_id" => "required",
+        ]);
+    }
+
     public function getId()
     {
 

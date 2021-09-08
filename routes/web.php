@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'App\Http\Controllers\Home\HomeController@index')->name("home.index");
 Route::get('/home', 'App\Http\Controllers\Home\HomeController@index')->name('home');
 
+//FLOWERS ROUTES
+
+Route::get('/admin/flower/index', 'App\Http\Controllers\Flower\FlowerController@index')->name('flower.index');
+Route::get('/admin/flower/create', 'App\Http\Controllers\Flower\FlowerController@create')->name('flower.create');
+Route::post('/admin/flower/created', 'App\Http\Controllers\Flower\FlowerController@save')->name('flower.save');
+Route::redirect('/admin/flower/show/', '/admin/flower/index');
+Route::get('/admin/flower/show/{id}', 'App\Http\Controllers\Flower\FlowerController@show')->name('flower.show');
+Route::get('/admin/flower/edit/{id}','App\Http\Controllers\Flower\FlowerController@edit')->name('flower.edit');
+Route::post('/admin/flower/update', 'App\Http\Controllers\Flower\FlowerController@update')->name('flower.update');
 
 //AUTH ROUTES
 Auth::routes();

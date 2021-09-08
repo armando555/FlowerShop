@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+
 class Flower extends Model
 {
     use HasFactory;
@@ -28,16 +29,27 @@ class Flower extends Model
         return $this->belongsToMany(Combo::class, 'combo_flowers', 'flower_id', 'combo_id');
     }
 
+    public static function validate(Request $request){
+        $request->validate([
+            "name" => "required",
+            "spice" => "required",
+            "amountPerFlower" => "required|numeric|gt:0",
+            "color" => "required",
+            "description" => "required",
+            "price" => "required|numeric|gt:0",
+        ]);
+    }
+
     public function getId()
     {
 
-        return $this->attributes['name'];
+        return $this->attributes['id'];
     }
 
-    public function setId($name)
+    public function setId($id)
     {
 
-        $this->attributes['name'] = $name;
+        $this->attributes['id'] = $id;
     }
 
     public function getName()
