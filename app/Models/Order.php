@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+
 class Order extends Model
 {
     use HasFactory;
@@ -13,6 +14,13 @@ class Order extends Model
 
     protected $fillable = ['total','user_id'];
     
+    public static function validate(Request $request){
+        $request->validate([
+            "total" => "required|numeric|gt:0",
+            "user_id" => "required",
+        ]);
+    }
+
     public function items()
     {
         return $this->hasMany(Item::class, 'order_id', 'id');
