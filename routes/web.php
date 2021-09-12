@@ -27,6 +27,13 @@ Route::get('/admin/flower/show/{id}', 'App\Http\Controllers\Flower\FlowerControl
 Route::get('/admin/flower/edit/{id}','App\Http\Controllers\Flower\FlowerController@edit')->name('flower.edit');
 Route::post('/admin/flower/update', 'App\Http\Controllers\Flower\FlowerController@update')->name('flower.update');
 
+//BOUQUET ROUTES
+
+Route::get('/admin/bouquet/index', 'App\Http\Controllers\Bouquet\BouquetController@index')->name('bouquet.index');
+
+
+
+
 //AUTH ROUTES
 Auth::routes();
 
