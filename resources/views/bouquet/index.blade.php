@@ -2,7 +2,7 @@
 
 @section('title') {{'List of bouquets'}} @endsection
 
-@section('header-title') {{'Bouquet'}} @endsection
+@section('header-title') {{'Bouquets'}} @endsection
 
 @section('content')
 <div class="row justify-content-center">
@@ -16,7 +16,7 @@
                 <ul>
                     @foreach ($data as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
-                    <a class="btn btn-success" href="{{route('flower.show',$item->getId())}}">details</a>
+                    <a class="btn btn-success" href="{{route('bouquet.show',$item->getId())}}">details</a>
                     @endforeach
                 </ul>
 
