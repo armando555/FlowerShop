@@ -36,6 +36,9 @@ Route::post('/admin/flower/update', 'App\Http\Controllers\Flower\FlowerControlle
 Route::get('/admin/combo/index', 'App\Http\Controllers\Combo\ComboController@index')->name("combo.index");
 Route::get('/admin/combo/create', 'App\Http\Controllers\Combo\ComboController@create')->name('combo.create');
 Route::post('/admin/combo/saved', 'App\Http\Controllers\Combo\ComboController@save')->name('combo.save');
+Route::get('/admin/combo/show/{id}', 'App\Http\Controllers\Combo\ComboController@show')->name('combo.show');
+Route::get('/admin/combo/edit/{id}','App\Http\Controllers\Combo\ComboController@edit')->name('combo.edit');
+Route::post('/admin/combo/update', 'App\Http\Controllers\Combo\ComboController@update')->name('combo.update');
 
 
 //AUTH ROUTES

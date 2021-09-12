@@ -26,5 +26,29 @@ class ComboController extends Controller
         Combo::create($request->only(["name", "bouquetType", "rate", "price", "urlImg"]));
         return back()->with('success', 'Item updated successfully!');
     }
+    public function show($id)
+    {
+        $data = [];
+        $data = Combo::findOrFail($id);
+        return view('combo.show')->with('data', $data);
+    }
+
+    public function edit($id)
+    {
+        $combo = Combo::findOrFail($id);
+        return view('combo.edit')->with('data', $combo);
+    }
+
+    public function update(Request $request)
+    {
+        $combo = Combo::find($request->id);
+        $combo->setName($request->name);
+        $combo->setBouquetType($request->bouquetType);
+        $combo->setRate($request->rate);
+        $combo->setPrice($request->price);
+        $combo->setUrlImg($request->urlImg);
+        $combo->save();
+        return back()->with('success', 'Item updated successfully!');
+    }
 
 }

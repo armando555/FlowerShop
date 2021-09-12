@@ -34,10 +34,10 @@
             <div class="card-body">
                 <ul>
                     @foreach ($data as $combo)
-                    <li>{{ $combo->getId() }} - {{ $combo->getName() }} : {{ $combo->getPrice() }}
-                    <img class="img" src="{{$combo->getUrlImg()}}"/>
+                    <li>{{ $combo->getId() }} - {{ $combo->getName() }} : {{ $combo->getPrice()$ }}
+                    <img class="img" src="{{asset($combo->getUrlImg())}}"/>
                     </li>
-                    <a class="btn btn-success" href="{{route('flower.show',$combo->getId())}}">details</a>
+                    <a class="btn btn-success" href="{{route('combo.show',$combo->getId())}}">details</a>
                     @endforeach
                 </ul>
             </div>
