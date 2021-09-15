@@ -31,6 +31,18 @@ Route::get('/admin/flower/edit/{id}','App\Http\Controllers\Flower\FlowerControll
 Route::post('/admin/flower/update', 'App\Http\Controllers\Flower\FlowerController@update')->name('flower.update');
 
 
+//BOUQUET ROUTES
+
+Route::get('/admin/bouquet/index', 'App\Http\Controllers\Bouquet\BouquetController@index')->name('bouquet.index');
+Route::get('/admin/bouquet/create', 'App\Http\Controllers\Bouquet\BouquetController@create')->name('bouquet.create');
+Route::post('/admin/bouquet/created', 'App\Http\Controllers\Bouquet\BouquetController@save')->name('bouquet.save');
+Route::redirect('/admin/bouquet/show/', '/admin/bouquet/index');
+Route::get('/admin/bouquet/show/{id}', 'App\Http\Controllers\Bouquet\BouquetController@show')->name('bouquet.show');
+Route::get('/admin/bouquet/edit/{id}','App\Http\Controllers\Bouquet\BouquetController@edit')->name('bouquet.edit');
+Route::post('/admin/bouquet/update', 'App\Http\Controllers\Bouquet\BouquetController@update')->name('bouquet.update');
+
+
+
 //CRUD COMBO
 
 Route::get('/admin/combo/index', 'App\Http\Controllers\Combo\ComboController@index')->name("combo.index");

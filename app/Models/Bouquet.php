@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+
 class Bouquet extends Model
 {
     use HasFactory;
@@ -12,6 +14,16 @@ class Bouquet extends Model
     //attributes id, name, bouquetType, rate, price, urlImg, created_at, updated_at
 
     protected $fillable = ['name', 'bouquetType', 'rate', 'price', 'urlImg'];
+
+    public static function validate(Request $request){
+        $request->validate([
+            "name" => "required",
+            "bouquetType" => "required",
+            "rate" => "required|numeric|gt:0",
+            "urlImg" => "required",
+            "price" => "required|numeric|gt:0",
+        ]);
+    }
 
     public function flowers()
     {
@@ -31,13 +43,13 @@ class Bouquet extends Model
     public function getId()
     {
 
-        return $this->attributes['name'];
+        return $this->attributes['id'];
     }
 
-    public function setId($name)
+    public function setId($id)
     {
 
-        $this->attributes['name'] = $name;
+        $this->attributes['id'] = $id;
     }
 
     public function getName()
