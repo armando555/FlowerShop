@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+
 class Combo extends Model
 {
     use HasFactory;
@@ -31,13 +32,13 @@ class Combo extends Model
     public function getId()
     {
 
-        return $this->attributes['name'];
+        return $this->attributes['id'];
     }
 
-    public function setId($name)
+    public function setId($id)
     {
 
-        $this->attributes['name'] = $name;
+        $this->attributes['id'] = $id;
     }
 
     public function getName()
@@ -98,6 +99,17 @@ class Combo extends Model
     {
 
         $this->attributes['urlImg'] = $urlImg;
+    }
+    
+
+    public static function validate(Request $request){
+        $request->validate([
+            "name" => "required",
+            "bouquetType" => "required",
+            "rate" => "required|numeric|gt:0|lt:5",
+            "price" => "required|numeric|gt:0",
+            "urlImg" => "required",
+        ]);
     }
 
 }
