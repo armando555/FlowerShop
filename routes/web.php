@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//LANGUAGE ROUTE
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\Language\LanguageController@switchLang']);
+Route::get('/languageDemo', 'App\Http\Controllers\Home\HomeController@languageDemo');
+
 //HOME ROUTES
 
 Route::get('/', 'App\Http\Controllers\Home\HomeController@index')->name("home.index");
