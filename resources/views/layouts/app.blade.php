@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>@yield('title','Home Page')</title>
+    <title>@yield('title',__('messages.home'))</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.ico') }}" />
     <!-- Font Awesome icons (free version)-->
@@ -21,7 +21,20 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">Home</a>
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">{{__('messages.home')}}</a>
+            <!---  -------------------------------------------------------------------------------------------------------------------    -->
+            
+            <div class="nav-item mx-0 mx-lg-1 dropdown">
+                        <a class="nav-link nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{__('messages.productsHome')}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ route('flower.index') }}">{{__('messages.flower')}} </a>
+                            <a class="dropdown-item" href="{{ route('bouquet.index') }}">{{__('messages.bouquet')}}</a>
+                            <a class="dropdown-item" href="{{ route('combo.index') }}">{{__('messages.combo')}}</a>
+                        </div>
+            </div>
+            <!---  -------------------------------------------------------------------------------------------------------------------    -->
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -43,8 +56,8 @@
                         </div>
                     </li>
                     
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{__('messages.login')}}</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}">{{__('messages.register')}}</a></li>
                     @else
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
@@ -63,7 +76,7 @@
             
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">@yield('header-title','Home')</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">@yield('header-title',__('messages.home'))</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -83,16 +96,16 @@
                 <div class="row">
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <h4 class="text-uppercase mb-4">{{__('messages.location')}}</h4>
                         <p class="lead mb-0">
-                            2215 John Daniel Drive
+                            Medellín, Colombia
                             <br />
-                            Clark, MO 65243
+                            Universidad EAFIT
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <h4 class="text-uppercase mb-4">{{__('messages.socialMedia')}}</h4>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
@@ -100,9 +113,9 @@
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">{{__('messages.freelancer')}}</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                            {{__('messages.contentFreelance')}}
                             <a href="http://startbootstrap.com">Start Bootstrap</a>
                             .
                         </p>
@@ -112,7 +125,7 @@
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright © Your Website 2020</small></div>
+            <div class="container"><small>Copyright © FlowerShop 2021</small></div>
         </div>
         <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
         <div class="scroll-to-top d-lg-none position-fixed">
