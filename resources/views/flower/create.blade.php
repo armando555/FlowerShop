@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
-@section('title') {{'Create Flower'}} @endsection
+@section('title') {{__('messages.createFlowers')}} @endsection
 
-@section('header-title') {{'Flower'}} @endsection
+@section('header-title') {{__('messages.flower')}} @endsection
 
 @section('content')
 <div class="row justify-content-center">
     
     <br>
     <div class="col-md-8">
-        <h1 class="masthead-heading text-uppercase mb-0">Create a flower</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.createFlowers')}}</h1>
         @include('util.message')
         <div class="card">
-            <div class="card-header">Complete the fields</div>
+            <div class="card-header">{{__('messages.completeFields')}}</div>
             <div class="card-body">
                 @if($errors->any())
                 
                 <ul id="errors">
-                    <h3 class="text-danger">Errors</h3>
+                    <h3 class="text-danger">{{__('messages.errors')}}</h3>
                     @foreach($errors->all() as $error)
                     
                     <li>{{ $error }}</li>
@@ -30,25 +30,25 @@
                 <form method="POST" action="{{ route('flower.save') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputName">Name</label>
+                        <label for="exampleInputName">{{__('messages.name')}}</label>
                         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter name" value="{{old('name')}}">
                         
-                        <label for="exampleInputSpice">Spice</label>
+                        <label for="exampleInputSpice">{{__('messages.spice')}}</label>
                         <input type="text" class="form-control" name="spice" aria-describedby="nameHelp" placeholder="Enter spice" value="{{old('spice')}}">
                         
-                        <label for="exampleInputAmountPerFlower">Amount per flower</label>
+                        <label for="exampleInputAmountPerFlower">{{__('messages.amountPerFlower')}}</label>
                         <input type="numeric" class="form-control" name="amountPerFlower" aria-describedby="numHelp" placeholder="Enter amount per flower" value="{{old('amountPerFlower')}}">
                         
-                        <label for="exampleInputColor">Color</label>
+                        <label for="exampleInputColor">{{__('messages.color')}}</label>
                         <input type="text" class="form-control" name="color" aria-describedby="nameHelp" placeholder="Enter color" value="{{old('color')}}">
                         
-                        <label for="exampleInputDescription">Description</label>
+                        <label for="exampleInputDescription">{{__('messages.description')}}</label>
                         <input type="text" class="form-control" name="description" aria-describedby="nameHelp" placeholder="Enter description" value="{{old('description')}}">
                         
-                        <label for="exampleInputPrice">Price</label>
+                        <label for="exampleInputPrice">{{__('messages.price')}}</label>
                         <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="Enter price" value="{{old('price')}}">
                         <br>
-                        <input class="btn btn-success" type="submit" value="Create flower" />
+                        <input class="btn btn-success" type="submit" value="{{__('messages.createFlowers')}}" />
                     </div>
                 </form>
             </div>
