@@ -13,13 +13,15 @@ class CreateTableOrders extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->decimal('total');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id','fk_orders_users')->references('id')->on('users')->onDelete('cascade')->onUpdate('restrict');
-            $table->timestamps();
-        });
+        Schema::create(
+            'orders', function (Blueprint $table) {
+                $table->id();
+                $table->decimal('total');
+                $table->unsignedBigInteger('user_id');
+                $table->foreign('user_id', 'fk_orders_users')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
