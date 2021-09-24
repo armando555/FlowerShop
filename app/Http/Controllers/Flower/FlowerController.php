@@ -11,7 +11,7 @@ class FlowerController extends Controller
     {
         $data = [];
         $data = Flower::all();
-        return view('flower.index')->with("data",$data);
+        return view('flower.index')->with("data", $data);
     }
     
     public function home()

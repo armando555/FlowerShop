@@ -11,7 +11,7 @@ class BouquetController extends Controller
     {
         $data = [];
         $data = Bouquet::all();
-        return view('bouquet.index')->with("data",$data);
+        return view('bouquet.index')->with("data", $data);
     }
 
     public function home()
