@@ -10,13 +10,15 @@ class ComboController extends Controller
 {
 
 
-    public function index (){
+    public function index()
+    {
         $data = [];
         $data = Combo::all();
-        return view('combo.index')->with('data',$data);
+        return view('combo.index')->with('data', $data);
     }
 
-    public function create (){
+    public function create()
+    {
         return view('combo.create');
     }
 

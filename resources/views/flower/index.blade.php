@@ -15,11 +15,18 @@
             <div class="card-body">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary" href="{{route('flower.create')}}">{{__('messages.createFlowers')}}</a>
-                  </div>
+                </div>
                 <ul>
                     @foreach ($data as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
                     <a class="btn btn-success" href="{{route('flower.show',$item->getId())}}">{{__('messages.details')}}</a>
+                    <!--<a class="btn btn-primary" href="{{route('cart.addFlower',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
+                    <form method="POST" action="{{route('cart.addFlower',['id'=>$item->getId()])}}">
+                        @csrf
+                        <label for="exampleInputName" class="font-weight-bold">{{__('messages.quantity')}}</label>
+                        <input name="quantity" type="numeric" value="1">  
+                        <button type="submit" class="btn btn-primary">{{__('messages.addCart')}}</button>
+                    </form>
                     @endforeach
                 </ul>
 

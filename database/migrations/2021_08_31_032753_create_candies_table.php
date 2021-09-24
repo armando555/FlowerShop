@@ -19,9 +19,9 @@ class CreateCandiesTable extends Migration
                 $table->string('name');
                 $table->float('price');
                 $table->string('urlImg', 100);
-                $table->unsignedBigInteger('bouquet_id');
+                $table->unsignedBigInteger('bouquet_id')->nullable();
                 $table->foreign('bouquet_id', 'fk_candies_bouquets')->references('id')->on('bouquets')->onDelete('cascade')->onUpdate('cascade');
-                $table->unsignedBigInteger('combo_id');
+                $table->unsignedBigInteger('combo_id')->nullable();
                 $table->foreign('combo_id', 'fk_candies_combos')->references('id')->on('combos')->onDelete('cascade')->onUpdate('cascade');
                 $table->timestamps();
             }

@@ -35,6 +35,19 @@ Route::get('/admin/flower/edit/{id}','App\Http\Controllers\Flower\FlowerControll
 Route::post('/admin/flower/update', 'App\Http\Controllers\Flower\FlowerController@update')->name('flower.update');
 
 
+//CART ROUTES
+Route::get('/admin/cart/show', 'App\Http\Controllers\Cart\CartController@show')->name('cart.show');
+Route::get('/admin/cart/delete', 'App\Http\Controllers\Cart\CartController@deleteAll')->name('cart.delete');
+Route::get('/admin/cart/deleteFlowers', 'App\Http\Controllers\Cart\CartController@deleteFlowers')->name('cart.deleteFlower');
+Route::get('/admin/cart/deleteBouquets', 'App\Http\Controllers\Cart\CartController@deleteBouquets')->name('cart.deleteBouquets');
+Route::get('/admin/cart/deleteCombos', 'App\Http\Controllers\Cart\CartController@deleteCombos')->name('cart.deleteCombos');
+Route::get('/admin/cart/deleteCandies', 'App\Http\Controllers\Cart\CartController@deleteCandies')->name('cart.deleteCandies');
+Route::post('/admin/cart/addFlower/{id}', 'App\Http\Controllers\Cart\CartController@addFlower')->name('cart.addFlower');
+Route::post('/admin/cart/addBouquet/{id}', 'App\Http\Controllers\Cart\CartController@addBouquet')->name('cart.addBouquet');
+Route::post('/admin/cart/addCombo/{id}', 'App\Http\Controllers\Cart\CartController@addCombo')->name('cart.addCombo');
+Route::post('/admin/cart/created', 'App\Http\Controllers\Cart\CartController@save')->name('cart.save');
+
+
 //BOUQUET ROUTES
 
 Route::get('/admin/bouquet/index', 'App\Http\Controllers\Bouquet\BouquetController@index')->name('bouquet.index');
