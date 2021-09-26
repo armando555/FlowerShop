@@ -10,13 +10,14 @@
     <br>
     <div class="col-md-8">
         <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.cart')}}</h1>
+        @include('util.message')
         <div class="card">
             <div class="card-header">{{__('messages.cartItems')}}</div>
             <div class="card-body">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-danger" href="{{route('cart.delete')}}">{{__('messages.cartDelete')}}</a>
                 </div>            
-                <form method="POST" action="{{route('cart.save',['data'=>$data,'quantityFlower'=>$quantityFlower])}}">
+                <form method="POST" action="{{route('cart.buy')}}">
                     @csrf
                     <br>
                     <button type="submit" class="btn btn-info">{{__('messages.buy')}}</button>
@@ -70,7 +71,7 @@
                     @endif
                     @endif
                 </form>
-                
+                <h1>{{__('messages.total')}} : {{$acu}}</h1>
             </div>
         </div>
     </div>

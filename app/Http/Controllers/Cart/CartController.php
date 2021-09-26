@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Bouquet;
 use App\Models\Combo;
 use App\Models\Flower;
+use App\Models\Order;
+use App\Models\Item;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\isNull;
 
 class CartController extends Controller
 {
@@ -21,15 +25,64 @@ class CartController extends Controller
         //dd($flowers,$quantityFlower);
         return back();
     }
-    public function save( Request $request){
-        $products = [];
+    public function buy( Request $request){
         $idFlowers = $request->session()->get('flowers');
         $idBouquets = $request->session()->get('bouquets');
         $idCombos = $request->session()->get('combos');
         $quantityFlower =$request->session()->get('quantityFlower');
         $quantityBouquet = $request->session()->get('quantityBouquet');
         $quantityCombo = $request->session()->get('quantityCombo');
-        dd($idFlowers,$quantityFlower,$idBouquets,$quantityBouquet,$idCombos,$quantityCombo);
+        $total = 0;
+        if(!is_null($idFlowers) || !is_null($idBouquets) || !is_null($idCombos)){
+            $order = new Order();
+            $order->setTotal(0);
+            $order->save();
+            if(!is_null($idFlowers)){
+                $flowers = Flower::find(array_values($idFlowers));
+                foreach ($flowers as $flower) {
+                    $item = new Item();
+                    $item->setOrderId($order->getId());
+                    $item->setType("flower");
+                    $item->setFlowerId($flower->getId());
+                    $item->setSubtotal($flower->getPrice()*$quantityFlower[$flower->getId()]);
+                    $item->setDiscount(0);
+                    $item->setAmount($quantityFlower[$flower->getId()]);
+                    $total += $flower->getPrice()*$quantityFlower[$flower->getId()];
+                    $item->save();
+                }
+            }
+            if(!is_null($idBouquets)){
+                $bouquets = Bouquet::find(array_values($idBouquets));
+                foreach ($bouquets as $bouquet) {
+                    $item = new Item();
+                    $item->setOrderId($order->getId());
+                    $item->setBouquetId($bouquet->getId());
+                    $item->setType("bouquet");
+                    $item->setSubtotal($bouquet->getPrice()*$quantityBouquet[$bouquet->getId()]);
+                    $item->setDiscount(0);
+                    $item->setAmount($quantityBouquet[$bouquet->getId()]);
+                    $total += $bouquet->getPrice()*$quantityBouquet[$bouquet->getId()];
+                    $item->save();
+                }
+            }
+            if(!is_null($idCombos)){
+                $combos = Combo::find(array_values($idCombos));
+                foreach ($combos as $combo) {
+                    $item = new Item();
+                    $item->setOrderId($order->getId());
+                    $item->setComboId($combo->getId());
+                    $item->setType("combo");
+                    $item->setAmount($quantityCombo[$combo->getId()]);
+                    $item->setSubtotal($combo->getPrice()*$quantityCombo[$combo->getId()]);
+                    $item->setDiscount(0);
+                    $total += $combo->getPrice()*$quantityCombo[$combo->getId()];
+                    $item->save();
+                }
+            }
+            $order->setTotal($total);
+            $order->save();
+        }        
+        return back()->with('success', __('messages.purchase'));
     }
     public function show(Request $request)
     {
@@ -40,6 +93,25 @@ class CartController extends Controller
         $quantityFlower =$request->session()->get('quantityFlower');
         $quantityBouquet = $request->session()->get('quantityBouquet');
         $quantityCombo = $request->session()->get('quantityCombo');
+        $acu = 0;
+        if(!is_null($quantityFlower)){
+            foreach (array_keys($quantityFlower) as $id) {
+                $obj = Flower::findOrFail($id);
+                $acu = $acu + $obj->getPrice() * $quantityFlower[$id];
+            }
+        }
+        if(!is_null($quantityBouquet)){
+            foreach (array_keys($quantityBouquet) as $id) {
+                $obj = Bouquet::findOrFail($id);
+                $acu = $acu + $obj->getPrice() * $quantityBouquet[$id];
+            }
+        }
+        if(!is_null($quantityCombo)){
+            foreach (array_keys($quantityCombo) as $id) {
+                $obj = Combo::findOrFail($id);
+                $acu = $acu + $obj->getPrice() * $quantityCombo[$id];
+            }
+        }        
         //dd($idFlowers,$quantityFlower);
         if(gettype($idFlowers) == "array") {
             $products["flowers"] = Flower::find(array_values($idFlowers));
@@ -50,7 +122,7 @@ class CartController extends Controller
         if(gettype($idCombos) == "array") {
             $products["combos"] = Combo::find(array_values($idCombos));
         }
-        return view('cart.index')->with("data", $products)->with("quantityFlower",$quantityFlower)->with("quantityBouquet",$quantityBouquet)->with("quantityCombo",$quantityCombo);
+        return view('cart.index')->with("data", $products)->with("quantityFlower",$quantityFlower)->with("quantityBouquet",$quantityBouquet)->with("quantityCombo",$quantityCombo)->with("acu",$acu);
         //dd($products);
     }
     public function addCandies($id,Request $request)
