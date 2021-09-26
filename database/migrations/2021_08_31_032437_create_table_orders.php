@@ -17,7 +17,7 @@ class CreateTableOrders extends Migration
             'orders', function (Blueprint $table) {
                 $table->id();
                 $table->decimal('total');
-                $table->unsignedBigInteger('user_id');
+                $table->unsignedBigInteger('user_id')->nullable();
                 $table->foreign('user_id', 'fk_orders_users')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
                 $table->timestamps();
             }

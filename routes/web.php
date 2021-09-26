@@ -45,7 +45,7 @@ Route::get('/admin/cart/deleteCandies', 'App\Http\Controllers\Cart\CartControlle
 Route::post('/admin/cart/addFlower/{id}', 'App\Http\Controllers\Cart\CartController@addFlower')->name('cart.addFlower');
 Route::post('/admin/cart/addBouquet/{id}', 'App\Http\Controllers\Cart\CartController@addBouquet')->name('cart.addBouquet');
 Route::post('/admin/cart/addCombo/{id}', 'App\Http\Controllers\Cart\CartController@addCombo')->name('cart.addCombo');
-Route::post('/admin/cart/created', 'App\Http\Controllers\Cart\CartController@save')->name('cart.save');
+Route::post('/admin/cart/buy', 'App\Http\Controllers\Cart\CartController@buy')->name('cart.buy');
 
 
 //BOUQUET ROUTES

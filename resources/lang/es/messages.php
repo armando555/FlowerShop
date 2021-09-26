@@ -42,4 +42,6 @@ return [
     'createBouquet' => 'Crear un ramo',
     'createCombo' => 'Crear un combo',
     'buy' => 'Comprar',
+    'total' => 'Valor total a pagar',
+    'purchase' => 'Tu compra se ha realizado con éxito',
 ];

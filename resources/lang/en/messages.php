@@ -42,4 +42,6 @@ return [
     'createBouquet' => 'Create a bouquet',
     'createCombo' => 'Create a combo',
     'buy' => 'Buy',
+    'total' => 'Total amount to pay',
+    'purchase' => 'Your purchase has been successful',
 ];
