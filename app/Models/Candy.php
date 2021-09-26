@@ -31,13 +31,13 @@ class Candy extends Model
     public function getId()
     {
 
-        return $this->attributes['name'];
+        return $this->attributes['id'];
     }
 
-    public function setId($name)
+    public function setId($id)
     {
 
-        $this->attributes['name'] = $name;
+        $this->attributes['id'] = $id;
     }
 
     public function getName()

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') {{'Create Combo'}} @endsection
+@section('title') {{__('messages.createCombo')}} @endsection
 
 @section('header-title') {{'Combo'}} @endsection
 
@@ -25,15 +25,15 @@
     
     <br>
     <div class="col-md-8">
-        <h1 class="masthead-heading text-uppercase mb-0">Create a Combo</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.createCombo')}}</h1>
         @include('util.message')
         <div class="card">
-            <div class="card-header">Complete the fields</div>
+            <div class="card-header">{{__('messages.completeFields')}}</div>
             <div class="card-body">
                 @if($errors->any())
                 
                 <ul id="errors">
-                    <h3 class="text-danger">Errors</h3>
+                    <h3 class="text-danger">{{__('messages.errors')}}</h3>
                     @foreach($errors->all() as $error)
                     
                     <li>{{ $error }}</li>
@@ -46,23 +46,23 @@
                 <form method="POST" action="{{ route('combo.save') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputName">Name</label>
-                        <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter name" value="{{old('name')}}">
+                        <label for="exampleInputName">{{__('messages.name')}}</label>
+                        <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{old('name')}}">
                         
-                        <label for="exampleInputBouquetType">Bouquet Type</label>
-                        <input type="text" class="form-control" name="bouquetType" aria-describedby="nameHelp" placeholder="Enter Boquet Type" value="{{old('boquetType')}}">
+                        <label for="exampleInputBouquetType">{{__('messages.bouquetType')}}</label>
+                        <input type="text" class="form-control" name="bouquetType" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetType')}}" value="{{old('boquetType')}}">
                         
-                        <label for="exampleRate">Rate</label>
-                        <input type="numeric" class="form-control" name="rate" aria-describedby="numHelp" placeholder="Enter rate" value="{{old('rate')}}">
+                        <label for="exampleRate">{{__('messages.rate')}}</label>
+                        <input type="numeric" class="form-control" name="rate" aria-describedby="numHelp" placeholder="{{__('messages.enterRate')}}" value="{{old('rate')}}">
                         
-                        <label for="exampleInputPrice">Price</label>
-                        <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="Enter price" value="{{old('price')}}">
+                        <label for="exampleInputPrice">{{__('messages.price')}}</label>
+                        <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="{{__('messages.enterPrice')}}" value="{{old('price')}}">
 
-                        <label for="exampleInputUrlImg">URL Image</label>
-                        <input type="text" class="form-control" name="urlImg" aria-describedby="nameHelp" placeholder="Enter URL Image" value="{{old('urlImg')}}">
+                        <label for="exampleInputUrlImg">{{__('messages.image')}}</label>
+                        <input type="text" class="form-control" name="urlImg" aria-describedby="nameHelp" placeholder="{{__('messages.enterImage')}}" value="{{old('urlImg')}}">
                         
                         <br>
-                        <input class="btn btn-success" type="submit" value="Create combo" />
+                        <input class="btn btn-success" type="submit" value="{{__('messages.createCombo')}}" />
                     </div>
                 </form>
             </div>

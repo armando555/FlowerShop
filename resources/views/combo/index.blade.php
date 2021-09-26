@@ -24,9 +24,9 @@
     
     <br>
     <div class="col-md-8">
-        <h1 class="masthead-heading text-uppercase mb-0">List of Combos</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.listCombos')}}</h1>
         <div class="card">
-            <div class="card-header">These are all our combos</div>
+            <div class="card-header">{{__('messages.allCombos')}}</div>
             <div class="card-body">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary" href="{{route('combo.create')}}">{{__('messages.createCombo')}}</a>

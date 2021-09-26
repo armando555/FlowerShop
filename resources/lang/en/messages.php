@@ -44,4 +44,40 @@ return [
     'buy' => 'Buy',
     'total' => 'Total amount to pay',
     'purchase' => 'Your purchase has been successful',
+
+
+    'bouquetType' => 'Bouquet Type',
+    'rate' => 'Rate',
+    'image'=>'Image',
+
+    'enterName' => 'Enter name',
+    'enterBouquetType' => 'Enter bouquet type',
+    'enterRate' => 'Enter Rate',
+    'enterPrice' => 'Enter Price',
+    'enterImage' => 'Enter Image',
+
+    'updatecombo' => 'Update combo',
+
+    'listCombos' => 'List of Combos',
+    'allCombos' => 'These are all our combos',
+    'detailsCombo' => 'These are all the detils of this combo:',
+
+    'listCandy' => 'List of candies',
+    'allCandy' => 'These are all our candies',
+
+    'createCandy' => 'Create Candy',
+
+    'updateCandy' => 'Update Candy',
+    'candies' => 'Candies',
+
+    'bouquetId' => 'Bouquet Id',
+    'comboId' => 'Combo Id',
+
+    'enterBouquetId' => 'Enter Bouquet Id (the one that belongs this)',
+    'entercomboId' => 'Enter Combo Id (al que pertenece)',
+
+    
+
+
+
 ];

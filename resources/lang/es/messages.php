@@ -44,4 +44,41 @@ return [
     'buy' => 'Comprar',
     'total' => 'Valor total a pagar',
     'purchase' => 'Tu compra se ha realizado con éxito',
+
+
+    'bouquetType'=>'Tipo de Ramo',
+    'rate' => 'Calificación',
+    'image' => 'Imagen',
+
+    'enterName' => 'Ingresa nombre',
+    'enterBouquetType' => 'Ingresa Tipo de Ramo',
+    'enterRate' => 'Ingresa la calificación',
+    'enterPrice' => 'Ingresa el precio',
+    'enterImage' => 'Ingresa imagen',
+
+    'updateCombo' => 'Actualizar Combo',
+
+    'listCombos' => 'Lista de combos',
+    'allCombos' => 'Estos son todos nuestros combos',
+    'detailsCombo' => 'Estos son todos los detalles d este combo:',
+
+    'listCandy' => 'Lista de dulces',
+    'allCandy' => 'Estos son todos nuestros dulces',
+
+    'createCandy' => 'Crear dulce',
+
+    'updateCandy' => 'Actualizar dulce',
+    'candies' => 'Dulces',
+
+    'bouquetId' => 'Id de ramo',
+    'comboId' => 'Id de combo',
+
+    'enterBouquetId' => 'Ingrese Id de ramo (al que pertenece)',
+    'enterComboId' => 'Ingrese Id de combo (al que pertenece)',
+
+    
+
+
+
+
 ];
