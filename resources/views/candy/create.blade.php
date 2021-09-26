@@ -27,15 +27,14 @@
                 </ul>
                 
                 @endif
-                <form method="POST" action="{{ route('candy.create') }}">
+                <form method="POST" action="{{ route('candy.save') }}">
                     @csrf
                     <div class="form-group">
-                        
                         
                         <label for="exampleInputName">{{__('messages.name')}}</label>
                         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{old('name')}}">
                          
-                        <label for="exampleInputPrice">{{__('messages.Price')}}</label>
+                        <label for="exampleInputPrice">{{__('messages.price')}}</label>
                         <input type="numeric" class="form-control" name="price" aria-describedby="nameHelp" placeholder="{{__('messages.price')}}" value="{{old('price')}}">
                         
                         <label for="exampleInputDescription">{{__('messages.image')}}</label>

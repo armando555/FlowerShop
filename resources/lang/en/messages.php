@@ -76,8 +76,9 @@ return [
     'enterBouquetId' => 'Enter Bouquet Id (the one that belongs this)',
     'entercomboId' => 'Enter Combo Id (al que pertenece)',
 
+    'candyDetails' => 'These are all the details of this candy',
     
-
+    
 
 
 ];

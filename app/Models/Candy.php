@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 class Candy extends Model
 {
@@ -12,7 +12,9 @@ class Candy extends Model
     //attributes id, name, price, urlImg, created_at, updated_at
 
     protected $fillable = ['name', 'price', 'urlImg'];
-    
+  
+
+
     public function items()
     {
         return $this->hasMany(Item::class);
@@ -99,5 +101,17 @@ class Candy extends Model
 
         $this->attributes['combo_id'] = $combo_id;
     }
+
+
+    public static function validate(Request $request){
+        $request->validate([
+            "name" => "required",
+            "price" => "required|numeric",
+            "urlImg" => "required",
+            "bouquet_id" => "required|numeric",
+            "combo_id" => "required|numeric",
+        ]);
+    }
+
 
 }

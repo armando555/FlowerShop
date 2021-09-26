@@ -25,13 +25,14 @@ class CandyController extends Controller
     public function save(Request $request)
     {
         Candy::validate($request);
-        Candy::create($request->only(["name", "bouquetType", "rate", "price", "urlImg"]));
+        Candy::create($request->only(["name", "price", "urlImg", "bouquet_id", "combo_id"]));
         return back()->with('success', 'Item updated successfully!');
     }
     public function show($id)
     {
         $data = [];
         $data = Candy::findOrFail($id);
+
         return view('candy.show')->with('data', $data);
     }
 
@@ -45,10 +46,10 @@ class CandyController extends Controller
     {
         $candy = Candy::find($request->id);
         $candy->setName($request->name);
-        $candy->setBouquetType($request->bouquetType);
-        $candy->setRate($request->rate);
         $candy->setPrice($request->price);
         $candy->setUrlImg($request->urlImg);
+        $candy->setBouquetId($request->bouquetId);
+        $candy->setComboId($request->comboId);
         $candy->save();
         return back()->with('success', 'Item updated successfully!');
     }

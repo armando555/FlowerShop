@@ -46,6 +46,7 @@
                 <form method="POST" action="{{ route('combo.save') }}">
                     @csrf
                     <div class="form-group">
+     
                         <label for="exampleInputName">{{__('messages.name')}}</label>
                         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{old('name')}}">
                         

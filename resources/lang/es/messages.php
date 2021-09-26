@@ -60,7 +60,7 @@ return [
 
     'listCombos' => 'Lista de combos',
     'allCombos' => 'Estos son todos nuestros combos',
-    'detailsCombo' => 'Estos son todos los detalles d este combo:',
+    'detailsCombo' => 'Estos son todos los detalles de este combo:',
 
     'listCandy' => 'Lista de dulces',
     'allCandy' => 'Estos son todos nuestros dulces',
@@ -76,7 +76,7 @@ return [
     'enterBouquetId' => 'Ingrese Id de ramo (al que pertenece)',
     'enterComboId' => 'Ingrese Id de combo (al que pertenece)',
 
-    
+    'detailsCandy' => 'Estos son los detalles de este dulce',
 
 
 

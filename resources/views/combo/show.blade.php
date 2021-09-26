@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {{'Details Combo'}} @endsection
+@section('title') {{__('messages.detailsCombo')}} @endsection
 
-@section('header-title') {{'Combo'}} @endsection
+@section('header-title') {{__('messages.combo')}} @endsection
 
 @section('content')
 <div class="row justify-content-center">
