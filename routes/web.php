@@ -65,9 +65,22 @@ Route::post('/admin/bouquet/update', 'App\Http\Controllers\Bouquet\BouquetContro
 Route::get('/admin/combo/index', 'App\Http\Controllers\Combo\ComboController@index')->name("combo.index");
 Route::get('/admin/combo/create', 'App\Http\Controllers\Combo\ComboController@create')->name('combo.create');
 Route::post('/admin/combo/saved', 'App\Http\Controllers\Combo\ComboController@save')->name('combo.save');
+Route::redirect('/admin/combo/show/', '/admin/combo/index');
 Route::get('/admin/combo/show/{id}', 'App\Http\Controllers\Combo\ComboController@show')->name('combo.show');
 Route::get('/admin/combo/edit/{id}','App\Http\Controllers\Combo\ComboController@edit')->name('combo.edit');
 Route::post('/admin/combo/update', 'App\Http\Controllers\Combo\ComboController@update')->name('combo.update');
+
+//CRUD CANDY
+Route::get('/admin/candy/index', 'App\Http\Controllers\Candy\CandyController@index')->name("candy.index");
+Route::get('/admin/candy/create', 'App\Http\Controllers\Candy\CandyController@create')->name('candy.create');
+Route::post('/admin/candy/saved', 'App\Http\Controllers\Candy\CandyController@save')->name('candy.save');
+Route::redirect('/admin/candy/show/', '/admin/candy/index');
+Route::get('/admin/candy/show/{id}', 'App\Http\Controllers\Candy\CandyController@show')->name('candy.show');
+Route::get('/admin/candy/edit/{id}','App\Http\Controllers\Candy\CandyController@edit')->name('candy.edit');
+Route::post('/admin/candy/update', 'App\Http\Controllers\Candy\CandyController@update')->name('candy.update');
+
+
+
 
 
 //AUTH ROUTES

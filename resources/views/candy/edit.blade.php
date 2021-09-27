@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title') {{'Update Flower'}} @endsection
+@section('title') {{__('messages.updateCandy')}} @endsection
 
-@section('header-title') {{'Flower'}} @endsection
+@section('header-title') {{__('messages.candy')}} @endsection
 
 @section('content')
 <div class="row justify-content-center">
     
     <br>
     <div class="col-md-8">
-        <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.updateCombo')}}</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.updateCandy')}}</h1>
         @include('util.message')
         <div class="card">
             <div class="card-header">{{__('messages.completeFields')}}</div>
@@ -27,27 +27,30 @@
                 </ul>
                 
                 @endif
-                <form method="POST" action="{{ route('combo.update') }}">
+                <form method="POST" action="{{ route('candy.update') }}">
                     @csrf
                     <div class="form-group">
                         <input type="hidden" name="id" value="{{$data->getId()}}">
                         
                         <label for="exampleInputName">{{__('messages.name')}}</label>
                         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{$data->getName()}}">
-                        
-                        <label for="exampleInputbouquetType">{{__('messages.bouquetType')}}</label>
-                        <input type="text" class="form-control" name="bouquetType" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetType')}}" value="{{$data->getBouquetType()}}">                        
-                        
-                        <label for="exampleInputRate">{{__('messages.rate')}}</label>
-                        <input type="numeric" class="form-control" name="rate" aria-describedby="numHelp" placeholder="{{__('messages.rate')}}" value="{{$data->getRate()}}">
-                        
+                         
                         <label for="exampleInputPrice">{{__('messages.Price')}}</label>
                         <input type="numeric" class="form-control" name="price" aria-describedby="nameHelp" placeholder="{{__('messages.price')}}" value="{{$data->getPrice()}}">
                         
                         <label for="exampleInputDescription">{{__('messages.image')}}</label>
                         <input type="text" class="form-control" name="urlImg" aria-describedby="nameHelp" placeholder="{{__('messages.enterImage')}}" value="{{$data->getUrlImg()}}">
+                        
+                        <label for="exampleInputBouquetId">{{__('messages.bouquetId')}}</label>
+                        <input type="text" class="form-control" name="bouquet_id" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetId')}}" value="{{$data->getBouquetId()}}">
+                        
+                        <label for="exampleInputComboId">{{__('messages.comboId')}}</label>
+                        <input type="text" class="form-control" name="combo_id" aria-describedby="nameHelp" placeholder="{{__('messages.enterComboId')}}" value="{{$data->getComboId()}}">
+                        
+                        
+                        
                         <br>
-                        <input class="btn btn-success" type="submit" value="{{__('messages.updateCombo')}}" />
+                        <input class="btn btn-success" type="submit" value="{{__('messages.createCombo')}}" />
                     </div>
                 </form>
             </div>

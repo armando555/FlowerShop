@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {{__('messages.detailsCombo')}} @endsection
+@section('title') {{__('messages.detailsCandy')}} @endsection
 
-@section('header-title') {{__('messages.combo')}} @endsection
+@section('header-title') {{__('messages.candy')}} @endsection
 
 @section('content')
 <div class="row justify-content-center">
@@ -15,15 +15,18 @@
             <div class="card-body">
                 <h3>{{__('messages.name')}}</h3>
                 <p>{{$data->getName()}}</p>
-                <h3>{{__('messages.bouquetType')}}</h3>
-                <p>{{$data->getBouquetType()}}</p>
-                <h3>{{__('messages.rate')}}</h3>
-                <p>{{$data->getRate()}}</p>
                 <h3>{{__('messages.price')}}</h3>
-                <p>{{$data->getPrice()}}$</p>
+                <p>{{$data->getPrice()}}</p>
+
                 <h3>{{__('messages.image')}}</h3>
                 <img src="{{asset($data->getUrlImg())}}"/>
-                <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">Edit</a>
+
+                <h3>{{__('messages.bouquetId')}}</h3>
+                <p>{{$data->getBouquetId()}}</p>
+                <h3>{{__('messages.comboId')}}</h3>
+                <p>{{$data->getComboId()}}</p>
+                
+                <a href="{{route('candy.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
             </div>            
         </div>
     </div>
