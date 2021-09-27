@@ -25,8 +25,13 @@ class BouquetController extends Controller
     public function show($id)
     {
         $bouquet = Bouquet::findOrFail($id);
-
-        return view('bouquet.show')->with("data", $bouquet);
+        $flowers = [];
+        $bouquetFlowers = BouquetFlower::where("bouquet_id",$id)->get();
+        foreach ($bouquetFlowers as $bouquetFlower) {
+            array_push($flowers,Flower::findOrFail($bouquetFlower->getFlowerId()));    
+        }
+        //dd($flowers);
+        return view('bouquet.show')->with("data", $bouquet)->with("flowers",$flowers);
     }
 
     public function edit($id)
