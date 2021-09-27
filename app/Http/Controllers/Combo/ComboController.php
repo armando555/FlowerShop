@@ -23,7 +23,7 @@ class ComboController extends Controller
     {
         $data = [];
         $data = Flower::all();
-        return view('combo.create')->with('data',$data);
+        return view('combo.create')->with('data', $data);
     }
 
     public function save(Request $request)
@@ -32,10 +32,10 @@ class ComboController extends Controller
         Combo::create($request->only(["name", "bouquetType", "rate", "price", "urlImg"]));
         $lastCombo = Combo::latest('created_at')->first();
         $flowers = [];
-        $idFlower1 = Flower::where("name",$request["flower1"])->get();
-        $idFlower2 = Flower::where("name",$request["flower2"])->get();
-        $idFlower3 = Flower::where("name",$request["flower3"])->get();
-        array_push($flowers,$idFlower1[0],$idFlower2[0],$idFlower3[0]);
+        $idFlower1 = Flower::where("name", $request["flower1"])->get();
+        $idFlower2 = Flower::where("name", $request["flower2"])->get();
+        $idFlower3 = Flower::where("name", $request["flower3"])->get();
+        array_push($flowers, $idFlower1[0], $idFlower2[0], $idFlower3[0]);
         foreach ($flowers as $flower) {
             $comboFlower = new ComboFlower();
             $comboFlower->setFlowerId($flower->getId());
@@ -49,18 +49,18 @@ class ComboController extends Controller
         $data = [];
         $data = Combo::findOrFail($id);
         $flowers = [];
-        $comboFlowers = ComboFlower::where("combo_id",$id)->get();
+        $comboFlowers = ComboFlower::where("combo_id", $id)->get();
         foreach ($comboFlowers as $comboFlower) {
-            array_push($flowers,Flower::findOrFail($comboFlower->getFlowerId()));    
+            array_push($flowers, Flower::findOrFail($comboFlower->getFlowerId()));    
         }
-        return view('combo.show')->with('data', $data)->with("flowers",$flowers);
+        return view('combo.show')->with('data', $data)->with("flowers", $flowers);
     }
 
     public function edit($id)
     {
         $combo = Combo::findOrFail($id);
         $flowers = Flower::all();
-        return view('combo.edit')->with('data', $combo)->with("flowers",$flowers);
+        return view('combo.edit')->with('data', $combo)->with("flowers", $flowers);
     }
 
     public function update(Request $request)
@@ -72,10 +72,10 @@ class ComboController extends Controller
         $combo->setPrice($request->price);
         $combo->setUrlImg($request->urlImg);
         $combo->save();
-        $idFlower1 = Flower::where("name",$request["flower1"])->get();
-        $idFlower2 = Flower::where("name",$request["flower2"])->get();
-        $idFlower3 = Flower::where("name",$request["flower3"])->get();
-        $comboFlower = ComboFlower::where("combo_id",$request->id)->get();
+        $idFlower1 = Flower::where("name", $request["flower1"])->get();
+        $idFlower2 = Flower::where("name", $request["flower2"])->get();
+        $idFlower3 = Flower::where("name", $request["flower3"])->get();
+        $comboFlower = ComboFlower::where("combo_id", $request->id)->get();
         $itemToSave = $comboFlower[0];
         $itemToSave->setFlowerId($idFlower1[0]->getId());
         $itemToSave->save();        

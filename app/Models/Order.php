@@ -14,11 +14,14 @@ class Order extends Model
 
     protected $fillable = ['total','user_id'];
     
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "total" => "required|numeric|gt:0",
             "user_id" => "required",
-        ]);
+            ]
+        );
     }
 
     public function items()
