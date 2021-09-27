@@ -29,15 +29,18 @@ class Flower extends Model
         return $this->belongsToMany(Combo::class, 'combo_flowers', 'flower_id', 'combo_id');
     }
 
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "name" => "required",
             "spice" => "required",
             "amountPerFlower" => "required|numeric|gt:0",
             "color" => "required",
             "description" => "required",
             "price" => "required|numeric|gt:0",
-        ]);
+            ]
+        );
     }
 
     public function getId()

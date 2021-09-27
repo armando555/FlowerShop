@@ -14,14 +14,17 @@ class Item extends Model
 
     protected $fillable = ['type', 'amount', 'subtotal', 'discount', 'order_id'];
     
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "type" => "required",
             "amount" => "required|numeric|gt:0",
             "subtotal" => "required|numeric|gt:0",
             "discount" => "required|numeric|gt:0",
             "order_id" => "required",
-        ]);
+            ]
+        );
     }
 
     public function getId()
