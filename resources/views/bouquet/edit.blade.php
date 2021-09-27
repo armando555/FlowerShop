@@ -25,7 +25,6 @@
                     @endforeach
                     
                 </ul>
-                //attributes id, name, bouquetType, rate, price, urlImg, created_at, updated_at
                 @endif
                 <form method="POST" action="{{ route('bouquet.update') }}">
                     @csrf

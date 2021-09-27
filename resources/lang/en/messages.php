@@ -56,7 +56,7 @@ return [
     'enterPrice' => 'Enter Price',
     'enterImage' => 'Enter Image',
 
-    'updatecombo' => 'Update combo',
+    'updateCombo' => 'Update combo',
 
     'listCombos' => 'List of Combos',
     'allCombos' => 'These are all our combos',

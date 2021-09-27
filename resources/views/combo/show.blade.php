@@ -23,6 +23,12 @@
                 <p>{{$data->getPrice()}}$</p>
                 <h3>{{__('messages.image')}}</h3>
                 <img src="{{asset($data->getUrlImg())}}"/>
+                <h3>{{__('messages.flower')}}</h3>
+                <ul>
+                    @foreach ($flowers as $flower)
+                    <li>{{$flower->getName()}}</li>    
+                    @endforeach                    
+                </ul>
                 <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">Edit</a>
             </div>            
         </div>
