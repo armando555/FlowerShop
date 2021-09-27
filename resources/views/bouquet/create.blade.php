@@ -44,6 +44,24 @@
                         
                         <label for="exampleInputPrice">Price</label>
                         <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="Enter price" value="{{old('price')}}">
+                        <label for="exampleInputUrlImg">{{__('messages.flower')}}</label>
+                        <select name="flower1" class="form-control form-control-sm">
+                            @foreach ($data as $flower)
+                                <option>{{$flower->getName()}}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <select name="flower2" class="form-control form-control-sm">
+                            @foreach ($data as $flower)
+                                <option>{{$flower->getName()}}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <select name="flower3" class="form-control form-control-sm">
+                            @foreach ($data as $flower)
+                                <option>{{$flower->getName()}}</option>
+                            @endforeach
+                        </select>
                         <br>
                         <input class="btn btn-success" type="submit" value="Create bouquet" />
                     </div>

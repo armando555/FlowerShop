@@ -61,7 +61,24 @@
 
                         <label for="exampleInputUrlImg">{{__('messages.image')}}</label>
                         <input type="text" class="form-control" name="urlImg" aria-describedby="nameHelp" placeholder="{{__('messages.enterImage')}}" value="{{old('urlImg')}}">
-                        
+                        <label for="exampleInputUrlImg">{{__('messages.flower')}}</label>
+                        <select name="flower1" class="form-control form-control-sm">
+                            @foreach ($data as $flower)
+                                <option>{{$flower->getName()}}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <select name="flower2" class="form-control form-control-sm">
+                            @foreach ($data as $flower)
+                                <option>{{$flower->getName()}}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <select name="flower3" class="form-control form-control-sm">
+                            @foreach ($data as $flower)
+                                <option>{{$flower->getName()}}</option>
+                            @endforeach
+                        </select>
                         <br>
                         <input class="btn btn-success" type="submit" value="{{__('messages.createCombo')}}" />
                     </div>
