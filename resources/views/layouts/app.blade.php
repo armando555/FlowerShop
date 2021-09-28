@@ -24,6 +24,7 @@
 </head>
 <body id="page-top">
     <!-- Navigation-->
+    
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">{{__('messages.home')}}</a>
@@ -32,12 +33,33 @@
                         <a class="nav-link nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{__('messages.productsHome')}}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ route('flower.index.user') }}">{{__('messages.flower')}} </a>
-                            <a class="dropdown-item" href="{{ route('bouquet.index.user') }}">{{__('messages.bouquet')}}</a>
-                            <a class="dropdown-item" href="{{ route('combo.index.user') }}">{{__('messages.combo')}}</a>
-                            <a class="dropdown-item" href="{{ route('candy.index.user') }}">{{__('messages.candy')}}</a>
-                        </div>
+                       
+                        @guest
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('flower.index.user') }}">{{__('messages.flower')}} </a>
+                                    <a class="dropdown-item" href="{{ route('bouquet.index.user') }}">{{__('messages.bouquet')}}</a>
+                                    <a class="dropdown-item" href="{{ route('combo.index.user') }}">{{__('messages.combo')}}</a>
+                                    <a class="dropdown-item" href="{{ route('candy.index.user') }}">{{__('messages.candy')}}</a>
+                                </div>
+                        @else
+                            @if(auth()->user()->role == 'User')                          
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('flower.index.user') }}">{{__('messages.flower')}} </a>
+                                    <a class="dropdown-item" href="{{ route('bouquet.index.user') }}">{{__('messages.bouquet')}}</a>
+                                    <a class="dropdown-item" href="{{ route('combo.index.user') }}">{{__('messages.combo')}}</a>
+                                    <a class="dropdown-item" href="{{ route('candy.index.user') }}">{{__('messages.candy')}}</a>
+                                </div>
+                            @else              
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('flower.index') }}">{{__('messages.flower')}} </a>
+                                    <a class="dropdown-item" href="{{ route('bouquet.index') }}">{{__('messages.bouquet')}}</a>
+                                    <a class="dropdown-item" href="{{ route('combo.index') }}">{{__('messages.combo')}}</a>
+                                    <a class="dropdown-item" href="{{ route('candy.index') }}">{{__('messages.candy')}}</a>
+                                </div>
+                            @endif
+                        @endguest
+                            
+                        
             </div>
             <!---  -------------------------------------------------------------------------------------------------------------------    -->
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,8 +84,8 @@
                         </div>
                     </li>
                     <!---  ---------------------------------------------------------- ACA DEBO CAMBIAR PARA CUADNO SEA ADMIN---------------------------------------------------------    -->
-                    @can('update', Model::class)
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('panel.index')}}">{{__('messages.panel')}}</a></li>
+                    @can('panel.index')
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('panel.index')}}">{{__('messages.panel')}}</a></li>
                     @endcan
                     
                     
@@ -83,8 +105,9 @@
                             @endforeach
                         </div>
                     </li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('panel.index')}}">{{__('messages.panel')}}</a></li>
-                    
+                    @can('panel.index')
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('panel.index')}}">{{__('messages.panel')}}</a></li>
+                    @endcan
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
                         

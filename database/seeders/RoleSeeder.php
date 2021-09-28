@@ -31,6 +31,8 @@ class RoleSeeder extends Seeder
 
         Permission::create(["name" => "candy.create"])->assignRole($role1);
         Permission::create(["name" => "candy.edit"])->assignRole($role1);
+
+        Permission::create(["name" => "panel.index"])->assignRole($role1);
         
     }
 }

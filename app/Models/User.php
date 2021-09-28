@@ -71,16 +71,18 @@ class User extends Authenticatable
 
         $this->attributes['name'] = $name;
     }
+  
     public function getEmail()
     {
 
         return $this->attributes['email'];
     }
 
-    public function setEmail($Email)
+    public function setEmail($email)
     {
 
-        $this->attributes['email'] = $Email;
+        $this->attributes['email'] = $email;
+
     }
 
     public function getAddress()
@@ -89,9 +91,23 @@ class User extends Authenticatable
         return $this->attributes['address'];
     }
 
-    public function setAddress($Address)
+
+    public function setAddress($address)
     {
 
-        $this->attributes['address'] = $Address;
+        $this->attributes['address'] = $address;
+    }
+
+    public function getRole()
+    {
+
+        return $this->attributes['role'];
+    }
+
+    public function setRole($role)
+    {
+
+        $this->attributes['role'] = $role;
+
     }
 }

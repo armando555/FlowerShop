@@ -21,11 +21,9 @@ Route::get('/languageDemo', 'App\Http\Controllers\Home\HomeController@languageDe
 Route::get('/', 'App\Http\Controllers\Home\HomeController@index')->name("home.index");
 Route::get('/home', 'App\Http\Controllers\Home\HomeController@index')->name('home');
 
-//FLOWERS ROUTES
-
-
 
 //CRUD FLOWER
+
 Route::get('/admin/flower/index', 'App\Http\Controllers\Flower\FlowerController@index')->name('flower.index');
 Route::get('/admin/flower/create', 'App\Http\Controllers\Flower\FlowerController@create')->name('flower.create');
 Route::post('/admin/flower/created', 'App\Http\Controllers\Flower\FlowerController@save')->name('flower.save');
@@ -37,6 +35,7 @@ Route::post('/admin/flower/update', 'App\Http\Controllers\Flower\FlowerControlle
 
 
 //CART ROUTES
+
 Route::get('/admin/cart/show', 'App\Http\Controllers\Cart\CartController@show')->name('cart.show');
 Route::get('/admin/cart/delete', 'App\Http\Controllers\Cart\CartController@deleteAll')->name('cart.delete');
 Route::get('/admin/cart/deleteFlowers', 'App\Http\Controllers\Cart\CartController@deleteFlowers')->name('cart.deleteFlower');
@@ -75,6 +74,7 @@ Route::get('/admin/combo/delete/{id}', 'App\Http\Controllers\Combo\ComboControll
 Route::post('/admin/combo/update', 'App\Http\Controllers\Combo\ComboController@update')->name('combo.update');
 
 //CRUD CANDY
+
 Route::get('/admin/candy/index', 'App\Http\Controllers\Candy\CandyController@index')->name("candy.index");
 Route::get('/admin/candy/create', 'App\Http\Controllers\Candy\CandyController@create')->name('candy.create');
 Route::post('/admin/candy/saved', 'App\Http\Controllers\Candy\CandyController@save')->name('candy.save');
@@ -86,6 +86,7 @@ Route::post('/admin/candy/update', 'App\Http\Controllers\Candy\CandyController@u
 
 
 //ADMIN PANEL
+
 Route::get('/admin/panel/index', 'App\Http\Controllers\Admin\PanelController@index')->name("panel.index");
 Route::get('/admin/panel/search/', 'App\Http\Controllers\Admin\PanelController@searchProducts')->name("panel.search");
 Route::get('/admin/cart/generatePdf/{id}', 'App\Http\Controllers\Admin\DynamicPDFController@generatePdf')->name('cart.generatePdf');
