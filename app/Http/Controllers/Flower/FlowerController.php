@@ -41,7 +41,22 @@ class FlowerController extends Controller
     public function save(Request $request)
     {
         Flower::validate($request);
-        Flower::create($request->only(["name", "spice", "amountPerFlower", "color", "description", "price"]));
+        
+
+        $input = $request->all();
+        
+        if ($request->hasFile('urlImg'))
+        {
+            $destination_path = '/public/img/combos';
+            $image = $request->file('urlImg');
+            $image_name=$image->getClientOriginalName();
+            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+        
+            $input['urlImg'] = $image_name;
+
+        }
+
+        Flower::create($input);
         return back()->with('success', 'Item updated successfully!');
     }
 
@@ -54,6 +69,20 @@ class FlowerController extends Controller
         $flower->setColor($request->color);
         $flower->setDescription($request->description);
         $flower->setPrice($request->price);
+        $input = $request->all();
+        
+        if ($request->hasFile('urlImg'))
+        {
+            $destination_path = '/public/img/combos';
+            $image = $request->file('urlImg');
+            $image_name=$image->getClientOriginalName();
+            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+        
+            $input['urlImg'] = $image_name;
+
+        }
+
+        $flower->setUrlImg($input['urlImg']);
         $flower->save();
         return back()->with('success', 'Item updated successfully!');
     }

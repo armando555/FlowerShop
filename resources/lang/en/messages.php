@@ -40,12 +40,14 @@ return [
     'cartItems' => 'Items to buy',
     'cartDelete' => 'Delete all',
     'quantity' => 'Quantity',
+    'delete' => 'Delete',
     'createBouquet' => 'Create a bouquet',
     'createCombo' => 'Create a combo',
     'buy' => 'Buy',
     'total' => 'Total amount to pay',
     'purchase' => 'Your purchase has been successful',
-
+    'user' => 'User',
+    'productsSold' => 'Most sold product',
 
     'bouquetType' => 'Bouquet Type',
     'rate' => 'Rate',
@@ -57,7 +59,7 @@ return [
     'enterPrice' => 'Enter Price',
     'enterImage' => 'Enter Image',
 
-    'updatecombo' => 'Update combo',
+    'updateCombo' => 'Update combo',
 
     'listCombos' => 'List of Combos',
     'allCombos' => 'These are all our combos',
@@ -66,8 +68,12 @@ return [
     'listCandy' => 'List of candies',
     'allCandy' => 'These are all our candies',
 
+
     'listBouquet' => 'Lista of Bouquets',
     'allBouquet' => 'These are all our candies',
+
+
+    'search' => 'Search',
 
     'createCandy' => 'Create Candy',
 
@@ -76,13 +82,23 @@ return [
 
     'bouquetId' => 'Bouquet Id',
     'comboId' => 'Combo Id',
+    'candy' => 'Candy',
 
     'enterBouquetId' => 'Enter Bouquet Id (the one that belongs this)',
     'entercomboId' => 'Enter Combo Id (al que pertenece)',
-
-    'candyDetails' => 'These are all the details of this candy',
     
+    'panel' => 'Control Panel',
+    'detailsCandy' => 'These are all the details of this candy',
     
+    'createBouquet' => 'Create Bouquet',
+    'bouquets' => 'Bouquets',
 
+    'urlImage' => 'Image',
+    'editBouquet' => 'Edit Bouquet',
+    'listBouquet' => 'List of Bouquets',
 
+    'allBouquet' => 'These are all the bouquet in the store',
+    'detailsBouquet' => 'Details of Bouquet',
+    'allDetailsBouquet' => 'These are all the details of this bouquet',
+    
 ];

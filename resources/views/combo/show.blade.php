@@ -27,6 +27,15 @@
                     <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
                     <a href="{{route('combo.delete',$data->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>
                 @endcan
+
+                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
+                <h3>{{__('messages.flower')}}</h3>
+                <ul>
+                    @foreach ($flowers as $flower)
+                    <li>{{$flower->getName()}}</li>    
+                    @endforeach                    
+                </ul>
+
             </div>            
         </div>
     </div>

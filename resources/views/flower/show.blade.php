@@ -23,10 +23,16 @@
                 <p>{{$data->getDescription()}}</p>
                 <h3>{{__('messages.price')}}</h3>
                 <p>{{$data->getPrice()}}</p>
+
                 @can('flower.edit')
                     <a href="{{route('flower.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
                     <a href="{{route('flower.delete',$data->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>     
                 @endcan
+
+                <h3>{{__('messages.image')}}</h3>
+                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
+                
+
             </div>            
         </div>
     </div>

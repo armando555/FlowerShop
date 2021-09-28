@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Bouquet;
 use App\Http\Controllers\Controller;
 use App\Models\Bouquet;
+use App\Models\BouquetFlower;
+use App\Models\Flower;
 use Illuminate\Http\Request;
 
 class BouquetController extends Controller
@@ -22,26 +24,56 @@ class BouquetController extends Controller
     public function show($id)
     {
         $bouquet = Bouquet::findOrFail($id);
-
-        return view('bouquet.show')->with("data", $bouquet);
+        $flowers = $bouquet->flowers()->get();
+        return view('bouquet.show')->with("data", $bouquet)->with("flowers", $flowers);
     }
 
     public function edit($id)
     {
         $bouquet = Bouquet::findOrFail($id);
-
-        return view('bouquet.edit')->with("data", $bouquet);
+        $flowers = Flower::all();
+        return view('bouquet.edit')->with("data", $bouquet)->with("flowers", $flowers);
     }
 
     public function create()
     {
-        return view('bouquet.create');
+        $data = [];
+        $data = Flower::all();
+        return view('bouquet.create')->with('data', $data);
     }
 
     public function save(Request $request)
     {
         Bouquet::validate($request);
-        Bouquet::create($request->only(["name", "bouquetType", "rate", "urlImg","price"]));
+
+        $input = $request->all();
+        
+        if ($request->hasFile('urlImg'))
+        {
+            $destination_path = '/public/img/combos';
+            $image = $request->file('urlImg');
+            $image_name=$image->getClientOriginalName();
+            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+        
+            $input['urlImg'] = $image_name;
+
+        }
+
+
+
+        Bouquet::create($input);
+        $lastBouquet = Bouquet::latest('created_at')->first();
+        $flowers = [];
+        $idFlower1 = Flower::where("name", $request["flower1"])->get();
+        $idFlower2 = Flower::where("name", $request["flower2"])->get();
+        $idFlower3 = Flower::where("name", $request["flower3"])->get();
+        array_push($flowers, $idFlower1[0], $idFlower2[0], $idFlower3[0]);
+        foreach ($flowers as $flower) {
+            $bouquetFlower = new BouquetFlower();
+            $bouquetFlower->setFlowerId($flower->getId());
+            $bouquetFlower->setBouquetId($lastBouquet->getId());
+            $bouquetFlower->save();
+        }        
         return back()->with('success', 'Item updated successfully!');
     }
 
@@ -53,6 +85,19 @@ class BouquetController extends Controller
         $bouquet->setRate($request->rate);
         $bouquet->setPrice($request->price);
         $bouquet->save();
+        $idFlower1 = Flower::where("name", $request["flower1"])->get();
+        $idFlower2 = Flower::where("name", $request["flower2"])->get();
+        $idFlower3 = Flower::where("name", $request["flower3"])->get();
+        $bouquetFlower = BouquetFlower::where("bouquet_id", $request->id)->get();
+        $itemToSave = $bouquetFlower[0];
+        $itemToSave->setFlowerId($idFlower1[0]->getId());
+        $itemToSave->save();        
+        $itemToSave = $bouquetFlower[1];
+        $itemToSave->setFlowerId($idFlower2[0]->getId());
+        $itemToSave->save();        
+        $itemToSave = $bouquetFlower[2];
+        $itemToSave->setFlowerId($idFlower3[0]->getId());
+        $itemToSave->save();
         return back()->with('success', 'Item updated successfully!');
     }
 

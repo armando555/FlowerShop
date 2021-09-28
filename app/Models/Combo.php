@@ -102,14 +102,17 @@ class Combo extends Model
     }
     
 
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "name" => "required",
             "bouquetType" => "required",
             "rate" => "required|numeric|gt:0|lt:5",
             "price" => "required|numeric|gt:0",
             "urlImg" => "required",
-        ]);
+            ]
+        );
     }
 
 }

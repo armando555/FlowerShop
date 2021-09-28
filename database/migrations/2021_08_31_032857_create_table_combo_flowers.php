@@ -15,10 +15,12 @@ class CreateTableComboFlowers extends Migration
     {
         Schema::create(
             'combo_flowers', function (Blueprint $table) {
+                $table->id();
                 $table->unsignedBigInteger('flower_id');
                 $table->foreign('flower_id', 'fk_combo_flowers_flower')->references('id')->on('flowers')->onDelete('cascade')->onUpdate('cascade');
                 $table->unsignedBigInteger('combo_id');
                 $table->foreign('combo_id', 'fk_combo_flowers_combo')->references('id')->on('combos')->onDelete('cascade')->onUpdate('cascade');
+                $table->timestamps();
             }
         );
     }

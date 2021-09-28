@@ -8,6 +8,7 @@ use App\Models\Combo;
 use App\Models\Flower;
 use App\Models\Order;
 use App\Models\Item;
+use App\Models\Candy;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\isNull;
@@ -20,24 +21,38 @@ class CartController extends Controller
         $flowers [$id] = $id;
         $quantityFlower = $request->session()->get("quantityFlower");
         $quantityFlower[$id] = $request["quantity"];
-        $request->session()->put('quantityFlower',$quantityFlower);
+        $request->session()->put('quantityFlower', $quantityFlower);
         $request->session()->put('flowers', $flowers);
         //dd($flowers,$quantityFlower);
         return back();
     }
-    public function buy( Request $request){
+    public function addCandy($id,Request $request)
+    {
+        $candies = $request->session()->get("candies");
+        $candies [$id] = $id;
+        $quantityCandy = $request->session()->get("quantityCandy");
+        $quantityCandy[$id] = $request["quantity"];
+        $request->session()->put('quantityCandy', $quantityCandy);
+        $request->session()->put('candies', $candies);
+        //dd($flowers,$quantityFlower);
+        return back();
+    }
+    public function buy( Request $request)
+    {
         $idFlowers = $request->session()->get('flowers');
         $idBouquets = $request->session()->get('bouquets');
         $idCombos = $request->session()->get('combos');
+        $idCandies = $request->session()->get('candies');
         $quantityFlower =$request->session()->get('quantityFlower');
         $quantityBouquet = $request->session()->get('quantityBouquet');
         $quantityCombo = $request->session()->get('quantityCombo');
+        $quantityCandy = $request->session()->get('quantityCandy');
         $total = 0;
-        if(!is_null($idFlowers) || !is_null($idBouquets) || !is_null($idCombos)){
+        if(!is_null($idFlowers) || !is_null($idBouquets) || !is_null($idCombos)|| !is_null($idCandies)) {
             $order = new Order();
             $order->setTotal(0);
             $order->save();
-            if(!is_null($idFlowers)){
+            if(!is_null($idFlowers)) {
                 $flowers = Flower::find(array_values($idFlowers));
                 foreach ($flowers as $flower) {
                     $item = new Item();
@@ -51,7 +66,7 @@ class CartController extends Controller
                     $item->save();
                 }
             }
-            if(!is_null($idBouquets)){
+            if(!is_null($idBouquets)) {
                 $bouquets = Bouquet::find(array_values($idBouquets));
                 foreach ($bouquets as $bouquet) {
                     $item = new Item();
@@ -65,7 +80,7 @@ class CartController extends Controller
                     $item->save();
                 }
             }
-            if(!is_null($idCombos)){
+            if(!is_null($idCombos)) {
                 $combos = Combo::find(array_values($idCombos));
                 foreach ($combos as $combo) {
                     $item = new Item();
@@ -76,6 +91,20 @@ class CartController extends Controller
                     $item->setSubtotal($combo->getPrice()*$quantityCombo[$combo->getId()]);
                     $item->setDiscount(0);
                     $total += $combo->getPrice()*$quantityCombo[$combo->getId()];
+                    $item->save();
+                }
+            }
+            if(!is_null($idCandies)) {
+                $candies = Candy::find(array_values($idCandies));
+                foreach ($candies as $candy) {
+                    $item = new Item();
+                    $item->setOrderId($order->getId());
+                    $item->setCandyId($candy->getId());
+                    $item->setType("candy");
+                    $item->setAmount($quantityCandy[$candy->getId()]);
+                    $item->setSubtotal($candy->getPrice()*$quantityCandy[$candy->getId()]);
+                    $item->setDiscount(0);
+                    $total += $candy->getPrice()*$quantityCandy[$candy->getId()];
                     $item->save();
                 }
             }
@@ -90,23 +119,31 @@ class CartController extends Controller
         $idFlowers = $request->session()->get('flowers');
         $idBouquets = $request->session()->get('bouquets');
         $idCombos = $request->session()->get('combos');
+        $idCandies = $request->session()->get('candies');
         $quantityFlower =$request->session()->get('quantityFlower');
         $quantityBouquet = $request->session()->get('quantityBouquet');
         $quantityCombo = $request->session()->get('quantityCombo');
+        $quantityCandy= $request->session()->get('quantityCandy');
         $acu = 0;
-        if(!is_null($quantityFlower)){
+        if(!is_null($quantityCandy)) {
+            foreach (array_keys($quantityCandy) as $id) {
+                $obj = Candy::findOrFail($id);
+                $acu = $acu + $obj->getPrice() * $quantityCandy[$id];
+            }
+        }
+        if(!is_null($quantityFlower)) {
             foreach (array_keys($quantityFlower) as $id) {
                 $obj = Flower::findOrFail($id);
                 $acu = $acu + $obj->getPrice() * $quantityFlower[$id];
             }
         }
-        if(!is_null($quantityBouquet)){
+        if(!is_null($quantityBouquet)) {
             foreach (array_keys($quantityBouquet) as $id) {
                 $obj = Bouquet::findOrFail($id);
                 $acu = $acu + $obj->getPrice() * $quantityBouquet[$id];
             }
         }
-        if(!is_null($quantityCombo)){
+        if(!is_null($quantityCombo)) {
             foreach (array_keys($quantityCombo) as $id) {
                 $obj = Combo::findOrFail($id);
                 $acu = $acu + $obj->getPrice() * $quantityCombo[$id];
@@ -122,7 +159,10 @@ class CartController extends Controller
         if(gettype($idCombos) == "array") {
             $products["combos"] = Combo::find(array_values($idCombos));
         }
-        return view('cart.index')->with("data", $products)->with("quantityFlower",$quantityFlower)->with("quantityBouquet",$quantityBouquet)->with("quantityCombo",$quantityCombo)->with("acu",$acu);
+        if(gettype($idCandies) == "array") {
+            $products["candies"] = Candy::find(array_values($idCandies));
+        }
+        return view('cart.index')->with("data", $products)->with("quantityFlower", $quantityFlower)->with("quantityBouquet", $quantityBouquet)->with("quantityCombo", $quantityCombo)->with("acu", $acu)->with("quantityCandy",$quantityCandy);
         //dd($products);
     }
     public function addCandies($id,Request $request)
@@ -131,7 +171,7 @@ class CartController extends Controller
         $candies [$id] = $id;
         $quantityCandy = $request->session()->get("quantityCandy");
         $quantityCandy[$id] = $request["quantity"];
-        $request->session()->put('quantityCandy',$quantityCandy);
+        $request->session()->put('quantityCandy', $quantityCandy);
         $request->session()->put('candies', $candies);
         return back();
     }
@@ -141,7 +181,7 @@ class CartController extends Controller
         $bouquets [$id] = $id;
         $quantityBouquet = $request->session()->get("quantityBouquet");
         $quantityBouquet[$id] = $request["quantity"];
-        $request->session()->put('quantityBouquet',$quantityBouquet);
+        $request->session()->put('quantityBouquet', $quantityBouquet);
         $request->session()->put('bouquets', $bouquets);
         return back();
     }
@@ -151,7 +191,7 @@ class CartController extends Controller
         $combos [$id] = $id;
         $quantityCombo = $request->session()->get("quantityCombo");
         $quantityCombo[$id] = $request["quantity"];
-        $request->session()->put('quantityCombo',$quantityCombo);
+        $request->session()->put('quantityCombo', $quantityCombo);
         $request->session()->put('combos', $combos);
         return back();
     }
