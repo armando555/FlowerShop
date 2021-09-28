@@ -51,7 +51,8 @@ class CartController extends Controller
         if(!is_null($idFlowers) || !is_null($idBouquets) || !is_null($idCombos)|| !is_null($idCandies)) {
             $order = new Order();
             $order->setTotal(0);
-            $order->save();
+            $order->setUserId(auth()->user()->id);
+            $order->save();            
             if(!is_null($idFlowers)) {
                 $flowers = Flower::find(array_values($idFlowers));
                 foreach ($flowers as $flower) {
@@ -110,8 +111,10 @@ class CartController extends Controller
             }
             $order->setTotal($total);
             $order->save();
+            $items = $order->items()->get();
+            $user = $order->user()->get();
         }        
-        return view("cart.generatePdf")->with("order",$order);
+        return view("cart.generatePdf")->with("order",$order)->with("items",$items)->with("user",$user[0]);
     }
     public function show(Request $request)
     {

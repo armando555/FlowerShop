@@ -90,6 +90,7 @@ return [
     'bouquets' => 'Ramos',
 
     'urlImage' => 'Imagen',
+    'customerData' => 'Datos de comprador',
     'editBouquet' => 'Editar Ramo',
     'listBouquet' => 'Lista de Ramos',
 
@@ -98,4 +99,6 @@ return [
 
     'allDetailsBouquet' => 'Estos son todos los detalles del ramo',
     'generatePdf' => 'Generar factura en PDF',
+    'bill' => 'Factura',
+    'type' => 'Tipo',
 ];
