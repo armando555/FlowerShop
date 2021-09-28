@@ -23,7 +23,9 @@
                 <p>{{$data->getPrice()}}$</p>
                 <h3>{{__('messages.image')}}</h3>
                 <img src="{{asset($data->getUrlImg())}}"/>
-                <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">Edit</a>
+                @can('combo.edit')
+                    <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">Edit</a>
+                @endcan
             </div>            
         </div>
     </div>
