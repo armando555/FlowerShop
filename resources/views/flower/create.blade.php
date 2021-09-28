@@ -27,7 +27,7 @@
                 </ul>
                 
                 @endif
-                <form method="POST" action="{{ route('flower.save') }}">
+                <form method="POST" action="{{ route('flower.save') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName">{{__('messages.name')}}</label>

@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Combo;
 use App\Models\Flower;
 use App\Models\ComboFlower;
+use App\Models\ComboCandy;
+use App\Models\Candy;
+
 use Illuminate\Http\Request;
 
 
@@ -23,7 +26,8 @@ class ComboController extends Controller
     {
         $data = [];
         $data = Flower::all();
-        return view('combo.create')->with('data', $data);
+        $candies = Candy::all();
+        return view('combo.create')->with('data', $data)->with('candies',$candies);
     }
 
     public function save(Request $request)
@@ -56,7 +60,21 @@ class ComboController extends Controller
             $comboFlower->setFlowerId($flower->getId());
             $comboFlower->setComboId($lastCombo->getId());
             $comboFlower->save();
-        }       
+        } 
+        
+        $candies = [];
+        $idCandy1 = Candy::where("name", $request["candy1"])->get();
+        $idCandy2 = Candy::where("name", $request["candy2"])->get();
+        $idCandy3 = Candy::where("name", $request["candy3"])->get();
+        array_push($candies, $idCandy1[0], $idCandy2[0], $idCandy3[0]);
+        
+        foreach ($candies as $candy) {
+            $comboCandy = new ComboCandy();
+            $comboCandy->setCandyId($candy->getId());
+            $comboCandy->setComboId($lastCombo->getId());
+            $comboCandy->save();
+        }
+
         return back()->with('success', 'Item updated successfully!');
     }
     public function show($id)
@@ -64,7 +82,8 @@ class ComboController extends Controller
         $data = [];
         $data = Combo::findOrFail($id);
         $flowers = $data->flowers()->get();
-        return view('combo.show')->with('data', $data)->with("flowers", $flowers);
+        $candies = $data->candies()->get();
+        return view('combo.show')->with('data', $data)->with("flowers", $flowers)->with("candies",$candies);
     }
 
     public function edit($id)

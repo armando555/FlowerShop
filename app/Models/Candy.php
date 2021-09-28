@@ -78,30 +78,6 @@ class Candy extends Model
         $this->attributes['urlImg'] = $urlImg;
     }
 
-    public function getBouquetId()
-    {
-
-        return $this->attributes['bouquet_id'];
-    }
-
-    public function setBouquetId($bouquet_id)
-    {
-
-        $this->attributes['bouquet_id'] = $bouquet_id;
-    }
-
-    public function getComboId()
-    {
-
-        return $this->attributes['combo_id'];
-    }
-
-    public function setComboId($combo_id)
-    {
-
-        $this->attributes['combo_id'] = $combo_id;
-    }
-
 
     public static function validate(Request $request)
     {
@@ -110,8 +86,6 @@ class Candy extends Model
             "name" => "required",
             "price" => "required|numeric",
             "urlImg" => "required",
-            "bouquet_id" => "required|numeric",
-            "combo_id" => "required|numeric",
             ]
         );
     }

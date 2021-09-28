@@ -27,7 +27,7 @@
                 </ul>
                 
                 @endif
-                <form method="POST" action="{{ route('combo.update') }}">
+                <form method="POST" action="{{ route('combo.update') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <input type="hidden" name="id" value="{{$data->getId()}}">
@@ -68,6 +68,29 @@
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
+
+
+
+                        <select name="candy1" class="form-control form-control-sm">
+                            @foreach ($data as $candy)
+                                <option>{{$candy->getName()}}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <select name="candy2" class="form-control form-control-sm">
+                            @foreach ($data as $candy)
+                                <option>{{$candy->getName()}}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <select name="candy3" class="form-control form-control-sm">
+                            @foreach ($data as $candy)
+                                <option>{{$candy->getName()}}</option>
+                            @endforeach
+                        </select>
+
+
+
                         <br>
                         <input class="btn btn-success" type="submit" value="{{__('messages.updateCombo')}}" />
                     </div>
