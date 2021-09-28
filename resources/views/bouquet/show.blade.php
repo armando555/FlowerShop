@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {{'Bouquet details'}} @endsection
+@section('title') {{__('messages.detailsBouquet')}} @endsection
 
-@section('header-title') {{'Bouquets'}} @endsection
+@section('header-title') {{__('messages.bouquets')}} @endsection
 
 @section('content')
 <div class="row justify-content-center">
@@ -25,7 +25,7 @@
                     <li>{{$flower->getName()}}</li>    
                     @endforeach                    
                 </ul>
-                <a href="{{route('bouquet.edit',$data->getId())}}" class="btn btn-success">Edit</a>
+                <a href="{{route('bouquet.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
             </div>            
         </div>
     </div>
