@@ -15,14 +15,17 @@ class Bouquet extends Model
 
     protected $fillable = ['name', 'bouquetType', 'rate', 'price', 'urlImg'];
 
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "name" => "required",
             "bouquetType" => "required",
             "rate" => "required|numeric|gt:0",
             "urlImg" => "required",
             "price" => "required|numeric|gt:0",
-        ]);
+            ]
+        );
     }
 
     public function flowers()

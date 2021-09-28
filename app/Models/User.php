@@ -49,12 +49,15 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "name" => "required",
             "email" => "required",
             "password" => "required",
-        ]);
+            ]
+        );
     }
 
 }

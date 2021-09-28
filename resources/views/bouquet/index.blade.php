@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title') {{'List of bouquets'}} @endsection
+@section('title') {{__('messages.listBouquet')}} @endsection
 
-@section('header-title') {{'Bouquets'}} @endsection
+@section('header-title') {{__('messages.bouquet')}} @endsection
 
 @section('content')
 <div class="row justify-content-center">
     
     <br>
     <div class="col-md-8">
-        <h1 class="masthead-heading text-uppercase mb-0">List of bouquets</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.listBouquet')}}</h1>
         <div class="card">
-            <div class="card-header">These are all the bouquets in the store</div>
+            <div class="card-header">{{__('messages.allBouquet')}}</div>
             <div class="card-body">
                 @can('bouquet.create')
                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -21,6 +21,7 @@
                 <ul>
                     @foreach ($data as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
+                    <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
                     <a class="btn btn-success" href="{{route('bouquet.show',$item->getId())}}">{{__('messages.details')}}</a>
                     <!--<a class="btn btn-primary" href="{{route('cart.addBouquet',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
                     <form method="POST" action="{{route('cart.addBouquet',['id'=>$item->getId()])}}">

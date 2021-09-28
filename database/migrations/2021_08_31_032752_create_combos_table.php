@@ -20,7 +20,7 @@ class CreateCombosTable extends Migration
                 $table->string('bouquetType');
                 $table->float('rate');
                 $table->float('price');
-                $table->string('urlImg', 100);
+                $table->string('urlImg')->nullable();
                 $table->timestamps();
             }
         );

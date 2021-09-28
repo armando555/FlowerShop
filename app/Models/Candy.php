@@ -103,14 +103,17 @@ class Candy extends Model
     }
 
 
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "name" => "required",
             "price" => "required|numeric",
             "urlImg" => "required",
             "bouquet_id" => "required|numeric",
             "combo_id" => "required|numeric",
-        ]);
+            ]
+        );
     }
 
 

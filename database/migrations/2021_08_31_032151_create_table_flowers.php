@@ -22,6 +22,7 @@ class CreateTableFlowers extends Migration
                 $table->string('color', 50);
                 $table->text('description', 200);
                 $table->decimal('price');
+                $table->string('urlImg')->nullable();
                 $table->timestamps();
             }
         );
