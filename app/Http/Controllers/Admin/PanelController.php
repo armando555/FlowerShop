@@ -10,18 +10,53 @@ use App\Models\Flower;
 use App\Models\User;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use ArielMejiaDev\LarapexCharts\Facades\LarapexChart;
 use Symfony\Component\VarDumper\Cloner\Data;
 
 class PanelController extends Controller
 {
     public function index(Request $request){
+        $itemsFlower = Item::where("type","flower")->get();
+        $itemsBouquet = Item::where("type","bouquet")->get();
+        $itemsCombo = Item::where("type","combo")->get();
+        $acuFlower = 0;
+        $acuBouquet = 0;
+        $acuCombo = 0;
+        
+        
+        
+        
+        if(is_null($itemsFlower)){
+            $acuFlower = 0;
+        }else{
+            foreach ($itemsFlower as $item) {
+                $acuFlower = $acuFlower + $item->getAmount();
+            }
+        }
+        if(is_null($itemsBouquet)){
+            $acuBouquet = 0;
+        }else{
+            foreach ($itemsBouquet as $item) {
+                $acuBouquet = $acuBouquet + $item->getAmount();
+            }
+        }
+        if(is_null($itemsCombo)){
+            $acuCombo = 0;
+        }else{
+            foreach ($itemsCombo as $item) {
+                $acuCombo = $acuCombo + $item->getAmount();
+            }
+        }
+        $chart = LarapexChart::setTitle('Ventas')
+            ->setLabels(['Flowers', 'Combos','Bouquets'])
+            ->setDataset([$acuFlower, $acuCombo,$acuBouquet]);
         $users = User::all();
         $flowers = Flower::all();
         $bouquets = Bouquet::all();
         $combos = Combo::all();
         $candies = Candy::all();
         $mostProductSold = $this->mostProductSold();
-        return view("adminPanel.panel")->with("flowers",$flowers)->with("bouquets",$bouquets)->with("combos",$combos)->with("candies",$candies)->with("users",$users)->with("mostProductSold",$mostProductSold);
+        return view("adminPanel.panel")->with("flowers",$flowers)->with("bouquets",$bouquets)->with("combos",$combos)->with("candies",$candies)->with("users",$users)->with("mostProductSold",$mostProductSold)->with("chart",$chart);
     }
     public function mostProductSold(){
         $item = Item::max('amount');

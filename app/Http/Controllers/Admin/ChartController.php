@@ -20,13 +20,14 @@ class ChartController extends Controller
         $userTwo     = User::find(2);
         $todosDone   = Todo::where('user_id', $user->id)->whereStatus(true)->count();
         $todosNotYet = Todo::where('user_id', $user->id)->whereStatus(false)->count();
+        */
+        
+        $chart = LarapexChart::setTitle('Prueba')
+            ->setLabels(['Flowers', 'Combos','Bouquets'])
+            ->setDataset([5, 10,50,20]);
 
-        $chart = LarapexChart::setTitle('Your Todos Stats')
-            ->setLabels(['Done', 'Not Yet'])
-            ->setDataset([$todosDone, $todosNotYet]);
 
-
-        return view('chart', compact('chart'));*/
+        return view('chart', compact('chart'));//*/
     }
 
 
