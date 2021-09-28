@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Bouquet;
 use App\Models\BouquetFlower;
 use App\Models\Flower;
+use App\Models\Candy;
+use App\Models\BouquetCandy;
 use Illuminate\Http\Request;
 
 class BouquetController extends Controller
@@ -13,7 +15,8 @@ class BouquetController extends Controller
     {
         $data = [];
         $data = Bouquet::all();
-        return view('bouquet.index')->with("data", $data);
+        $candies = Candy::all();
+        return view('bouquet.index')->with("data", $data)->with("candies",$candies);
     }
 
     public function home()
@@ -25,21 +28,25 @@ class BouquetController extends Controller
     {
         $bouquet = Bouquet::findOrFail($id);
         $flowers = $bouquet->flowers()->get();
-        return view('bouquet.show')->with("data", $bouquet)->with("flowers", $flowers);
+        $candies = $bouquet->candies()->get();
+        return view('bouquet.show')->with("data", $bouquet)->with("flowers", $flowers)->with("candies", $candies);
     }
 
     public function edit($id)
     {
         $bouquet = Bouquet::findOrFail($id);
         $flowers = Flower::all();
-        return view('bouquet.edit')->with("data", $bouquet)->with("flowers", $flowers);
+        $candies = Candy::all();
+        return view('bouquet.edit')->with("data", $bouquet)->with("flowers", $flowers)->with("candies",$candies);
     }
 
     public function create()
     {
         $data = [];
         $data = Flower::all();
-        return view('bouquet.create')->with('data', $data);
+        $candies = Candy::all();
+        return view('bouquet.create')->with('data', $data)->with("candies", $candies);
+        
     }
 
     public function save(Request $request)
@@ -74,7 +81,23 @@ class BouquetController extends Controller
             $bouquetFlower->setFlowerId($flower->getId());
             $bouquetFlower->setBouquetId($lastBouquet->getId());
             $bouquetFlower->save();
-        }        
+        }
+
+
+        $candys = [];
+        $idCandy1 = Candy::where("name", $request["candy1"])->get();
+        $idCandy2 = Candy::where("name", $request["candy2"])->get();
+        $idCandy3 = Candy::where("name", $request["candy3"])->get();
+        array_push($candys, $idCandy1[0], $idCandy2[0], $idCandy3[0]);
+        foreach ($candys as $candy) {
+            $bouquetCandy = new BouquetCandy();
+            $bouquetCandy->setCandyId($candy->getId());
+            $bouquetCandy->setBouquetId($lastBouquet->getId());
+            $bouquetCandy->save();
+        }
+
+
+
         return back()->with('success', 'Item updated successfully!');
     }
 

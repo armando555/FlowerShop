@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Bouquet;
 use App\Http\Controllers\Controller;
 use App\Models\Bouquet;
+use App\Models\Candy;
 
 class BouquetControllerUser extends Controller
 {
@@ -10,19 +11,22 @@ class BouquetControllerUser extends Controller
     {
         $data = [];
         $data = Bouquet::all();
-        return view('bouquet.userindex')->with("data", $data);
+        $candies = Candy::all();
+        return view('bouquet.index')->with("data", $data)->with("candies",$candies);
     }
 
     public function home()
     {
-        return redirect()->route('bouquet.userindex');
+        return redirect()->route('bouquet.index');
     }
 
     public function show($id)
     {
         $bouquet = Bouquet::findOrFail($id);
         $flowers = $bouquet->flowers()->get();
-        return view('bouquet.usershow')->with("data", $bouquet)->with("flowers", $flowers);
+        $candies = $bouquet->candies()->get();
+        return view('bouquet.show')->with("data", $bouquet)->with("flowers", $flowers)->with("candies", $candies);
     }
+
 
 }
