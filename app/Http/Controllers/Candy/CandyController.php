@@ -39,8 +39,6 @@ class CandyController extends Controller
 
         }
 
-
-
         Candy::create($input);
         return back()->with('success', 'Item updated successfully!');
     }
@@ -64,8 +62,6 @@ class CandyController extends Controller
         $candy->setName($request->name);
         $candy->setPrice($request->price);
         $candy->setUrlImg($request->urlImg);
-        $candy->setBouquetId($request->bouquetId);
-        $candy->setComboId($request->comboId);
         $candy->save();
         return back()->with('success', 'Item updated successfully!');
     }

@@ -36,6 +36,13 @@
                     @endforeach                    
                 </ul>
 
+                <h3>{{__('messages.candies')}}</h3>
+                <ul>
+                    @foreach ($candies as $candy)
+                    <li>{{$candy->getName()}}</li>    
+                    @endforeach                    
+                </ul>
+
             </div>            
         </div>
     </div>

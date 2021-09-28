@@ -26,7 +26,7 @@ class Combo extends Model
 
     public function candies()
     {
-        return $this->hasMany(Candy::class);
+        return $this->belongsToMany(Candy::class, 'combo_candies', 'combo_id', 'candy_id');
     }
 
     public function getId()
