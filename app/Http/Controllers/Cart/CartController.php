@@ -11,6 +11,7 @@ use App\Models\Item;
 use App\Models\Candy;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use function PHPUnit\Framework\isNull;
 
@@ -58,7 +59,7 @@ class CartController extends Controller
         if(!is_null($idFlowers) || !is_null($idBouquets) || !is_null($idCombos)|| !is_null($idCandies)) {
             $order = new Order();
             $order->setTotal(0);
-            if(auth()->check){
+            if(Auth::check()){
                 $order->setUserId(auth()->user()->id);
             }            
             $order->save();            
