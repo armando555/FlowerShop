@@ -8,8 +8,16 @@ if you are going to download and test it in local way, you have  to run these co
 
 
 php artisan storage:link
+
+
 composer require barryvdh/laravel-dompdf
+
+
 composer require spatie/laravel-permission
+
+
 composer require arielmejiadev/larapex-charts 
+
+
 php artisan migrate --seed
 
