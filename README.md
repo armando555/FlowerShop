@@ -7,9 +7,9 @@ http://34.68.241.144/FlowerShop/public/
 if you are going to download and test it in local way, you have  to run these commands
 
 
--php artisan storage:link
--composer require barryvdh/laravel-dompdf
--composer require spatie/laravel-permission
--composer require arielmejiadev/larapex-charts 
--php artisan migrate --seed
+php artisan storage:link
+composer require barryvdh/laravel-dompdf
+composer require spatie/laravel-permission
+composer require arielmejiadev/larapex-charts 
+php artisan migrate --seed
 
