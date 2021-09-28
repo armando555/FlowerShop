@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        //if(auth()->user()->role == 'Admin')
         return view('home.index');
     }
 

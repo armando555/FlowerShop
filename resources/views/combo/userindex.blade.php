@@ -34,7 +34,7 @@
  
                         <img class="img" src="{{asset('/storage/img/combos/'.$combo->getUrlImg())}}"/>
                     </li>
-                    <a class="btn btn-success" href="{{route('combo.show',$combo->getId())}}">{{__('messages.details')}}</a>
+                    <a class="btn btn-success" href="{{route('combo.show.user',$combo->getId())}}">{{__('messages.details')}}</a>
                     <!--<a class="btn btn-primary" href="{{route('cart.addCombo',['id'=>$combo->getId()])}}">{{__('messages.addCart')}}</a>-->
                     <form method="POST" action="{{route('cart.addCombo',['id'=>$combo->getId()])}}">
                         @csrf
