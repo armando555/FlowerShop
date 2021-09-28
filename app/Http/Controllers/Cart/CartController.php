@@ -9,12 +9,19 @@ use App\Models\Flower;
 use App\Models\Order;
 use App\Models\Item;
 use App\Models\Candy;
+use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\isNull;
 
 class CartController extends Controller
 {
+
+    public function exportExcel(){
+
+    }
+
+
     public function addFlower($id,Request $request)
     {
         $flowers = $request->session()->get("flowers");
@@ -51,7 +58,9 @@ class CartController extends Controller
         if(!is_null($idFlowers) || !is_null($idBouquets) || !is_null($idCombos)|| !is_null($idCandies)) {
             $order = new Order();
             $order->setTotal(0);
-            $order->setUserId(auth()->user()->id);
+            if(auth()->check){
+                $order->setUserId(auth()->user()->id);
+            }            
             $order->save();            
             if(!is_null($idFlowers)) {
                 $flowers = Flower::find(array_values($idFlowers));
