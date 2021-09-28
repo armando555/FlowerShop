@@ -25,8 +25,6 @@ class PanelController extends Controller
         $acuCombo = 0;
         
         
-        
-        
         if(is_null($itemsFlower)){
             $acuFlower = 0;
         }else{

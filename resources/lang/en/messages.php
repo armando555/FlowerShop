@@ -101,5 +101,6 @@ return [
     'allBouquet' => 'These are all the bouquet in the store',
     'detailsBouquet' => 'Details of Bouquet',
     'allDetailsBouquet' => 'These are all the details of this bouquet',
+    'generatePdf' => 'Generate bill in PDF',
     
 ];

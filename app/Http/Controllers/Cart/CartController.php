@@ -111,7 +111,7 @@ class CartController extends Controller
             $order->setTotal($total);
             $order->save();
         }        
-        return back()->with('success', __('messages.purchase'));
+        return view("cart.generatePdf")->with("order",$order);
     }
     public function show(Request $request)
     {
