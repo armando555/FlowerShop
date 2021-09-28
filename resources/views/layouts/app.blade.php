@@ -10,12 +10,17 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.ico') }}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- JQuery-UI CSS-->
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />}
     <link href="{{ asset('/css/custom-styles.css') }}" rel="stylesheet" />
+
+
+
 </head>
 <body id="page-top">
     <!-- Navigation-->
@@ -32,6 +37,7 @@
                             <a class="dropdown-item" href="{{ route('flower.index') }}">{{__('messages.flower')}} </a>
                             <a class="dropdown-item" href="{{ route('bouquet.index') }}">{{__('messages.bouquet')}}</a>
                             <a class="dropdown-item" href="{{ route('combo.index') }}">{{__('messages.combo')}}</a>
+                            <a class="dropdown-item" href="{{ route('candy.index') }}">{{__('messages.candy')}}</a>
                         </div>
             </div>
             <!---  -------------------------------------------------------------------------------------------------------------------    -->
@@ -39,6 +45,7 @@
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     @guest
@@ -55,6 +62,8 @@
                             @endforeach
                         </div>
                     </li>
+                    <!---  ---------------------------------------------------------- ACA DEBO CAMBIAR PARA CUADNO SEA ADMIN---------------------------------------------------------    -->
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('panel.index')}}">{{__('messages.panel')}}</a></li>
                     
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{__('messages.login')}}</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}">{{__('messages.register')}}</a></li>
@@ -343,5 +352,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('/js/scripts.js') }}"></script>
+        <!-- JQuery-UI JS-->
+        <script src="{{asset('vendor/jquery-ui/jquery-ui.min.js')}}"></script>
     </body>
     </html>

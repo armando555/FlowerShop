@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Bouquet;
 use App\Models\BouquetFlower;
 use App\Models\Flower;
-use DB;
 use Illuminate\Http\Request;
 
 class BouquetController extends Controller
@@ -25,12 +24,7 @@ class BouquetController extends Controller
     public function show($id)
     {
         $bouquet = Bouquet::findOrFail($id);
-        $flowers = [];
-        $bouquetFlowers = BouquetFlower::where("bouquet_id", $id)->get();
-        foreach ($bouquetFlowers as $bouquetFlower) {
-            array_push($flowers, Flower::findOrFail($bouquetFlower->getFlowerId()));    
-        }
-        //dd($flowers);
+        $flowers = $bouquet->flowers()->get();
         return view('bouquet.show')->with("data", $bouquet)->with("flowers", $flowers);
     }
 

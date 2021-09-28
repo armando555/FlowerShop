@@ -59,5 +59,15 @@ class User extends Authenticatable
             ]
         );
     }
+    public function getName()
+    {
 
+        return $this->attributes['name'];
+    }
+
+    public function setName($name)
+    {
+
+        $this->attributes['name'] = $name;
+    }
 }
