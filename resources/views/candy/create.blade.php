@@ -40,15 +40,8 @@
                         <div class="mb-3 mt-2" >
                             <label for="formFile" class="form-label">{{__('messages.image')}}</label>
                             <input class="form-control" type="file" id="formFile" value="{{old('urlImg')}}" name="urlImg">
-                        </div>
-
-                        
-                        <label for="exampleInputBouquetId">{{__('messages.bouquetId')}}</label>
-                        <input type="text" class="form-control" name="bouquet_id" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetId')}}" value="{{old('bouquet_id')}}">
-                        
-                        <label for="exampleInputComboId">{{__('messages.comboId')}}</label>
-                        <input type="text" class="form-control" name="combo_id" aria-describedby="nameHelp" placeholder="{{__('messages.enterComboId')}}" value="{{old('combo_id')}}">
-                        
+                        </div>                        
+        
                         <br>
                         <input class="btn btn-success" type="submit" value="{{__('messages.createCandy')}}" />
                     </div>

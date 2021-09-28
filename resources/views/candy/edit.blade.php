@@ -43,12 +43,6 @@
                             <input class="form-control" type="file" id="formFile" value="{{$data->getUrlImg()}}" name="urlImg">
                         </div>
 
-                        <label for="exampleInputBouquetId">{{__('messages.bouquetId')}}</label>
-                        <input type="text" class="form-control" name="bouquet_id" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetId')}}" value="{{$data->getBouquetId()}}">
-                        
-                        <label for="exampleInputComboId">{{__('messages.comboId')}}</label>
-                        <input type="text" class="form-control" name="combo_id" aria-describedby="nameHelp" placeholder="{{__('messages.enterComboId')}}" value="{{$data->getComboId()}}">
-                        
                         
                         
                         <br>
