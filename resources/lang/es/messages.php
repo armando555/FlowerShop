@@ -18,6 +18,7 @@ return [
     'price' => 'Precio',
     'updateFlower' => 'Actualizar paquete de flor',
     'edit' => 'Editar',
+    'delete' => 'Borrar',
     'login' => 'Ingresar',
     'register' => 'Registrarse',
     'home' => 'Inicio',
@@ -64,6 +65,9 @@ return [
 
     'listCandy' => 'Lista de dulces',
     'allCandy' => 'Estos son todos nuestros dulces',
+
+    'listBouquet' => 'Lista de ramos',
+    'allBouquet' => 'Estos son todos nuestros ramos ',
 
     'createCandy' => 'Crear dulce',
 

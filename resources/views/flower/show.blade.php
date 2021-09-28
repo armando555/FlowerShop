@@ -25,6 +25,7 @@
                 <p>{{$data->getPrice()}}</p>
                 @can('flower.edit')
                     <a href="{{route('flower.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                    <a href="{{route('flower.delete',$data->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>     
                 @endcan
             </div>            
         </div>

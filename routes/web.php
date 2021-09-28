@@ -32,6 +32,7 @@ Route::post('/admin/flower/created', 'App\Http\Controllers\Flower\FlowerControll
 Route::redirect('/admin/flower/show/', '/admin/flower/index');
 Route::get('/admin/flower/show/{id}', 'App\Http\Controllers\Flower\FlowerController@show')->name('flower.show');
 Route::get('/admin/flower/edit/{id}','App\Http\Controllers\Flower\FlowerController@edit')->name('flower.edit');
+Route::get('/admin/flower/delete/{id}', 'App\Http\Controllers\Flower\FlowerController@delete')->name("flower.delete");
 Route::post('/admin/flower/update', 'App\Http\Controllers\Flower\FlowerController@update')->name('flower.update');
 
 
@@ -56,6 +57,7 @@ Route::post('/admin/bouquet/created', 'App\Http\Controllers\Bouquet\BouquetContr
 Route::redirect('/admin/bouquet/show/', '/admin/bouquet/index');
 Route::get('/admin/bouquet/show/{id}', 'App\Http\Controllers\Bouquet\BouquetController@show')->name('bouquet.show');
 Route::get('/admin/bouquet/edit/{id}','App\Http\Controllers\Bouquet\BouquetController@edit')->name('bouquet.edit');
+Route::get('/admin/bouquet/delete/{id}', 'App\Http\Controllers\Bouquet\BouuetController@delete')->name("bouquet.delete");
 Route::post('/admin/bouquet/update', 'App\Http\Controllers\Bouquet\BouquetController@update')->name('bouquet.update');
 
 
@@ -68,6 +70,7 @@ Route::post('/admin/combo/saved', 'App\Http\Controllers\Combo\ComboController@sa
 Route::redirect('/admin/combo/show/', '/admin/combo/index');
 Route::get('/admin/combo/show/{id}', 'App\Http\Controllers\Combo\ComboController@show')->name('combo.show');
 Route::get('/admin/combo/edit/{id}','App\Http\Controllers\Combo\ComboController@edit')->name('combo.edit');
+Route::get('/admin/combo/delete/{id}', 'App\Http\Controllers\Combo\ComboController@delete')->name("combo.delete");
 Route::post('/admin/combo/update', 'App\Http\Controllers\Combo\ComboController@update')->name('combo.update');
 
 //CRUD CANDY
@@ -77,6 +80,7 @@ Route::post('/admin/candy/saved', 'App\Http\Controllers\Candy\CandyController@sa
 Route::redirect('/admin/candy/show/', '/admin/candy/index');
 Route::get('/admin/candy/show/{id}', 'App\Http\Controllers\Candy\CandyController@show')->name('candy.show');
 Route::get('/admin/candy/edit/{id}','App\Http\Controllers\Candy\CandyController@edit')->name('candy.edit');
+Route::get('/admin/candy/delete/{id}', 'App\Http\Controllers\Candy\CandyController@delete')->name("candy.delete");
 Route::post('/admin/candy/update', 'App\Http\Controllers\Candy\CandyController@update')->name('candy.update');
 
 

@@ -53,4 +53,10 @@ class ComboController extends Controller
         return back()->with('success', 'Item updated successfully!');
     }
 
+    public function delete($id)
+    {
+        Combo::Where('id',$id)->delete();
+        return redirect()->route('combo.index')->with('success','El producto se eliminó exitosamente!');
+    }
+
 }

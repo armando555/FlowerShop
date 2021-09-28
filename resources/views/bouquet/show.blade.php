@@ -20,7 +20,8 @@
                 <h3>Price</h3>
                 <p>{{$data->getPrice()}}</p>
                 @can('bouquet.edit')
-                    <a href="{{route('bouquet.edit',$data->getId())}}" class="btn btn-success">Edit</a>
+                    <a href="{{route('bouquet.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                    <a href="{{route('bouquet.delete',$data->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>
                 @endcan
             </div>            
         </div>
