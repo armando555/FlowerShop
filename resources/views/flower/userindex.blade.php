@@ -17,7 +17,7 @@
                     @foreach ($data as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
                     <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
-                    <a class="btn btn-success" href="{{route('flower.show',$item->getId())}}">{{__('messages.details')}}</a>
+                    <a class="btn btn-success" href="{{route('flower.show.user',$item->getId())}}">{{__('messages.details')}}</a>
                     <!--<a class="btn btn-primary" href="{{route('cart.addFlower',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
                     <form method="POST" action="{{route('cart.addFlower',['id'=>$item->getId()])}}">
                         @csrf
