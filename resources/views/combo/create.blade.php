@@ -89,21 +89,21 @@
 
 
 
-                                              
+                        <label for="exampleInputUrlImg">{{__('messages.candies')}}</label>          
                         <select name="candy1" class="form-control form-control-sm">
-                            @foreach ($data as $candy)
+                            @foreach ($candies as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy2" class="form-control form-control-sm">
-                            @foreach ($data as $candy)
+                            @foreach ($candies as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy3" class="form-control form-control-sm">
-                            @foreach ($data as $candy)
+                            @foreach ($candies as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>

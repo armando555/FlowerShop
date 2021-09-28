@@ -27,7 +27,7 @@
                 </ul>
                 
                 @endif
-                <form method="POST" action="{{ route('candy.save') }}">
+                <form method="POST" action="{{ route('candy.save') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         

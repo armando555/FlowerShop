@@ -27,7 +27,7 @@
                 </ul>
                 
                 @endif
-                <form method="POST" action="{{ route('candy.update') }}">
+                <form method="POST" action="{{ route('candy.update') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <input type="hidden" name="id" value="{{$data->getId()}}">

@@ -18,7 +18,7 @@ class CreateCandiesTable extends Migration
                 $table->id();
                 $table->string('name');
                 $table->float('price');
-                $table->string('urlImg', 100);
+                $table->string('urlImg')->nullable();
                 $table->timestamps();
             }
         );

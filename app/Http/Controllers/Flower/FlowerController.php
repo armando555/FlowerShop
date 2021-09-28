@@ -43,18 +43,22 @@ class FlowerController extends Controller
         Flower::validate($request);
         
 
-        $input = $request->all();
-        
+        $input = $request->All();
+   
+  
         if ($request->hasFile('urlImg'))
         {
+
             $destination_path = '/public/img/combos';
             $image = $request->file('urlImg');
             $image_name=$image->getClientOriginalName();
             $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
         
             $input['urlImg'] = $image_name;
-
+            
         }
+        
+
 
         Flower::create($input);
         return back()->with('success', 'Item updated successfully!');
