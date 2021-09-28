@@ -28,7 +28,6 @@
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">{{__('messages.home')}}</a>
             <!---  -------------------------------------------------------------------------------------------------------------------    -->
-            
             <div class="nav-item mx-0 mx-lg-1 dropdown">
                         <a class="nav-link nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{__('messages.productsHome')}}

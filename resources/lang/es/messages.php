@@ -97,4 +97,5 @@ return [
     'detailsBouquet' => 'Detalles de Ramo',
 
     'allDetailsBouquet' => 'Estos son todos los detalles del ramo',
+    'generatePdf' => 'Generar factura en PDF',
 ];
