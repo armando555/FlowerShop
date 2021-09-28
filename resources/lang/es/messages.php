@@ -39,17 +39,18 @@ return [
     'cartItems' => 'Objetos para comprar',
     'cartDelete' => 'Eliminar todo',
     'quantity' => 'Cantidad',
+    'delete' => 'Eliminar',
     'createBouquet' => 'Crear un ramo',
     'createCombo' => 'Crear un combo',
     'buy' => 'Comprar',
     'total' => 'Valor total a pagar',
     'purchase' => 'Tu compra se ha realizado con éxito',
-
-
+    'user' => 'Usuario',
+    'productsSold' => 'Producto más vendido',
     'bouquetType'=>'Tipo de Ramo',
     'rate' => 'Calificación',
     'image' => 'Imagen',
-
+    'search' => 'Buscar',
     'enterName' => 'Ingresa nombre',
     'enterBouquetType' => 'Ingresa Tipo de Ramo',
     'enterRate' => 'Ingresa la calificación',
@@ -72,12 +73,13 @@ return [
 
     'bouquetId' => 'Id de ramo',
     'comboId' => 'Id de combo',
+    'candy' => 'Dulce',
 
     'enterBouquetId' => 'Ingrese Id de ramo (al que pertenece)',
     'enterComboId' => 'Ingrese Id de combo (al que pertenece)',
 
     'detailsCandy' => 'Estos son los detalles de este dulce',
-
+    'panel' => 'Panel de control',
 
 
 

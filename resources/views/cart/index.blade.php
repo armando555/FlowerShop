@@ -64,8 +64,8 @@
                     <ul>
                         @foreach ($data["candies"] as $item)
                         <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
-                        <a class="btn btn-success" href="#">{{__('messages.details')}}</a>
-                        <label for="exampleInputName" class="font-weight-bold">{{__('messages.quantity')}}</label>
+                        <a class="btn btn-success" href="{{route('candy.show',$item->getId())}}">{{__('messages.details')}}</a>
+                        <label for="exampleInputName" class="font-weight-bold">{{__('messages.quantity')}}: {{$quantityCandy[$item->getId()]}}</label>
                         @endforeach
                     </ul>
                     @endif

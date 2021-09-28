@@ -48,11 +48,7 @@ class ComboController extends Controller
     {
         $data = [];
         $data = Combo::findOrFail($id);
-        $flowers = [];
-        $comboFlowers = ComboFlower::where("combo_id", $id)->get();
-        foreach ($comboFlowers as $comboFlower) {
-            array_push($flowers, Flower::findOrFail($comboFlower->getFlowerId()));    
-        }
+        $flowers = $data->flowers()->get();
         return view('combo.show')->with('data', $data)->with("flowers", $flowers);
     }
 

@@ -20,8 +20,8 @@
                     @foreach ($data as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
                     <a class="btn btn-success" href="{{route('candy.show',$item->getId())}}">{{__('messages.details')}}</a>
-                    <!--<a class="btn btn-primary" href="{{route('cart.addFlower',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
-                    <form method="POST" action="{{route('cart.addFlower',['id'=>$item->getId()])}}">
+                    <!--<a class="btn btn-primary" href="{{route('cart.addCandy',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
+                    <form method="POST" action="{{route('cart.addCandy',['id'=>$item->getId()])}}">
                         @csrf
                         <label for="exampleInputName" class="font-weight-bold">{{__('messages.quantity')}}</label>
                         <input name="quantity" type="numeric" value="1">  

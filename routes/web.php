@@ -45,6 +45,7 @@ Route::get('/admin/cart/deleteCandies', 'App\Http\Controllers\Cart\CartControlle
 Route::post('/admin/cart/addFlower/{id}', 'App\Http\Controllers\Cart\CartController@addFlower')->name('cart.addFlower');
 Route::post('/admin/cart/addBouquet/{id}', 'App\Http\Controllers\Cart\CartController@addBouquet')->name('cart.addBouquet');
 Route::post('/admin/cart/addCombo/{id}', 'App\Http\Controllers\Cart\CartController@addCombo')->name('cart.addCombo');
+Route::post('/admin/cart/addCandy/{id}', 'App\Http\Controllers\Cart\CartController@addCandy')->name('cart.addCandy');
 Route::post('/admin/cart/buy', 'App\Http\Controllers\Cart\CartController@buy')->name('cart.buy');
 
 
@@ -80,7 +81,9 @@ Route::get('/admin/candy/edit/{id}','App\Http\Controllers\Candy\CandyController@
 Route::post('/admin/candy/update', 'App\Http\Controllers\Candy\CandyController@update')->name('candy.update');
 
 
-
+//ADMIN PANEL
+Route::get('/admin/panel/index', 'App\Http\Controllers\Admin\PanelController@index')->name("panel.index");
+Route::get('/admin/panel/search/', 'App\Http\Controllers\Admin\PanelController@searchProducts')->name("panel.search");
 
 
 //AUTH ROUTES
