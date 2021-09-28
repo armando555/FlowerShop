@@ -27,7 +27,7 @@
                 </ul>
                 //attributes id, name, bouquetType, rate, price, urlImg, created_at, updated_at
                 @endif
-                <form method="POST" action="{{ route('bouquet.save') }}">
+                <form method="POST" action="{{ route('bouquet.save') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName">{{__('messages.name')}}</label>

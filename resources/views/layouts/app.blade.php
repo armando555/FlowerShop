@@ -34,10 +34,10 @@
                             {{__('messages.productsHome')}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ route('flower.index') }}">{{__('messages.flower')}} </a>
-                            <a class="dropdown-item" href="{{ route('bouquet.index') }}">{{__('messages.bouquet')}}</a>
-                            <a class="dropdown-item" href="{{ route('combo.index') }}">{{__('messages.combo')}}</a>
-                            <a class="dropdown-item" href="{{ route('candy.index') }}">{{__('messages.candy')}}</a>
+                            <a class="dropdown-item" href="{{ route('flower.index.user') }}">{{__('messages.flower')}} </a>
+                            <a class="dropdown-item" href="{{ route('bouquet.index.user') }}">{{__('messages.bouquet')}}</a>
+                            <a class="dropdown-item" href="{{ route('combo.index.user') }}">{{__('messages.combo')}}</a>
+                            <a class="dropdown-item" href="{{ route('candy.index.user') }}">{{__('messages.candy')}}</a>
                         </div>
             </div>
             <!---  -------------------------------------------------------------------------------------------------------------------    -->

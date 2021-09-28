@@ -29,7 +29,7 @@
                 <form method="POST" action="{{ route('bouquet.update') }}">
                     @csrf
                     <div class="form-group">
-                        <input type="hidden" name="id" value="{{$data->getId()}}">
+                        <input type="hidden" name="id" value="{{$data->getId()}}" enctype="multipart/form-data">
                         <label for="exampleInputName">{{__('messages.name')}}</label>
                         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{$data->getName()}}">
                         
