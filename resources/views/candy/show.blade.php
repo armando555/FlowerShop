@@ -25,8 +25,9 @@
                 <p>{{$data->getBouquetId()}}</p>
                 <h3>{{__('messages.comboId')}}</h3>
                 <p>{{$data->getComboId()}}</p>
-                
-                <a href="{{route('candy.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                @can('candy.edit')
+                    <a href="{{route('candy.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                @endcan
             </div>            
         </div>
     </div>

@@ -19,6 +19,9 @@
                 <p>{{$data->getRate()}}</p>
                 <h3> {{__('messages.price')}}</h3>
                 <p>{{$data->getPrice()}}</p>
+                @can('bouquet.edit')
+                    <a href="{{route('bouquet.edit',$data->getId())}}" class="btn btn-success">Edit</a>
+                @endcan
                 <h3>{{__('messages.image')}}</h3>
                 <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
                 <h3>{{__('messages.flower')}}</h3>
@@ -27,7 +30,6 @@
                     <li>{{$flower->getName()}}</li>    
                     @endforeach                    
                 </ul>
-                <a href="{{route('bouquet.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
             </div>            
         </div>
     </div>

@@ -13,9 +13,11 @@
         <div class="card">
             <div class="card-header">{{__('messages.allCandy')}}</div>
             <div class="card-body">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a class="btn btn-primary" href="{{route('candy.create')}}">{{__('messages.createCandy')}}</a>
-                </div>
+                @can('candy.create')
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" href="{{route('candy.create')}}">{{__('messages.createCandy')}}</a>
+                    </div>
+                @endcan
                 <ul>
                     @foreach ($data as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>

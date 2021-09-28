@@ -28,9 +28,11 @@
         <div class="card">
             <div class="card-header">{{__('messages.allCombos')}}</div>
             <div class="card-body">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a class="btn btn-primary" href="{{route('combo.create')}}">{{__('messages.createCombo')}}</a>
-                </div>
+                @can('combo.create')
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" href="{{route('combo.create')}}">{{__('messages.createCombo')}}</a>
+                    </div>
+                @endcan
                 <ul>
                     @foreach ($data as $combo)
                     <li>{{ $combo->getId() }} - {{ $combo->getName() }} : {{ $combo->getPrice() }}
