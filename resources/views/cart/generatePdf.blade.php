@@ -38,7 +38,7 @@
                             </thead>
                             <tbody>
                                 <td>{{$user->getName()}}</td>
-                                <td>falta arreglar este get</td>
+                                <td>{{$user->getAddress()}}</td>
                                 <td>{{$user->getEmail()}}</td>
                             </tbody>
                         </table> 
