@@ -90,6 +90,31 @@ Route::get('/admin/panel/index', 'App\Http\Controllers\Admin\PanelController@ind
 Route::get('/admin/panel/search/', 'App\Http\Controllers\Admin\PanelController@searchProducts')->name("panel.search");
 
 
+//USER ROUTES COMBO
+
+Route::get('/combo/index', 'App\Http\Controllers\Combo\ComboControllerUser@index')->name("combo.index.user");
+Route::redirect('/combo/show/', 'combo/index');
+Route::get('/combo/show/{id}', 'App\Http\Controllers\Combo\ComboControllerUser@show')->name('combo.show.user');
+
+//USER ROUTES CANDY
+Route::get('/candy/index', 'App\Http\Controllers\Candy\CandyControllerUser@index')->name("candy.index.user");
+Route::redirect('candy/show/', 'candy/index');
+Route::get('/candy/show/{id}', 'App\Http\Controllers\Candy\CandyControllerUser@show')->name('candy.show.user');
+
+
+//CRUD FLOWER
+Route::get('/flower/index', 'App\Http\Controllers\Flower\FlowerControllerUser@index')->name('flower.index.user');
+Route::redirect('/flower/show/', '/flower/index');
+Route::get('/flower/show/{id}', 'App\Http\Controllers\Flower\FlowerControllerUser@show')->name('flower.show.user');
+
+
+//CRUD BOUQUET
+Route::get('/bouquet/index', 'App\Http\Controllers\Bouquet\BouquetControllerUser@index')->name('bouquet.index.user');
+Route::redirect('/bouquet/show/', '/bouquet/index');
+Route::get('/bouquet/show/{id}', 'App\Http\Controllers\Bouquet\BouquetControllerUser@show')->name('bouquet.show.user');
+
+
+
 //AUTH ROUTES
 Auth::routes();
 

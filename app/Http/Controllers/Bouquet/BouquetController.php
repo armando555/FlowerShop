@@ -50,6 +50,7 @@ class BouquetController extends Controller
         
         if ($request->hasFile('urlImg'))
         {
+            
             $destination_path = '/public/img/combos';
             $image = $request->file('urlImg');
             $image_name=$image->getClientOriginalName();
