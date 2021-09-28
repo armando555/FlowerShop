@@ -19,14 +19,15 @@
                 <p>{{$data->getPrice()}}</p>
 
                 <h3>{{__('messages.image')}}</h3>
-                <img src="{{asset($data->getUrlImg())}}"/>
+                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
 
                 <h3>{{__('messages.bouquetId')}}</h3>
                 <p>{{$data->getBouquetId()}}</p>
                 <h3>{{__('messages.comboId')}}</h3>
                 <p>{{$data->getComboId()}}</p>
-                
-                <a href="{{route('candy.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                @can('candy.edit')
+                    <a href="{{route('candy.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                @endcan
             </div>            
         </div>
     </div>

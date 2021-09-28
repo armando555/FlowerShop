@@ -78,10 +78,19 @@ return [
 
     'enterBouquetId' => 'Enter Bouquet Id (the one that belongs this)',
     'entercomboId' => 'Enter Combo Id (al que pertenece)',
-
-    'candyDetails' => 'These are all the details of this candy',
     
     'panel' => 'Control Panel',
+    'detailsCandy' => 'These are all the details of this candy',
+    
+    'createBouquet' => 'Create Bouquet',
+    'bouquets' => 'Bouquets',
 
+    'urlImage' => 'Image',
+    'editBouquet' => 'Edit Bouquet',
+    'listBouquet' => 'List of Bouquets',
 
+    'allBouquet' => 'These are all the bouquet in the store',
+    'detailsBouquet' => 'Details of Bouquet',
+    'allDetailsBouquet' => 'These are all the details of this bouquet',
+    
 ];

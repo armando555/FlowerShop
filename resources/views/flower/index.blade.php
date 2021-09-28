@@ -13,12 +13,15 @@
         <div class="card">
             <div class="card-header">{{__('messages.allFlowers')}}</div>
             <div class="card-body">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a class="btn btn-primary" href="{{route('flower.create')}}">{{__('messages.createFlowers')}}</a>
-                </div>
+                @can('flower.create')
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" href="{{route('flower.create')}}">{{__('messages.createFlowers')}}</a>
+                    </div>
+                @endcan
                 <ul>
                     @foreach ($data as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
+                    <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
                     <a class="btn btn-success" href="{{route('flower.show',$item->getId())}}">{{__('messages.details')}}</a>
                     <!--<a class="btn btn-primary" href="{{route('cart.addFlower',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
                     <form method="POST" action="{{route('cart.addFlower',['id'=>$item->getId()])}}">

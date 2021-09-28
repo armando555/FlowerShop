@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +20,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'address',
         'email',
         'password',
     ];
@@ -43,11 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'roles_id');
-    }
-
+   
     public function orders()
     {
         return $this->hasMany(Order::class, 'user_id', 'id');
@@ -58,7 +54,6 @@ class User extends Authenticatable
         $request->validate(
             [
             "name" => "required",
-            "address" => "required",
             "email" => "required",
             "password" => "required",
             ]

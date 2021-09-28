@@ -38,9 +38,11 @@
                         <label for="exampleInputPrice">{{__('messages.Price')}}</label>
                         <input type="numeric" class="form-control" name="price" aria-describedby="nameHelp" placeholder="{{__('messages.price')}}" value="{{$data->getPrice()}}">
                         
-                        <label for="exampleInputDescription">{{__('messages.image')}}</label>
-                        <input type="text" class="form-control" name="urlImg" aria-describedby="nameHelp" placeholder="{{__('messages.enterImage')}}" value="{{$data->getUrlImg()}}">
-                        
+                        <div class="mb-3 mt-2" >
+                            <label for="formFile" class="form-label">{{__('messages.image')}}</label>
+                            <input class="form-control" type="file" id="formFile" value="{{$data->getUrlImg()}}" name="urlImg">
+                        </div>
+
                         <label for="exampleInputBouquetId">{{__('messages.bouquetId')}}</label>
                         <input type="text" class="form-control" name="bouquet_id" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetId')}}" value="{{$data->getBouquetId()}}">
                         

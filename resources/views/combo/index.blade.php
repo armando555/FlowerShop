@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {{'List of combos'}} @endsection
+@section('title') {{__('messages.listCombos')}} @endsection
 
-@section('header-title') {{'combo'}} @endsection
+@section('header-title') {{__('messages.combo')}} @endsection
 
 @section('content')
 
@@ -28,13 +28,16 @@
         <div class="card">
             <div class="card-header">{{__('messages.allCombos')}}</div>
             <div class="card-body">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a class="btn btn-primary" href="{{route('combo.create')}}">{{__('messages.createCombo')}}</a>
-                </div>
+                @can('combo.create')
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" href="{{route('combo.create')}}">{{__('messages.createCombo')}}</a>
+                    </div>
+                @endcan
                 <ul>
                     @foreach ($data as $combo)
                     <li>{{ $combo->getId() }} - {{ $combo->getName() }} : {{ $combo->getPrice() }}
-                    <img class="img" src="{{asset($combo->getUrlImg())}}"/>
+ 
+                        <img class="img" src="{{asset('/storage/img/combos/'.$combo->getUrlImg())}}"/>
                     </li>
                     <a class="btn btn-success" href="{{route('combo.show',$combo->getId())}}">{{__('messages.details')}}</a>
                     <!--<a class="btn btn-primary" href="{{route('cart.addCombo',['id'=>$combo->getId()])}}">{{__('messages.addCart')}}</a>-->
