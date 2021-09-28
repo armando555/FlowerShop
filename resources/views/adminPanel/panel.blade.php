@@ -18,6 +18,14 @@
         <div class="card">
             <div class="card-header">{{__('messages.panel')}}</div>
             <div class="card-body">
+
+
+                {!! $chart->container() !!}
+
+
+                <script src="{{ $chart->cdn() }}"></script>
+                {!! $chart->script() !!}
+
                 <h1>{{__('messages.productsSold')}}</h1>
                 <h2 class="text-primary">{{$mostProductSold}}</h2>
                 <h2>{{__('messages.user')}}</h2>
