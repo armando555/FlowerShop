@@ -14,7 +14,37 @@
         <div class="card">
             <div class="card-header">{{__('messages.generatePdf')}}</div>
             <div class="card-body">
-                <h1>{{$order->getTotal()}}</h1>
+                <a class="btn btn-warning"href="{{route('cart.generatePdf',$order->getId())}}">{{__('messages.generatePdf')}}</a>
+                <div class="container">
+                    <h1 align="center"> {{__('messages.generatePdf')}}</h1>
+                    <div class="row">
+                        <div class="col-md-7" align="right">
+                            <h4>{{__('messages.customerData')}}</h4>
+                        </div>
+                        <div class="col-md-7" align="right">
+            
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>{{__('messages.name')}}</th>
+                                    <th>{{__('messages.address')}}</th>
+                                    <th>{{__('messages.email')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td>{{$user->getName()}}</td>
+                                <td>falta arreglar este get</td>
+                                <td>{{$user->getEmail()}}</td>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+
             </div>
                 
         </div>
