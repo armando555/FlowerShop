@@ -45,7 +45,7 @@
                         @foreach ($flowers as $flower)
                         <li>{{$flower->getName()}}</li>
                         <a class="btn btn-success" href="{{route('flower.show',$flower->getId())}}">{{__('messages.details')}}</a>
-                        <a class="btn btn-danger" href="#">{{__('messages.delete')}}</a>
+                        <a class="btn btn-danger" href="{{route('flower.delete')}}">{{__('messages.delete')}}</a>
                         @endforeach
                     @endif
                 </ul>
@@ -56,7 +56,7 @@
                         @foreach ($bouquets as $bouquet)
                         <li>{{$bouquet->getName()}}</li>
                         <a class="btn btn-success" href="{{route('bouquet.show',$bouquet->getId())}}">{{__('messages.details')}}</a>
-                        <a class="btn btn-danger" href="#">{{__('messages.delete')}}</a>
+                        <a class="btn btn-danger" href="{{route('bouquet.delete')}}">{{__('messages.delete')}}</a>
                         @endforeach
                     @endif
                 </ul>
@@ -67,7 +67,7 @@
                         @foreach ($combos as $combo)
                         <li>{{$combo->getName()}}</li>
                         <a class="btn btn-success" href="{{route('combo.show',$combo->getId())}}">{{__('messages.details')}}</a>
-                        <a class="btn btn-danger" href="#">{{__('messages.delete')}}</a>
+                        <a class="btn btn-danger" href="{{route('combo.delete')}}">{{__('messages.delete')}}</a>
                         @endforeach    
                     @endif
                     
@@ -79,7 +79,7 @@
                         @foreach ($candies as $candy)
                         <li>{{$candy->getName()}}</li>
                         <a class="btn btn-success" href="{{route('candy.show',$candy->getId())}}">{{__('messages.details')}}</a>
-                        <a class="btn btn-danger" href="#">{{__('messages.delete')}}</a>
+                        <a class="btn btn-danger" href="{{route('candy.delete')}}">{{__('messages.delete')}}</a>
                         @endforeach
                     @endif
                     

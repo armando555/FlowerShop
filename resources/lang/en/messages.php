@@ -11,6 +11,7 @@ return [
     'completeFields' => 'Complete the fields',
     'errors' => 'Errors',
     'name' => 'Name',
+    'address' => 'Address',
     'spice' => 'Spice',
     'amountPerFlower' => 'Amount per flower',
     'color' => 'Color',
