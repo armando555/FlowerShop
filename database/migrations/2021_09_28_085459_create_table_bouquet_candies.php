@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableComboCandies extends Migration
+class CreateTableBouquetCandies extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreateTableComboCandies extends Migration
     public function up()
     {
         Schema::create(
-            'combo_candies', function (Blueprint $table) {
+            'bouquet_candies', function (Blueprint $table) {
                 $table->id();
+                $table->unsignedBigInteger('bouquet_id');
+                $table->foreign('bouquet_id', 'fk_bouquet_candies_bouquet')->references('id')->on('bouquets')->onDelete('cascade')->onUpdate('cascade');
                 $table->unsignedBigInteger('candy_id');
-                $table->foreign('candy_id', 'fk_combo_candies_candy')->references('id')->on('candies')->onDelete('cascade')->onUpdate('cascade');
-                $table->unsignedBigInteger('combo_id');
-                $table->foreign('combo_id', 'fk_combo_candies_combo')->references('id')->on('combos')->onDelete('cascade')->onUpdate('cascade');
+                $table->foreign('candy_id', 'fk_bouquet_candies_candies')->references('id')->on('candies')->onDelete('cascade')->onUpdate('cascade');
                 $table->timestamps();
             }
         );
@@ -32,6 +32,6 @@ class CreateTableComboCandies extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('combo_candies');
+        Schema::dropIfExists('bouquet_candies');
     }
 }

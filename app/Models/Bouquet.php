@@ -40,7 +40,7 @@ class Bouquet extends Model
 
     public function candies()
     {
-        return $this->hasMany(Candy::class);
+        return $this->belongsToMany(Candy::class, 'bouquet_candies', 'bouquet_id', 'candy_id');
     }
 
     public function getId()
