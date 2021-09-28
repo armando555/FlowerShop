@@ -53,7 +53,7 @@ return [
     'bouquetType' => 'Bouquet Type',
     'rate' => 'Rate',
     'image'=>'Image',
-
+    'customerData' => 'Customer Data',
     'enterName' => 'Enter name',
     'enterBouquetType' => 'Enter bouquet type',
     'enterRate' => 'Enter Rate',
@@ -102,5 +102,6 @@ return [
     'detailsBouquet' => 'Details of Bouquet',
     'allDetailsBouquet' => 'These are all the details of this bouquet',
     'generatePdf' => 'Generate bill in PDF',
-    
+    'bill' => 'Bill',
+    'type' => 'Type',
 ];
