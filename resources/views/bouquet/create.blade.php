@@ -39,9 +39,11 @@
                         <label for="exampleInputName">{{__('messages.rate')}}</label>
                         <input type="text" class="form-control" name="rate" aria-describedby="nameHelp" placeholder="{{__('messages.enterRate')}}" value="{{old('rate')}}">
                                                      
-                        <label for="exampleInputDescription">{{__('messages.urlImage')}}</label>
-                        <input type="text" class="form-control" name="urlImg" aria-describedby="nameHelp" placeholder="{{__('messages.enterImage')}}" value="{{old('urlImage')}}">
-                        
+                        <div class="mb-3 mt-2" >
+                            <label for="formFile" class="form-label">{{__('messages.image')}}</label>
+                            <input class="form-control" type="file" id="formFile" value="{{old('urlImg')}}" name="urlImg">
+                        </div>
+                                         
                         <label for="exampleInputPrice">{{__('messages.price')}}</label>
                         <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="{{__('messages.price')}}" value="{{old('price')}}">
                         <label for="exampleInputUrlImg">{{__('messages.flower')}}</label>

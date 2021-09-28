@@ -34,7 +34,8 @@
                 <ul>
                     @foreach ($data as $combo)
                     <li>{{ $combo->getId() }} - {{ $combo->getName() }} : {{ $combo->getPrice() }}
-                    <img class="img" src="{{asset($combo->getUrlImg())}}"/>
+ 
+                        <img class="img" src="{{asset('/storage/img/combos/'.$combo->getUrlImg())}}"/>
                     </li>
                     <a class="btn btn-success" href="{{route('combo.show',$combo->getId())}}">{{__('messages.details')}}</a>
                     <!--<a class="btn btn-primary" href="{{route('cart.addCombo',['id'=>$combo->getId()])}}">{{__('messages.addCart')}}</a>-->

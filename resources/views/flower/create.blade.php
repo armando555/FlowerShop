@@ -47,6 +47,15 @@
                         
                         <label for="exampleInputPrice">{{__('messages.price')}}</label>
                         <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="Enter price" value="{{old('price')}}">
+                        
+                        <div class="mb-3 mt-2" >
+                            <label for="formFile" class="form-label">{{__('messages.image')}}</label>
+                            <input class="form-control" type="file" id="formFile" value="{{old('urlImg')}}" name="urlImg">
+                        </div>
+
+                        
+                        
+                        
                         <br>
                         <input class="btn btn-success" type="submit" value="{{__('messages.createFlowers')}}" />
                     </div>
