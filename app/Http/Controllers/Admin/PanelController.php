@@ -16,6 +16,7 @@ use Symfony\Component\VarDumper\Cloner\Data;
 class PanelController extends Controller
 {
     public function index(Request $request){
+        //datos del gráfico
         $itemsFlower = Item::where("type","flower")->get();
         $itemsBouquet = Item::where("type","bouquet")->get();
         $itemsCombo = Item::where("type","combo")->get();
