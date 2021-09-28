@@ -15,31 +15,32 @@ use Symfony\Component\VarDumper\Cloner\Data;
 
 class PanelController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         //datos del gráfico
-        $itemsFlower = Item::where("type","flower")->get();
-        $itemsBouquet = Item::where("type","bouquet")->get();
-        $itemsCombo = Item::where("type","combo")->get();
+        $itemsFlower = Item::where("type", "flower")->get();
+        $itemsBouquet = Item::where("type", "bouquet")->get();
+        $itemsCombo = Item::where("type", "combo")->get();
         $acuFlower = 0;
         $acuBouquet = 0;
         $acuCombo = 0;
         
         
-        if(is_null($itemsFlower)){
+        if(is_null($itemsFlower)) {
             $acuFlower = 0;
         }else{
             foreach ($itemsFlower as $item) {
                 $acuFlower = $acuFlower + $item->getAmount();
             }
         }
-        if(is_null($itemsBouquet)){
+        if(is_null($itemsBouquet)) {
             $acuBouquet = 0;
         }else{
             foreach ($itemsBouquet as $item) {
                 $acuBouquet = $acuBouquet + $item->getAmount();
             }
         }
-        if(is_null($itemsCombo)){
+        if(is_null($itemsCombo)) {
             $acuCombo = 0;
         }else{
             foreach ($itemsCombo as $item) {
@@ -55,27 +56,28 @@ class PanelController extends Controller
         $combos = Combo::all();
         $candies = Candy::all();
         $mostProductSold = $this->mostProductSold();
-        return view("adminPanel.panel")->with("flowers",$flowers)->with("bouquets",$bouquets)->with("combos",$combos)->with("candies",$candies)->with("users",$users)->with("mostProductSold",$mostProductSold)->with("chart",$chart);
+        return view("adminPanel.panel")->with("flowers", $flowers)->with("bouquets", $bouquets)->with("combos", $combos)->with("candies", $candies)->with("users", $users)->with("mostProductSold", $mostProductSold)->with("chart", $chart);
     }
-    public function mostProductSold(){
+    public function mostProductSold()
+    {
         $item = Item::max('amount');
-        $product = Item::where('amount',$item)->get();
+        $product = Item::where('amount', $item)->get();
         $data = "No hay productos";
         
-        if(count($product)){
-            if($product[0]->getType() == "candy"){
+        if(count($product)) {
+            if($product[0]->getType() == "candy") {
                 $data=Candy::findOrFail($product[0]->getCandyId());
                 $data = $data->getName();
             }
-            if($product[0]->getType() == "flower"){
+            if($product[0]->getType() == "flower") {
                 $data=Flower::findOrFail($product[0]->getFlowerId());
                 $data = $data->getName();
             }
-            if($product[0]->getType() == "bouquet"){
+            if($product[0]->getType() == "bouquet") {
                 $data=Bouquet::findOrFail($product[0]->getBouquetId());
                 $data = $data->getName();
             }
-            if($product[0]->getType() == "combo"){
+            if($product[0]->getType() == "combo") {
                 $data=Combo::findOrFail($product[0]->getComboId());
                 $data = $data->getName();
             }
@@ -85,12 +87,13 @@ class PanelController extends Controller
         //dd($product[0]);
         return $data;
     }
-    public function searchProducts(Request $request){
+    public function searchProducts(Request $request)
+    {
         $term = $request->get('texto');
-        $querys1 = Flower::where("name",'LIKE','%'.$term.'%')->get();
-        $querys2 = Bouquet::where("name",'LIKE','%'.$term.'%')->get();
-        $querys3 = Combo::where("name",'LIKE','%'.$term.'%')->get();
-        $querys4 = Candy::where("name",'LIKE','%'.$term.'%')->get();
+        $querys1 = Flower::where("name", 'LIKE', '%'.$term.'%')->get();
+        $querys2 = Bouquet::where("name", 'LIKE', '%'.$term.'%')->get();
+        $querys3 = Combo::where("name", 'LIKE', '%'.$term.'%')->get();
+        $querys4 = Candy::where("name", 'LIKE', '%'.$term.'%')->get();
         $data = [];
         foreach ($querys1 as $query ) {
             $data[] = [

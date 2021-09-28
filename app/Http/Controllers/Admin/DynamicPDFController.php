@@ -29,7 +29,8 @@ class DynamicPDFController extends Controller
         $pdf->loadHTML($this->convert_data_to_html($id));
         return $pdf->download('factura.pdf');
     }
-    public function convert_data_to_html($id){
+    public function convert_data_to_html($id)
+    {
         $data= Order::where("id", $id)->get();
         $order = $data[0];
         $items = $order->items()->get();
@@ -49,10 +50,10 @@ class DynamicPDFController extends Controller
                 <th style="border:1px solid;padding:12px;" width=20%>'.__('messages.quantity').'</th>
                 <th style="border:1px solid;padding:12px;" width=20%>Subtotal</th>
             </tr>';
-            foreach ($items as $item) {
-                if($item->getType() == "flower"){
-                    $flower = $item->flower()->get();
-                    $output.='
+        foreach ($items as $item) {
+            if($item->getType() == "flower") {
+                $flower = $item->flower()->get();
+                $output.='
                         <tr>
                             <td>'.$flower[0]->getName().'</td>
                             <td>'.$item->getType().'</td>
@@ -60,10 +61,10 @@ class DynamicPDFController extends Controller
                             <td>'.$item->getAmount().'</td>
                             <td>'.$item->getSubtotal().'</td>
                         </tr>';
-                }
-                if($item->getType() == "bouquet"){
-                    $bouquet = $item->bouquet()->get();
-                    $output.='
+            }
+            if($item->getType() == "bouquet") {
+                $bouquet = $item->bouquet()->get();
+                $output.='
                         <tr>
                             <td>'.$bouquet[0]->getName().'</td>
                             <td>'.$item->getType().'</td>
@@ -71,10 +72,10 @@ class DynamicPDFController extends Controller
                             <td>'.$item->getAmount().'</td>
                             <td>'.$item->getSubtotal().'</td>
                         </tr>';
-                }
-                if($item->getType() == "combo"){
-                    $combo = $item->combo()->get();
-                    $output.='
+            }
+            if($item->getType() == "combo") {
+                $combo = $item->combo()->get();
+                $output.='
                         <tr>
                             <td>'.$combo[0]->getName().'</td>
                             <td>'.$item->getType().'</td>
@@ -82,9 +83,9 @@ class DynamicPDFController extends Controller
                             <td>'.$item->getAmount().'</td>
                             <td>'.$item->getSubtotal().'</td>
                         </tr>';
-                }
+            }
                 
-            }            
+        }            
             $output.='</table>';
             $output.='<h1>'.__('messages.total').'</h1>'.$order->getTotal();
         return $output;

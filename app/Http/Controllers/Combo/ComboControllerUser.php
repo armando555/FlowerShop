@@ -23,6 +23,6 @@ class ComboControllerUser extends Controller
         $data = Combo::findOrFail($id);
         $flowers = $data->flowers()->get();
         $candies = $data->candies()->get();
-        return view('combo.usershow')->with('data', $data)->with("flowers", $flowers)->with("candies",$candies);
+        return view('combo.usershow')->with('data', $data)->with("flowers", $flowers)->with("candies", $candies);
     }
 }

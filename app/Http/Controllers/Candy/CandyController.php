@@ -28,12 +28,11 @@ class CandyController extends Controller
 
         $input = $request->all();
         
-        if ($request->hasFile('urlImg'))
-        {
+        if ($request->hasFile('urlImg')) {
             $destination_path = '/public/img/combos';
             $image = $request->file('urlImg');
             $image_name=$image->getClientOriginalName();
-            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+            $path = $request->file('urlImg')->storeAs($destination_path, $image_name);
         
             $input['urlImg'] = $image_name;
 
@@ -68,8 +67,8 @@ class CandyController extends Controller
 
     public function delete($id)
     {
-        Candy::Where('id',$id)->delete();
-        return redirect()->route('candy.index')->with('success','El producto se eliminó exitosamente!');
+        Candy::Where('id', $id)->delete();
+        return redirect()->route('candy.index')->with('success', 'El producto se eliminó exitosamente!');
     }
 
 }

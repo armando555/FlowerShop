@@ -16,7 +16,7 @@ class BouquetController extends Controller
         $data = [];
         $data = Bouquet::all();
         $candies = Candy::all();
-        return view('bouquet.index')->with("data", $data)->with("candies",$candies);
+        return view('bouquet.index')->with("data", $data)->with("candies", $candies);
     }
 
     public function home()
@@ -37,7 +37,7 @@ class BouquetController extends Controller
         $bouquet = Bouquet::findOrFail($id);
         $flowers = Flower::all();
         $candies = Candy::all();
-        return view('bouquet.edit')->with("data", $bouquet)->with("flowers", $flowers)->with("candies",$candies);
+        return view('bouquet.edit')->with("data", $bouquet)->with("flowers", $flowers)->with("candies", $candies);
     }
 
     public function create()
@@ -55,13 +55,12 @@ class BouquetController extends Controller
 
         $input = $request->all();
         
-        if ($request->hasFile('urlImg'))
-        {
+        if ($request->hasFile('urlImg')) {
             
             $destination_path = '/public/img/combos';
             $image = $request->file('urlImg');
             $image_name=$image->getClientOriginalName();
-            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+            $path = $request->file('urlImg')->storeAs($destination_path, $image_name);
         
             $input['urlImg'] = $image_name;
 
@@ -127,8 +126,8 @@ class BouquetController extends Controller
 
     public function delete($id)
     {
-        Bouquet::Where('id',$id)->delete();
-        return redirect()->route('bouquet.index')->with('success','El producto se eliminó exitosamente!');
+        Bouquet::Where('id', $id)->delete();
+        return redirect()->route('bouquet.index')->with('success', 'El producto se eliminó exitosamente!');
     }
 
 }

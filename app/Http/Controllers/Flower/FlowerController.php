@@ -46,13 +46,12 @@ class FlowerController extends Controller
         $input = $request->All();
    
   
-        if ($request->hasFile('urlImg'))
-        {
+        if ($request->hasFile('urlImg')) {
 
             $destination_path = '/public/img/combos';
             $image = $request->file('urlImg');
             $image_name=$image->getClientOriginalName();
-            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+            $path = $request->file('urlImg')->storeAs($destination_path, $image_name);
         
             $input['urlImg'] = $image_name;
             
@@ -75,12 +74,11 @@ class FlowerController extends Controller
         $flower->setPrice($request->price);
         $input = $request->all();
         
-        if ($request->hasFile('urlImg'))
-        {
+        if ($request->hasFile('urlImg')) {
             $destination_path = '/public/img/combos';
             $image = $request->file('urlImg');
             $image_name=$image->getClientOriginalName();
-            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+            $path = $request->file('urlImg')->storeAs($destination_path, $image_name);
         
             $input['urlImg'] = $image_name;
 
@@ -93,8 +91,8 @@ class FlowerController extends Controller
 
     public function delete($id)
     {
-        Flower::Where('id',$id)->delete();
-        return redirect()->route('flower.index')->with('success','El producto se eliminó exitosamente!');
+        Flower::Where('id', $id)->delete();
+        return redirect()->route('flower.index')->with('success', 'El producto se eliminó exitosamente!');
     }
 
 }

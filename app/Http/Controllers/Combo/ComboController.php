@@ -27,7 +27,7 @@ class ComboController extends Controller
         $data = [];
         $data = Flower::all();
         $candies = Candy::all();
-        return view('combo.create')->with('data', $data)->with('candies',$candies);
+        return view('combo.create')->with('data', $data)->with('candies', $candies);
     }
 
     public function save(Request $request)
@@ -36,12 +36,11 @@ class ComboController extends Controller
 
         $input = $request->all();
         
-        if ($request->hasFile('urlImg'))
-        {
+        if ($request->hasFile('urlImg')) {
             $destination_path = '/public/img/combos';
             $image = $request->file('urlImg');
             $image_name=$image->getClientOriginalName();
-            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+            $path = $request->file('urlImg')->storeAs($destination_path, $image_name);
         
             $input['urlImg'] = $image_name;
 
@@ -83,7 +82,7 @@ class ComboController extends Controller
         $data = Combo::findOrFail($id);
         $flowers = $data->flowers()->get();
         $candies = $data->candies()->get();
-        return view('combo.show')->with('data', $data)->with("flowers", $flowers)->with("candies",$candies);
+        return view('combo.show')->with('data', $data)->with("flowers", $flowers)->with("candies", $candies);
     }
 
     public function edit($id)
@@ -120,8 +119,8 @@ class ComboController extends Controller
 
     public function delete($id)
     {
-        Combo::Where('id',$id)->delete();
-        return redirect()->route('combo.index')->with('success','El producto se eliminó exitosamente!');
+        Combo::Where('id', $id)->delete();
+        return redirect()->route('combo.index')->with('success', 'El producto se eliminó exitosamente!');
     }
 
 }

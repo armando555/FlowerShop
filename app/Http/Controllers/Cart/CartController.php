@@ -18,7 +18,8 @@ use function PHPUnit\Framework\isNull;
 class CartController extends Controller
 {
 
-    public function exportExcel(){
+    public function exportExcel()
+    {
 
     }
 
@@ -59,7 +60,7 @@ class CartController extends Controller
         if(!is_null($idFlowers) || !is_null($idBouquets) || !is_null($idCombos)|| !is_null($idCandies)) {
             $order = new Order();
             $order->setTotal(0);
-            if(Auth::check()){
+            if(Auth::check()) {
                 $order->setUserId(auth()->user()->id);
             }            
             $order->save();            
@@ -124,7 +125,7 @@ class CartController extends Controller
             $items = $order->items()->get();
             $user = $order->user()->get();
         }        
-        return view("cart.generatePdf")->with("order",$order)->with("items",$items)->with("user",$user[0]);
+        return view("cart.generatePdf")->with("order", $order)->with("items", $items)->with("user", $user[0]);
     }
     public function show(Request $request)
     {
@@ -175,7 +176,7 @@ class CartController extends Controller
         if(gettype($idCandies) == "array") {
             $products["candies"] = Candy::find(array_values($idCandies));
         }
-        return view('cart.index')->with("data", $products)->with("quantityFlower", $quantityFlower)->with("quantityBouquet", $quantityBouquet)->with("quantityCombo", $quantityCombo)->with("acu", $acu)->with("quantityCandy",$quantityCandy);
+        return view('cart.index')->with("data", $products)->with("quantityFlower", $quantityFlower)->with("quantityBouquet", $quantityBouquet)->with("quantityCombo", $quantityCombo)->with("acu", $acu)->with("quantityCandy", $quantityCandy);
         //dd($products);
     }
     public function addCandies($id,Request $request)
