@@ -27,6 +27,12 @@
                     <li>{{$flower->getName()}}</li>    
                     @endforeach                    
                 </ul>
+                <h3>{{__('messages.candy')}}</h3>
+                <ul>
+                    @foreach ($candies as $candy)
+                    <li>{{$candy->getName()}}</li>    
+                    @endforeach                    
+                </ul>
             </div>            
         </div>
     </div>
