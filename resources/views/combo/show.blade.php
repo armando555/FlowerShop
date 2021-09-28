@@ -24,7 +24,8 @@
                 <h3>{{__('messages.image')}}</h3>
                 <img src="{{asset($data->getUrlImg())}}"/>
                 @can('combo.edit')
-                    <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">Edit</a>
+                    <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                    <a href="{{route('combo.delete',$data->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>
                 @endcan
 
                 <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>

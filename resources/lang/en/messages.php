@@ -18,6 +18,7 @@ return [
     'price' => 'Price',
     'updateFlower' => 'updateFlower',
     'edit' => 'Edit',
+    'delete' => 'delete',
     'login' => 'Login',
     'register' => 'Register',
     'home' => 'Home',
@@ -66,7 +67,14 @@ return [
 
     'listCandy' => 'List of candies',
     'allCandy' => 'These are all our candies',
+
+
+    'listBouquet' => 'Lista of Bouquets',
+    'allBouquet' => 'These are all our candies',
+
+
     'search' => 'Search',
+
     'createCandy' => 'Create Candy',
 
     'updateCandy' => 'Update Candy',

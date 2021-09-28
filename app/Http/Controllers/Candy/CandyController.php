@@ -70,4 +70,10 @@ class CandyController extends Controller
         return back()->with('success', 'Item updated successfully!');
     }
 
+    public function delete($id)
+    {
+        Candy::Where('id',$id)->delete();
+        return redirect()->route('candy.index')->with('success','El producto se eliminó exitosamente!');
+    }
+
 }

@@ -10,6 +10,9 @@
     <br>
     <div class="col-md-8">
         <h1 class="masthead-heading text-uppercase mb-0">{{__('messages.listBouquet')}}</h1>
+
+        @include('util.message')
+
         <div class="card">
             <div class="card-header">{{__('messages.allBouquet')}}</div>
             <div class="card-body">

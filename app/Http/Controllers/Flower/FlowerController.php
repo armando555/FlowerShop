@@ -87,4 +87,10 @@ class FlowerController extends Controller
         return back()->with('success', 'Item updated successfully!');
     }
 
+    public function delete($id)
+    {
+        Flower::Where('id',$id)->delete();
+        return redirect()->route('flower.index')->with('success','El producto se eliminó exitosamente!');
+    }
+
 }

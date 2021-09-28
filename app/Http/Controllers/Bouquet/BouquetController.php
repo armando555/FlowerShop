@@ -101,4 +101,10 @@ class BouquetController extends Controller
         return back()->with('success', 'Item updated successfully!');
     }
 
+    public function delete($id)
+    {
+        Bouquet::Where('id',$id)->delete();
+        return redirect()->route('bouquet.index')->with('success','El producto se eliminó exitosamente!');
+    }
+
 }
