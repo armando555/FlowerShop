@@ -78,7 +78,15 @@ return [
 
     'detailsCandy' => 'Estos son los detalles de este dulce',
 
+    'createBouquet' => 'Crear Ramo',
+    'bouquets' => 'Ramos',
 
+    'urlImage' => 'Imagen',
+    'editBouquet' => 'Editar Ramo',
+    'listBouquet' => 'Lista de Ramos',
 
+    'allBouquet' => 'Estos son todos los ramos en la tienda',
+    'detailsBouquet' => 'Detalles de Ramo',
 
+    'allDetailsBouquet' => 'Estos son todos los detalles del ramo',
 ];

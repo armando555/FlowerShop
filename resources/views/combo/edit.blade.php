@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {{'Update Flower'}} @endsection
+@section('title') {{__('messages.updateCombo')}} @endsection
 
-@section('header-title') {{'Flower'}} @endsection
+@section('header-title') {{__('messages.combo')}} @endsection
 
 @section('content')
 <div class="row justify-content-center">

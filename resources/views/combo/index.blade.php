@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {{'List of combos'}} @endsection
+@section('title') {{__('messages.listCombos')}} @endsection
 
-@section('header-title') {{'combo'}} @endsection
+@section('header-title') {{__('messages.combo')}} @endsection
 
 @section('content')
 
