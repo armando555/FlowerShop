@@ -22,7 +22,7 @@
                 <h3>{{__('messages.price')}}</h3>
                 <p>{{$data->getPrice()}}$</p>
                 <h3>{{__('messages.image')}}</h3>
-                <img src="{{asset($data->getUrlImg())}}"/>
+                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
                 <h3>{{__('messages.flower')}}</h3>
                 <ul>
                     @foreach ($flowers as $flower)

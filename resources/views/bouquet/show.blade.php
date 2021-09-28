@@ -11,14 +11,16 @@
     <div class="col-md-8">
         <h1 class="masthead-heading text-uppercase mb-0">{{$data->getName()}}</h1>
         <div class="card">
-            <div class="card-header">These are all the details of this bouquet:</div>
+            <div class="card-header"> {{__('messages.detailsBouquet')}}</div>
             <div class="card-body">
-                <h3>Bouquet type</h3>
+                <h3> {{__('messages.bouquetType')}}</h3>
                 <p>{{$data->getBouquetType()}}</p>
-                <h3>rate</h3>
+                <h3> {{__('messages.rate')}}</h3>
                 <p>{{$data->getRate()}}</p>
-                <h3>Price</h3>
+                <h3> {{__('messages.price')}}</h3>
                 <p>{{$data->getPrice()}}</p>
+                <h3>{{__('messages.image')}}</h3>
+                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
                 <h3>{{__('messages.flower')}}</h3>
                 <ul>
                     @foreach ($flowers as $flower)

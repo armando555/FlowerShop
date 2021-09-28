@@ -12,7 +12,7 @@ class Flower extends Model
 
     //attributes id, name, spice, amountPerFlower, color, description, price, created_at, updated_at
 
-    protected $fillable = ['name', 'spice', 'amountPerFlower', 'color', 'description','price'];
+    protected $fillable = ['name', 'spice', 'amountPerFlower', 'color', 'description','price','urlImg'];
     
     public function items()
     {
@@ -126,4 +126,18 @@ class Flower extends Model
 
         $this->attributes['price'] = $price;
     }
+
+    
+    public function getUrlImg()
+    {
+
+        return $this->attributes['urlImg'];
+    }
+
+    public function setUrlImg($urlImg)
+    {
+
+        $this->attributes['urlImg'] = $urlImg;
+    }
+
 }

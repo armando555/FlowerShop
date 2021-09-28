@@ -29,7 +29,22 @@ class ComboController extends Controller
     public function save(Request $request)
     {
         Combo::validate($request);
-        Combo::create($request->only(["name", "bouquetType", "rate", "price", "urlImg"]));
+
+        $input = $request->all();
+        
+        if ($request->hasFile('urlImg'))
+        {
+            $destination_path = '/public/img/combos';
+            $image = $request->file('urlImg');
+            $image_name=$image->getClientOriginalName();
+            $path = $request->file('urlImg')->storeAs($destination_path,$image_name);
+        
+            $input['urlImg'] = $image_name;
+
+        }
+
+
+        Combo::create($input);
         $lastCombo = Combo::latest('created_at')->first();
         $flowers = [];
         $idFlower1 = Flower::where("name", $request["flower1"])->get();

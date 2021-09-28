@@ -23,6 +23,8 @@
                 <p>{{$data->getDescription()}}</p>
                 <h3>{{__('messages.price')}}</h3>
                 <p>{{$data->getPrice()}}</p>
+                <h3>{{__('messages.image')}}</h3>
+                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
                 <a href="{{route('flower.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
             </div>            
         </div>
