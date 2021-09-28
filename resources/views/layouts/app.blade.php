@@ -63,11 +63,29 @@
                         </div>
                     </li>
                     <!---  ---------------------------------------------------------- ACA DEBO CAMBIAR PARA CUADNO SEA ADMIN---------------------------------------------------------    -->
+                    @can('update', Model::class)
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('panel.index')}}">{{__('messages.panel')}}</a></li>
+                    @endcan
+                    
                     
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{__('messages.login')}}</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}">{{__('messages.register')}}</a></li>
                     @else
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('cart.show') }}">{{__('messages.cart')}}</a></li>
+                    <li class="nav-item mx-0 mx-lg-1 dropdown">
+                        <a class="nav-link nav-link py-3 px-0 px-lg-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Config::get('languages')[App::getLocale()] }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                            @endif
+                            @endforeach
+                        </div>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('panel.index')}}">{{__('messages.panel')}}</a></li>
+                    
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
                         

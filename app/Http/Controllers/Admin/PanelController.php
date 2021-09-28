@@ -27,22 +27,26 @@ class PanelController extends Controller
         $item = Item::max('amount');
         $product = Item::where('amount',$item)->get();
         $data = "No hay productos";
-        if($product[0]->getType() == "candy"){
-            $data=Candy::findOrFail($product[0]->getCandyId());
-            $data = $data->getName();
+        
+        if(count($product)){
+            if($product[0]->getType() == "candy"){
+                $data=Candy::findOrFail($product[0]->getCandyId());
+                $data = $data->getName();
+            }
+            if($product[0]->getType() == "flower"){
+                $data=Flower::findOrFail($product[0]->getFlowerId());
+                $data = $data->getName();
+            }
+            if($product[0]->getType() == "bouquet"){
+                $data=Bouquet::findOrFail($product[0]->getBouquetId());
+                $data = $data->getName();
+            }
+            if($product[0]->getType() == "combo"){
+                $data=Combo::findOrFail($product[0]->getComboId());
+                $data = $data->getName();
+            }
         }
-        if($product[0]->getType() == "flower"){
-            $data=Flower::findOrFail($product[0]->getFlowerId());
-            $data = $data->getName();
-        }
-        if($product[0]->getType() == "bouquet"){
-            $data=Bouquet::findOrFail($product[0]->getBouquetId());
-            $data = $data->getName();
-        }
-        if($product[0]->getType() == "combo"){
-            $data=Combo::findOrFail($product[0]->getComboId());
-            $data = $data->getName();
-        }
+        
         
         //dd($product[0]);
         return $data;
