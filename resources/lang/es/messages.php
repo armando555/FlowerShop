@@ -11,6 +11,7 @@ return [
     'completeFields' => 'Completar los campos',
     'errors' => 'Errores',
     'name' => 'Nombre',
+    'address' => 'Direccion',
     'spice' => 'Especie',
     'amountPerFlower' => 'Cantidad por paquete',
     'color' => 'Color',
