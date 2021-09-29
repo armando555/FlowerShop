@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<img src="{{asset('/img/portfolio/flowershop.jpeg')}}" alt="error image">
-<p>This project is about to build a flower shop. This shop has 3 different of products. They are : simple flower bouquet, combo bouquet, and custom bouquet. The last two products can add to their bouquet candies.</p>
+
+        <div class="d-flex justify-content-center">
+            <img src="{{asset('/img/portfolio/flowershop.jpeg')}}">
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <div class="card" style="width: 38rem; margin-bottom: 4rem; ">
+                <div class="card-body">
+                    <p class="text-center" style="text-decoration: none; font-size: x-large">{{__('messages.homeText')}}</p>
+                </div>
+            </div>
+        </div>
 
 @endsection

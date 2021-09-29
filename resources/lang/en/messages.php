@@ -2,6 +2,9 @@
 <?php
 
 return [
+
+    'homeText' =>'We are a Flower Shop, and we offer  3 different type of products . They are: simple flower bouquet, combo bouquet, and custom bouquet. The last two products can add to their bouquet candies.',
+
     'welcome' => 'Welcome to our application!',
     'details' => 'Details',
     'listFlowers' => 'List of flowers',
