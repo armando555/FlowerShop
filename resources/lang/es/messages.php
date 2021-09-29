@@ -2,6 +2,9 @@
 <?php
 
 return [
+
+    'homeText' =>'Somos una tienda de flores y ofrecemos tres tipos de productos diferentes. Estos son: Ramo de flores (simple), Combo ramo y Ramo personalizable, Estos dos últimos productos se pueden añadir ramos y dulces respectivamente',
+
     'welcome' => '¡Bienvenido a nuestra aplicación!',
     'details' => 'Detalles',
     'listFlowers' => 'Lista de flores',
