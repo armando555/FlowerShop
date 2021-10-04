@@ -20,7 +20,7 @@
                     </div>
                 @endcan
                 <ul>
-                    @foreach ($data as $item)
+                    @foreach ($data['flowers'] as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
                     <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
                     <a class="btn btn-success" href="{{route('flower.show',$item->getId())}}">{{__('messages.details')}}</a>

@@ -20,12 +20,12 @@
                     </div>
                 @endcan
                 <ul>
-                    @foreach ($data as $item)
-                    <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
-                    <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
-                    <a class="btn btn-success" href="{{route('candy.show',$item->getId())}}">{{__('messages.details')}}</a>
-                    <!--<a class="btn btn-primary" href="{{route('cart.addCandy',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
-                    <form method="POST" action="{{route('cart.addCandy',['id'=>$item->getId()])}}">
+                    @foreach ($data['candies'] as $candy)
+                    <li>{{ $candy->getId() }} - {{ $candy->getName() }} : {{ $candy->getPrice() }}</li>
+                    <img class="img" src="{{asset('/storage/img/combos/'.$candy->getUrlImg())}}"/>
+                    <a class="btn btn-success" href="{{route('candy.show',$candy->getId())}}">{{__('messages.details')}}</a>
+                    <!--<a class="btn btn-primary" href="{{route('cart.addCandy',['id'=>$candy->getId()])}}">{{__('messages.addCart')}}</a>-->
+                    <form method="POST" action="{{route('cart.addCandy',['id'=>$candy->getId()])}}">
                         @csrf
                         <label for="exampleInputName" class="font-weight-bold">{{__('messages.quantity')}}</label>
                         <input name="quantity" type="numeric" value="1">  

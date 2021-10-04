@@ -13,15 +13,14 @@ class CandyControllerUser extends Controller
     public function index()
     {
         $data = [];
-        $data = Candy::all();
+        $data['candies'] = Candy::all();
         return view('candy.userindex')->with('data', $data);
     }
 
     public function show($id)
     {
         $data = [];
-        $data = Candy::findOrFail($id);
-
+        $data['candy'] = Candy::findOrFail($id);
         return view('candy.usershow')->with('data', $data);
     }
 

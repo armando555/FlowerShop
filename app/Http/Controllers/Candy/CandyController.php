@@ -13,7 +13,7 @@ class CandyController extends Controller
     public function index()
     {
         $data = [];
-        $data = Candy::all();
+        $data['candies'] = Candy::all();
         return view('candy.index')->with('data', $data);
     }
 
@@ -44,15 +44,16 @@ class CandyController extends Controller
     public function show($id)
     {
         $data = [];
-        $data = Candy::findOrFail($id);
+        $data['candy'] = Candy::findOrFail($id);
 
         return view('candy.show')->with('data', $data);
     }
 
     public function edit($id)
     {
-        $candy = Candy::findOrFail($id);
-        return view('candy.edit')->with('data', $candy);
+        $data = [];
+        $daa['candy'] = Candy::findOrFail($id);
+        return view('candy.edit')->with('data', $data);
     }
 
     public function update(Request $request)

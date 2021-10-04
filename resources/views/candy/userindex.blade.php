@@ -14,12 +14,12 @@
             <div class="card-header">{{__('messages.allCandy')}}</div>
             <div class="card-body">
                 <ul>
-                    @foreach ($data as $item)
-                    <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
-                    <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
-                    <a class="btn btn-success" href="{{route('candy.show.user',$item->getId())}}">{{__('messages.details')}}</a>
-                    <!--<a class="btn btn-primary" href="{{route('cart.addCandy',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
-                    <form method="POST" action="{{route('cart.addCandy',['id'=>$item->getId()])}}">
+                    @foreach ($data['candies'] as $candy)
+                    <li>{{ $data['candy']->getId() }} - {{ $data['candy']->getName() }} : {{ $data['candy']->getPrice() }}</li>
+                    <img class="img" src="{{asset('/storage/img/combos/'.$data['candy']->getUrlImg())}}"/>
+                    <a class="btn btn-success" href="{{route('candy.show.user',$data['candy']->getId())}}">{{__('messages.details')}}</a>
+                    <!--<a class="btn btn-primary" href="{{route('cart.addCandy',['id'=>$data['candy']->getId()])}}">{{__('messages.addCart')}}</a>-->
+                    <form method="POST" action="{{route('cart.addCandy',['id'=>$data['candy']->getId()])}}">
                         @csrf
                         <label for="exampleInputName" class="font-weight-bold">{{__('messages.quantity')}}</label>
                         <input name="quantity" type="numeric" value="1">  

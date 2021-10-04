@@ -9,35 +9,35 @@
     
     <br>
     <div class="col-md-8">
-        <h1 class="masthead-heading text-uppercase mb-0">{{$data->getName()}}</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">{{$data['combo']->getName()}}</h1>
         <div class="card">
             <div class="card-header">{{__('messages.detailsCombo')}}</div>
             <div class="card-body">
                 <h3>{{__('messages.name')}}</h3>
-                <p>{{$data->getName()}}</p>
+                <p>{{$data['combo']->getName()}}</p>
                 <h3>{{__('messages.bouquetType')}}</h3>
-                <p>{{$data->getBouquetType()}}</p>
+                <p>{{$data['combo']->getBouquetType()}}</p>
                 <h3>{{__('messages.rate')}}</h3>
-                <p>{{$data->getRate()}}</p>
+                <p>{{$data['combo']->getRate()}}</p>
                 <h3>{{__('messages.price')}}</h3>
-                <p>{{$data->getPrice()}}$</p>
+                <p>{{$data['combo']->getPrice()}}$</p>
                 <h3>{{__('messages.image')}}</h3>
-                <img src="{{asset($data->getUrlImg())}}"/>
+                <img src="{{asset($data['combo']->getUrlImg())}}"/>
                 @can('combo.edit')
-                    <a href="{{route('combo.edit',$data->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
-                    <a href="{{route('combo.delete',$data->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>
+                    <a href="{{route('combo.edit',$data['combo']->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>
+                    <a href="{{route('combo.delete',$data['combo']->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>
                 @endcan
-                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
+                <img class="img" src="{{asset('/storage/img/combos/'.$data['combo']->getUrlImg())}}"/>
                 <h3>{{__('messages.flower')}}</h3>
                 <ul>
-                    @foreach ($flowers as $flower)
+                    @foreach ($data['flowers'] as $flower)
                     <li>{{$flower->getName()}}</li>    
                     @endforeach                    
                 </ul>
 
                 <h3>{{__('messages.candies')}}</h3>
                 <ul>
-                    @foreach ($candies as $candy)
+                    @foreach ($data['candies'] as $candy)
                     <li>{{$candy->getName()}}</li>    
                     @endforeach                    
                 </ul>

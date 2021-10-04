@@ -1,35 +1,33 @@
 @extends('layouts.app')
 
-@section('title') {{__('messages.details')}} @endsection
+@section('title') {{ __('messages.details') }} @endsection
 
-@section('header-title') {{__('messages.flower')}} @endsection
+@section('header-title') {{ __('messages.flower') }} @endsection
 
 @section('content')
-<div class="row justify-content-center">
-    
-    <br>
-    <div class="col-md-8">
-        <h1 class="masthead-heading text-uppercase mb-0">{{$data->getName()}}</h1>
-        <div class="card">
-            <div class="card-header">{{__('messages.details')}}</div>
-            <div class="card-body">
-                <h3>{{__('messages.spice')}}</h3>
-                <p>{{$data->getSpice()}}</p>
-                <h3>{{__('messages.amountPerFlower')}}</h3>
-                <p>{{$data->getAmountPerFlower()}}</p>
-                <h3>{{__('messages.color')}}</h3>
-                <p>{{$data->getColor()}}</p>
-                <h3>{{__('messages.description')}}</h3>
-                <p>{{$data->getDescription()}}</p>
-                <h3>{{__('messages.price')}}</h3>
-                <p>{{$data->getPrice()}}</p>
+    <div class="row justify-content-center">
 
-                <h3>{{__('messages.image')}}</h3>
-                <img class="img" src="{{asset('/storage/img/combos/'.$data->getUrlImg())}}"/>
-                
-
-            </div>            
+        <br>
+        <div class="col-md-8">
+            <h1 class="masthead-heading text-uppercase mb-0">{{ $data['flower']->getName() }}</h1>
+            <div class="card">
+                <div class="card-header">{{ __('messages.details') }}</div>
+                <div class="card-body">
+                    <h3>{{ __('messages.spice') }}</h3>
+                    <p>{{ $data['flower']->getSpice() }}</p>
+                    <h3>{{ __('messages.amountPerFlower') }}</h3>
+                    <p>{{ $data['flower']->getAmountPerFlower() }}</p>
+                    <h3>{{ __('messages.color') }}</h3>
+                    <p>{{ $data['flower']->getColor() }}</p>
+                    <h3>{{ __('messages.description') }}</h3>
+                    <p>{{ $data['flower']->getDescription() }}</p>
+                    <h3>{{ __('messages.price') }}</h3>
+                    <p>{{ $data['flower']->getPrice() }}</p>
+                    <h3>{{ __('messages.image') }}</h3>
+                    <img class="img"
+                        src="{{ asset('/storage/img/combos/' . $data['flower']->getUrlImg()) }}" />
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-@endsection
+        </section>
+    @endsection

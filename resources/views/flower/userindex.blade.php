@@ -14,7 +14,7 @@
             <div class="card-header">{{__('messages.allFlowers')}}</div>
             <div class="card-body">
                 <ul>
-                    @foreach ($data as $item)
+                    @foreach ($data['flowers'] as $item)
                     <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
                     <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
                     <a class="btn btn-success" href="{{route('flower.show.user',$item->getId())}}">{{__('messages.details')}}</a>
