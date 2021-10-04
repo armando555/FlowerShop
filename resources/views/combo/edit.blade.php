@@ -30,23 +30,23 @@
                 <form method="POST" action="{{ route('combo.update') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <input type="hidden" name="id" value="{{$data->getId()}}">
+                        <input type="hidden" name="id" value="{{$data['combo']->getId()}}">
                         
                         <label for="exampleInputName">{{__('messages.name')}}</label>
-                        <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{$data->getName()}}">
+                        <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{$data['combo']->getName()}}">
                         
                         <label for="exampleInputbouquetType">{{__('messages.bouquetType')}}</label>
-                        <input type="text" class="form-control" name="bouquetType" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetType')}}" value="{{$data->getBouquetType()}}">                        
+                        <input type="text" class="form-control" name="bouquetType" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetType')}}" value="{{$data['combo']->getBouquetType()}}">                        
                         
                         <label for="exampleInputRate">{{__('messages.rate')}}</label>
-                        <input type="numeric" class="form-control" name="rate" aria-describedby="numHelp" placeholder="{{__('messages.rate')}}" value="{{$data->getRate()}}">
+                        <input type="numeric" class="form-control" name="rate" aria-describedby="numHelp" placeholder="{{__('messages.rate')}}" value="{{$['combo']]->getRate()}}">
                         
                         <label for="exampleInputPrice">{{__('messages.Price')}}</label>
-                        <input type="numeric" class="form-control" name="price" aria-describedby="nameHelp" placeholder="{{__('messages.price')}}" value="{{$data->getPrice()}}">
+                        <input type="numeric" class="form-control" name="price" aria-describedby="nameHelp" placeholder="{{__('messages.price')}}" value="{{$data['combo']->getPrice()}}">
                         
                         <div class="mb-3 mt-2" >
                             <label for="formFile" class="form-label">{{__('messages.image')}}</label>
-                            <input class="form-control" type="file" id="formFile" value="{{$data->getUrlImg()}}" name="urlImg">
+                            <input class="form-control" type="file" id="formFile" value="{{$data['combo']->getUrlImg()}}" name="urlImg">
                         </div>
                         
 
@@ -64,7 +64,7 @@
                         </select>
                         <br>
                         <select name="flower3" class="form-control form-control-sm">
-                            @foreach ($flowers as $flower)
+                            @foreach ($data['flowers'] as $flower)
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
@@ -72,25 +72,22 @@
 
 
                         <select name="candy1" class="form-control form-control-sm">
-                            @foreach ($data as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy2" class="form-control form-control-sm">
-                            @foreach ($data as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy3" class="form-control form-control-sm">
-                            @foreach ($data as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
-
-
-
                         <br>
                         <input class="btn btn-success" type="submit" value="{{__('messages.updateCombo')}}" />
                     </div>

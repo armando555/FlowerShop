@@ -22,12 +22,12 @@
                     </div>
                 @endcan
                 <ul>
-                    @foreach ($data as $item)
-                    <li>{{ $item->getId() }} - {{ $item->getName() }} : {{ $item->getPrice() }}</li>
-                    <img class="img" src="{{asset('/storage/img/combos/'.$item->getUrlImg())}}"/>
-                    <a class="btn btn-success" href="{{route('bouquet.show',$item->getId())}}">{{__('messages.details')}}</a>
-                    <!--<a class="btn btn-primary" href="{{route('cart.addBouquet',['id'=>$item->getId()])}}">{{__('messages.addCart')}}</a>-->
-                    <form method="POST" action="{{route('cart.addBouquet',['id'=>$item->getId()])}}">
+                    @foreach ($data['bouquet'] as $bouquet)
+                    <li>{{ $bouquet->getId() }} - {{ $bouquet->getName() }} : {{ $bouquet->getPrice() }}</li>
+                    <img class="img" src="{{asset('/storage/img/combos/'.$bouquet->getUrlImg())}}"/>
+                    <a class="btn btn-success" href="{{route('bouquet.show',$bouquet->getId())}}">{{__('messages.details')}}</a>
+                    <!--<a class="btn btn-primary" href="{{route('cart.addBouquet',['id'=>$bouquet->getId()])}}">{{__('messages.addCart')}}</a>-->
+                    <form method="POST" action="{{route('cart.addBouquet',['id'=>$bouquet->getId()])}}">
                         @csrf
                         <label for="exampleInputName" class="font-weight-bold">{{__('messages.quantity')}}</label>
                         <input name="quantity" type="numeric" value="1">  

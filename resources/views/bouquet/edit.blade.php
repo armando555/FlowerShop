@@ -29,38 +29,38 @@
                 <form method="POST" action="{{ route('bouquet.update') }}">
                     @csrf
                     <div class="form-group">
-                        <input type="hidden" name="id" value="{{$data->getId()}}" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="{{$data['bouquet']->getId()}}" enctype="multipart/form-data">
                         <label for="exampleInputName">{{__('messages.name')}}</label>
-                        <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{$data->getName()}}">
+                        <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="{{__('messages.enterName')}}" value="{{$data['bouquet']->getName()}}">
                         
                         <label for="exampleInputSpice">{{__('messages.bouquetType')}}</label>
-                        <input type="text" class="form-control" name="bouquetType" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetType')}}" value="{{$data->getBouquetType()}}">
+                        <input type="text" class="form-control" name="bouquetType" aria-describedby="nameHelp" placeholder="{{__('messages.enterBouquetType')}}" value="{{$data['bouquet']->getBouquetType()}}">
 
                         <label for="exampleInputName">{{__('messages.rate')}}</label>
-                        <input type="text" class="form-control" name="rate" aria-describedby="nameHelp" placeholder="{{__('messages.rate')}}" value="{{$data->getRate()}}">
+                        <input type="text" class="form-control" name="rate" aria-describedby="nameHelp" placeholder="{{__('messages.rate')}}" value="{{$data['bouquet']->getRate()}}">
                                                      
                         <div class="mb-3 mt-2" >
                             <label for="formFile" class="form-label">{{__('messages.image')}}</label>
-                            <input class="form-control" type="file" id="formFile" value="{{$data->getUrlImg()}}" name="urlImg">
+                            <input class="form-control" type="file" id="formFile" value="{{$data['bouquet']->getUrlImg()}}" name="urlImg">
                         </div>
 
                         <label for="exampleInputPrice">{{__('messages.price')}}</label>
-                        <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="{{__('messages.enterPrice')}}" value="{{$data->getPrice()}}">
+                        <input type="numeric" class="form-control" name="price" aria-describedby="numHelp" placeholder="{{__('messages.enterPrice')}}" value="{{$data['bouquet']->getPrice()}}">
                         <label for="exampleInputUrlImg">{{__('messages.flower')}}</label>
                         <select name="flower1" class="form-control form-control-sm">
-                            @foreach ($flowers as $flower)
+                            @foreach ($data['flowers'] as $flower)
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="flower2" class="form-control form-control-sm">
-                            @foreach ($flowers as $flower)
+                            @foreach ($data['flowers'] as $flower)
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="flower3" class="form-control form-control-sm">
-                            @foreach ($flowers as $flower)
+                            @foreach ($data['flowers'] as $flower)
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
@@ -68,19 +68,19 @@
 
                         <label for="exampleInputUrlImg">{{__('messages.candies')}}</label>
                         <select name="candy1" class="form-control form-control-sm">
-                            @foreach ($candies as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy2" class="form-control form-control-sm">
-                            @foreach ($candies as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy3" class="form-control form-control-sm">
-                            @foreach ($candies as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>

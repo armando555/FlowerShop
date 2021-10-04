@@ -13,16 +13,16 @@ class ComboControllerUser extends Controller
     public function index()
     {
         $data = [];
-        $data = Combo::all();
+        $data['combos'] = Combo::all();
         return view('combo.userindex')->with('data', $data);
     }
 
     public function show($id)
     {
         $data = [];
-        $data = Combo::findOrFail($id);
-        $flowers = $data->flowers()->get();
-        $candies = $data->candies()->get();
-        return view('combo.usershow')->with('data', $data)->with("flowers", $flowers)->with("candies", $candies);
+        $data['combo'] = Combo::findOrFail($id);
+        $data['flowers'] = $data['combo']->flowers()->get();
+        $data['candies'] = $data['combo']->candies()->get();
+        return view('combo.usershow')->with('data', $data);
     }
 }

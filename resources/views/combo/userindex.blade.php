@@ -29,7 +29,7 @@
             <div class="card-header">{{__('messages.allCombos')}}</div>
             <div class="card-body">
                 <ul>
-                    @foreach ($data as $combo)
+                    @foreach ($data['combos'] as $combo)
                     <li>{{ $combo->getId() }} - {{ $combo->getName() }} : {{ $combo->getPrice() }}
  
                         <img class="img" src="{{asset('/storage/img/combos/'.$combo->getUrlImg())}}"/>

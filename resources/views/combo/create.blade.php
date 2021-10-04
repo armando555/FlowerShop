@@ -70,19 +70,19 @@
                         <label for="exampleInputUrlImg">{{__('messages.flower')}}</label>
                         
                         <select name="flower1" class="form-control form-control-sm">
-                            @foreach ($data as $flower)
+                            @foreach ($data['flowers'] as $flower)
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="flower2" class="form-control form-control-sm">
-                            @foreach ($data as $flower)
+                            @foreach ($data['flowers'] as $flower)
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="flower3" class="form-control form-control-sm">
-                            @foreach ($data as $flower)
+                            @foreach ($data['flowers'] as $flower)
                                 <option>{{$flower->getName()}}</option>
                             @endforeach
                         </select>
@@ -91,19 +91,19 @@
 
                         <label for="exampleInputUrlImg">{{__('messages.candies')}}</label>          
                         <select name="candy1" class="form-control form-control-sm">
-                            @foreach ($candies as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy2" class="form-control form-control-sm">
-                            @foreach ($candies as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>
                         <br>
                         <select name="candy3" class="form-control form-control-sm">
-                            @foreach ($candies as $candy)
+                            @foreach ($data['candies'] as $candy)
                                 <option>{{$candy->getName()}}</option>
                             @endforeach
                         </select>

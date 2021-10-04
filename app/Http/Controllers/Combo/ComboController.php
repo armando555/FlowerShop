@@ -18,16 +18,16 @@ class ComboController extends Controller
     public function index()
     {
         $data = [];
-        $data = Combo::all();
+        $data['combos'] = Combo::all();
         return view('combo.index')->with('data', $data);
     }
 
     public function create()
     {
         $data = [];
-        $data = Flower::all();
-        $candies = Candy::all();
-        return view('combo.create')->with('data', $data)->with('candies', $candies);
+        $data['flowers'] = Flower::all();
+        $data['candies'] = Candy::all();
+        return view('combo.create')->with('data', $data);
     }
 
     public function save(Request $request)
@@ -79,17 +79,18 @@ class ComboController extends Controller
     public function show($id)
     {
         $data = [];
-        $data = Combo::findOrFail($id);
-        $flowers = $data->flowers()->get();
-        $candies = $data->candies()->get();
-        return view('combo.show')->with('data', $data)->with("flowers", $flowers)->with("candies", $candies);
+        $data['combo'] = Combo::findOrFail($id);
+        $data['flowers'] = $data['combo']->flowers()->get();
+        $data['candies'] = $data['combo']->candies()->get();
+        return view('combo.show')->with('data', $data);
     }
 
     public function edit($id)
     {
-        $combo = Combo::findOrFail($id);
-        $flowers = Flower::all();
-        return view('combo.edit')->with('data', $combo)->with("flowers", $flowers);
+        $data = [];
+        $data['combo'] = Combo::findOrFail($id);
+        $data['flowers'] = Flower::all();
+        return view('combo.edit')->with('data', $data);
     }
 
     public function update(Request $request)

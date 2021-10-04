@@ -14,9 +14,9 @@ class BouquetController extends Controller
     public function index()
     {
         $data = [];
-        $data = Bouquet::all();
-        $candies = Candy::all();
-        return view('bouquet.index')->with("data", $data)->with("candies", $candies);
+        $data['bouquet'] = Bouquet::all();
+        $data['candies'] = Candy::all();
+        return view('bouquet.index')->with("data", $data);
     }
 
     public function home()
@@ -26,33 +26,35 @@ class BouquetController extends Controller
 
     public function show($id)
     {
-        $bouquet = Bouquet::findOrFail($id);
-        $flowers = $bouquet->flowers()->get();
-        $candies = $bouquet->candies()->get();
-        return view('bouquet.show')->with("data", $bouquet)->with("flowers", $flowers)->with("candies", $candies);
+        $data = [];
+        
+        $data['bouquet'] = Bouquet::findOrFail($id);
+        $data['flowers'] = $data['bouquet']->flowers()->get();
+        $data['candies'] = $data['bouquet']->candies()->get();
+        return view('bouquet.show')->with("data", $data);
     }
 
     public function edit($id)
     {
-        $bouquet = Bouquet::findOrFail($id);
-        $flowers = Flower::all();
-        $candies = Candy::all();
-        return view('bouquet.edit')->with("data", $bouquet)->with("flowers", $flowers)->with("candies", $candies);
+
+        $data['bouquet'] = Bouquet::findOrFail($id);
+        $data['flowers'] = Flower::all();
+        $data['candies'] = Candy::all();
+        return view('bouquet.edit')->with("data", $data);
     }
 
     public function create()
     {
         $data = [];
-        $data = Flower::all();
-        $candies = Candy::all();
-        return view('bouquet.create')->with('data', $data)->with("candies", $candies);
-        
+        $data['flowers'] = Flower::all();
+        $data['candies'] = Candy::all();
+        return view('bouquet.create')->with('data', $data);     
     }
 
     public function save(Request $request)
     {
+        
         Bouquet::validate($request);
-
         $input = $request->all();
         
         if ($request->hasFile('urlImg')) {
@@ -63,10 +65,7 @@ class BouquetController extends Controller
             $path = $request->file('urlImg')->storeAs($destination_path, $image_name);
         
             $input['urlImg'] = $image_name;
-
         }
-
-
 
         Bouquet::create($input);
         $lastBouquet = Bouquet::latest('created_at')->first();
@@ -82,7 +81,6 @@ class BouquetController extends Controller
             $bouquetFlower->save();
         }
 
-
         $candys = [];
         $idCandy1 = Candy::where("name", $request["candy1"])->get();
         $idCandy2 = Candy::where("name", $request["candy2"])->get();
@@ -94,8 +92,6 @@ class BouquetController extends Controller
             $bouquetCandy->setBouquetId($lastBouquet->getId());
             $bouquetCandy->save();
         }
-
-
 
         return back()->with('success', 'Item updated successfully!');
     }
@@ -129,5 +125,4 @@ class BouquetController extends Controller
         Bouquet::Where('id', $id)->delete();
         return redirect()->route('bouquet.index')->with('success', 'El producto se eliminó exitosamente!');
     }
-
 }

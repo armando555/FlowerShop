@@ -10,7 +10,7 @@ class FlowerController extends Controller
     public function index()
     {
         $data = [];
-        $data = Flower::all();
+        $data['flowers'] = Flower::all();
         return view('flower.index')->with("data", $data);
     }
     
@@ -21,16 +21,17 @@ class FlowerController extends Controller
 
     public function show($id)
     {
-        $flower = Flower::findOrFail($id);
-
-        return view('flower.show')->with("data", $flower);
+        $data = [];
+        $data['flower'] = Flower::findOrFail($id);
+        return view('flower.show')->with("data", $data);
     }
 
     public function edit($id)
     {
-        $flower = Flower::findOrFail($id);
+        $data =[];
+        $data['flower'] = Flower::findOrFail($id);
 
-        return view('flower.edit')->with("data", $flower);
+        return view('flower.edit')->with("data", $data);
     }
 
     public function create()
