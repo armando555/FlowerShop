@@ -12,7 +12,7 @@ class BouquetControllerUser extends Controller
         $data = [];
         $data["bouquets"] = Bouquet::all();
         $data["candies"] = Candy::all();
-        return view('bouquet.index')->with("data", $data);
+        return view('bouquet.userindex')->with("data", $data);
     }
 
     public function home()

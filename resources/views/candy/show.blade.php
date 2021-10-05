@@ -19,7 +19,7 @@
                 <p>{{$data['candy']->getPrice()}}</p>
 
                 <h3>{{__('messages.image')}}</h3>
-                <img class="img" src="{{asset('/storage/img/combos/'.$data['candy']->getUrlImg())}}"/>
+                <img class="img imagen-items" src="{{asset('/storage/img/combos/'.$data['candy']->getUrlImg())}}"/>
 
                 @can('candy.edit')
                     <a href="{{route('candy.edit',$data['candy']->getId())}}" class="btn btn-success">{{__('messages.edit')}}</a>

@@ -9,7 +9,7 @@ class FlowerControllerUser extends Controller
     public function index()
     {
         $data = [];
-        $data['flower'] = Flower::all();
+        $data['flowers'] = Flower::all();
         return view('flower.userindex')->with("data", $data);
     }
     

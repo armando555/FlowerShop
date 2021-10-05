@@ -24,7 +24,7 @@
                     <a href="{{route('bouquet.delete',$data['bouquet']->getId())}}" class="btn btn-danger">{{__('messages.delete')}}</a>
                 @endcan
                 <h3>{{__('messages.image')}}</h3>
-                <img class="img" src="{{asset('/storage/img/combos/'.$data['bouquet']->getUrlImg())}}"/>
+                <img class="img imagen-items" src="{{asset('/storage/img/combos/'.$data['bouquet']->getUrlImg())}}"/>
                 <h3>{{__('messages.flower')}}</h3>
                 <ul>
                     @foreach ($data['flowers'] as $flower)

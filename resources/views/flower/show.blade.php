@@ -31,7 +31,7 @@
                     @endcan
 
                     <h3>{{ __('messages.image') }}</h3>
-                    <img class="img" src="{{ asset('/storage/img/combos/' . $data['flower']->getUrlImg()) }}" />
+                    <img class="img imagen-items" src="{{ asset('/storage/img/combos/' . $data['flower']->getUrlImg()) }}" />
 
 
                 </div>
