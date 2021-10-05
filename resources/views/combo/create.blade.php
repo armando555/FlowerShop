@@ -6,21 +6,6 @@
 
 @section('content')
 
-<style>
-    .btn.btn-success{
-        background-color: #17a2b8;
-        border: none;
-    }
-    .btn.btn-success:hover{
-        background-color: #157f8f;
-        border: none;
-    }
-    .row.justify-content-center{
-        padding-top: 20px; 
-        padding-bottom: 20px;
-    }
-</style>
-
 <div class="row justify-content-center">
     
     <br>
