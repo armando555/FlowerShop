@@ -10,9 +10,11 @@
 
         <br>
         <div class="col-md-8">
-            <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.listCombos') }}</h1>
-            <div class="card">
-                <div class="card-header">{{ __('messages.allCombos') }}</div>
+            <h1 class="masthead-heading text-uppercase mb-0"></h1>
+            <div class="card margin-top margin-bottom">
+                <div class="card-header">
+                    <h3>{{ __('messages.listCombos') }}</h3>
+                </div>
                 <div class="card-body">
                     <ul class="ul-list">
                         @foreach ($data['combos'] as $combo)

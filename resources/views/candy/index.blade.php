@@ -11,10 +11,12 @@
 
         <br>
         <div class="col-md-8">
-            <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.listCandy') }}</h1>
+            <h1 class="masthead-heading text-uppercase mb-0"></h1>
             @include('util.message')
-            <div class="card">
-                <div class="card-header">{{ __('messages.allCandy') }}</div>
+            <div class="card margin-top margin-bottom">
+                <div class="card-header">
+                    <h3>{{ __('messages.listCandy') }}</h3>
+                </div>
                 <div class="card-body">
                     @can('candy.create')
                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -25,9 +27,9 @@
                     <ul class="ul-list">
                         @foreach ($data['candies'] as $candy)
                             <li class="card card-item">
-                                <h5 class="card-header">{{ $candy->getName() }} 
-                                    </h5>
-                                
+                                <h5 class="card-header">{{ $candy->getName() }}
+                                </h5>
+
                                 <div class="card-body card-content">
                                     <b>
                                         {{ $candy->getPrice() }}$

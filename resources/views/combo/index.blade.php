@@ -12,7 +12,7 @@
         <div class="col-md-8">
             <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.listCombos') }}</h1>
             @include('util.message')
-            <div class="card">
+            <div class="card margin-top margin-bottom">
                 <div class="card-header">{{ __('messages.allCombos') }}</div>
                 <div class="card-body">
                     @can('combo.create')
@@ -25,7 +25,7 @@
                         @foreach ($data['combos'] as $combo)
                             <li class="card card-item">
                                 <h5 class="card-header">
-                                    {{ $combo->getName() }} 
+                                    {{ $combo->getName() }}
                                 </h5>
                                 <div class="card-body card-content">
                                     <b>

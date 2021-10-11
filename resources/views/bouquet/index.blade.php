@@ -6,15 +6,14 @@
 
 @section('content')
     <div class="row justify-content-center">
-
         <br>
         <div class="col-md-8">
-            <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.listBouquet') }}</h1>
-
             @include('util.message')
 
-            <div class="card">
-                <div class="card-header">{{ __('messages.allBouquet') }}</div>
+            <div class="card margin-top margin-bottom">
+                <div class="card-header">
+                    <h3>{{ __('messages.listBouquet') }}</h3>
+                </div>
                 <div class="card-body">
                     @can('bouquet.create')
                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -23,13 +22,9 @@
                         </div>
                     @endcan
                     <ul class="ul-list">
-
-
                         @foreach ($data['bouquet'] as $bouquet)
                             <li class="card card-item">
                                 <h5 class="card-header">{{ $bouquet->getName() }}</h5>
-
-
                                 <div class="card-body card-content">
                                     <b>
                                         {{ $bouquet->getPrice() }}$
