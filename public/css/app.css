@@ -41,6 +41,15 @@
   padding-bottom: 20px;
 }
 
+.margin-top {
+  margin-top: 2rem;
+}
+
+.margin-bottom{
+  margin-bottom: 2rem;
+}
+
+
 @media screen and (max-width: 1400px) {
   .ul-list {
     display: grid;

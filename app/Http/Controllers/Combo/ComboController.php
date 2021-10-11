@@ -90,6 +90,7 @@ class ComboController extends Controller
         $data = [];
         $data['combo'] = Combo::findOrFail($id);
         $data['flowers'] = Flower::all();
+        $data['candies'] = $data['combo']->candies()->get();
         return view('combo.edit')->with('data', $data);
     }
 

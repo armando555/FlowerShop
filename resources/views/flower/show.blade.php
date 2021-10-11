@@ -9,31 +9,30 @@
 
         <br>
         <div class="col-md-8">
-            <h1 class="masthead-heading text-uppercase mb-0">{{ $data['flower']->getName() }}</h1>
-            <div class="card">
-                <div class="card-header">{{ __('messages.details') }}</div>
+            <div class="card margin-top margin-bottom">
+                <div class="card-header">
+                    <h3>{{ __('messages.details') }}{{ ' ' }}{{ $data['flower']->getName() }}</h3>
+                </div>
+
                 <div class="card-body">
-                    <h3>{{ __('messages.spice') }}</h3>
+                    <img class="img imagen-items"
+                        src="{{ asset('/storage/img/combos/' . $data['flower']->getUrlImg()) }}" />
+                    <h6>{{ __('messages.spice') }}</h6>
                     <p>{{ $data['flower']->getSpice() }}</p>
-                    <h3>{{ __('messages.amountPerFlower') }}</h3>
+                    <h6>{{ __('messages.amountPerFlower') }}</h6>
                     <p>{{ $data['flower']->getAmountPerFlower() }}</p>
-                    <h3>{{ __('messages.color') }}</h3>
+                    <h6>{{ __('messages.color') }}</h6>
                     <p>{{ $data['flower']->getColor() }}</p>
-                    <h3>{{ __('messages.description') }}</h3>
+                    <h6>{{ __('messages.description') }}</h6>
                     <p>{{ $data['flower']->getDescription() }}</p>
-                    <h3>{{ __('messages.price') }}</h3>
-                    <p>{{ $data['flower']->getPrice() }}</p>
+                    <h6>{{ __('messages.price') }}</h6>
+                    <p>{{ $data['flower']->getPrice() }}$</p>
                     @can('flower.edit')
                         <a href="{{ route('flower.edit', $data['flower']->getId()) }}"
                             class="btn btn-success">{{ __('messages.edit') }}</a>
                         <a href="{{ route('flower.delete', $data['flower']->getId()) }}"
                             class="btn btn-danger">{{ __('messages.delete') }}</a>
                     @endcan
-
-                    <h3>{{ __('messages.image') }}</h3>
-                    <img class="img imagen-items" src="{{ asset('/storage/img/combos/' . $data['flower']->getUrlImg()) }}" />
-
-
                 </div>
             </div>
         </div>

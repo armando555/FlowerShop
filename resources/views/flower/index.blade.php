@@ -9,10 +9,11 @@
 
         <br>
         <div class="col-md-8">
-            <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.listFlowers') }}</h1>
             @include('util.message')
-            <div class="card">
-                <div class="card-header">{{ __('messages.allFlowers') }}</div>
+            <div class="card margin-top margin-bottom">
+                <div class="card-header">
+                    <h3> {{ __('messages.listFlowers') }}</h3>
+                </div>
                 <div class="card-body">
                     @can('flower.create')
                         <div class="btn-group" role="group" aria-label="Basic example">

@@ -9,9 +9,8 @@
 
         <br>
         <div class="col-md-8">
-            <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.listFlowers') }}</h1>
-            <div class="card">
-                <div class="card-header">{{ __('messages.allFlowers') }}</div>
+            <div class="card margin-top margin-bottom">
+                <div class="card-header">{{ __('messages.listFlowers') }}}</div>
                 <div class="card-body">
                     <ul class="ul-list">
                         @foreach ($data['flowers'] as $item)

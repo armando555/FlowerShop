@@ -52,7 +52,7 @@ class CandyController extends Controller
     public function edit($id)
     {
         $data = [];
-        $daa['candy'] = Candy::findOrFail($id);
+        $data['candy'] = Candy::findOrFail($id);
         return view('candy.edit')->with('data', $data);
     }
 
