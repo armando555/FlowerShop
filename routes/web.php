@@ -89,7 +89,7 @@ Route::post('/admin/candy/update', 'App\Http\Controllers\Admin\Candy\CandyContro
 
 Route::get('/admin/panel/index', 'App\Http\Controllers\Admin\PanelController@index')->name("panel.index");
 Route::get('/admin/panel/search/', 'App\Http\Controllers\Admin\PanelController@searchProducts')->name("panel.search");
-Route::get('/admin/cart/generatePdf/{id}', 'App\Http\Controllers\Admin\DynamicPDFController@generatePdf')->name('cart.generatePdf');
+Route::get('/admin/cart/generatePdf/{id}', 'App\Http\Controllers\Admin\BillController@generatePdf')->name('cart.generatePdf');
 
 
 //-----------------------USER ROUTES -----------------------

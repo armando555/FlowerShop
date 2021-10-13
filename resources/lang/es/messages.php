@@ -104,4 +104,5 @@ return [
     'generatePdf' => 'Generar factura en PDF',
     'bill' => 'Factura',
     'type' => 'Tipo',
+    'generateExcel' => 'Generar factura en XLSX',
 ];

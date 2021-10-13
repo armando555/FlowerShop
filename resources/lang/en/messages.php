@@ -107,4 +107,5 @@ return [
     'generatePdf' => 'Generate bill in PDF',
     'bill' => 'Bill',
     'type' => 'Type',
+    'generateExcel' => 'Generate bill in XLSX',
 ];

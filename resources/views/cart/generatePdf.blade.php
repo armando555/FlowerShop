@@ -16,6 +16,8 @@
                 <div class="card-body">
                     <a class="btn btn-warning"
                         href="{{ route('cart.generatePdf', $order->getId()) }}">{{ __('messages.generatePdf') }}</a>
+                        <a class="btn btn-info"
+                        href="#">{{ __('messages.generateExcel') }}</a>
                     <div class="container">
                         <h1 align="center"> {{ __('messages.generatePdf') }}</h1>
                         <div class="row">

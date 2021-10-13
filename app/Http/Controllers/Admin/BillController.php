@@ -12,11 +12,14 @@ use App\Models\User;
 use App\Models\Item;
 use App\Models\Order;
 use PDF;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use Illuminate\Http\Request;
 use ArielMejiaDev\LarapexCharts\Facades\LarapexChart;
 use Symfony\Component\VarDumper\Cloner\Data;
 
-class DynamicPDFController extends Controller
+class BillController extends Controller
 {
     public static function index()
     {
@@ -24,9 +27,8 @@ class DynamicPDFController extends Controller
     }
     public function generatePdf($id, Request $request)
     {
-        
         $pdf = app('dompdf.wrapper');
-        $pdf->loadHTML($this->convert_data_to_html($id));
+        $pdf->loadHTML($this->convert_data_to_html($id));    
         return $pdf->download('factura.pdf');
     }
     public function convert_data_to_html($id)
@@ -85,12 +87,12 @@ class DynamicPDFController extends Controller
                         </tr>';
             }
             if($item->getType() == "candy") {
-                $combo = $item->candy()->get();
+                $candy = $item->candy()->get();
                 $output.='
                         <tr>
-                            <td>'.$combo[0]->getName().'</td>
+                            <td>'.$candy[0]->getName().'</td>
                             <td>'.$item->getType().'</td>
-                            <td>'.$combo[0]->getPrice().'</td>
+                            <td>'.$candy[0]->getPrice().'</td>
                             <td>'.$item->getAmount().'</td>
                             <td>'.$item->getSubtotal().'</td>
                         </tr>';
@@ -99,6 +101,9 @@ class DynamicPDFController extends Controller
         }            
             $output.='</table>';
             $output.='<h1>'.__('messages.total').'</h1>'.$order->getTotal();
+        
         return $output;
     }
+
+    
 }
