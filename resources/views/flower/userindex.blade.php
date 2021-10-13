@@ -10,7 +10,7 @@
         <br>
         <div class="col-md-8">
             <div class="card margin-top margin-bottom">
-                <div class="card-header">{{ __('messages.listFlowers') }}}</div>
+                <div class="card-header"><h3> {{ __('messages.listFlowers') }}</h3></div>
                 <div class="card-body">
                     <ul class="ul-list">
                         @foreach ($data['flowers'] as $item)

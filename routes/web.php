@@ -57,7 +57,7 @@ Route::post('/admin/bouquet/created', 'App\Http\Controllers\Bouquet\BouquetContr
 Route::redirect('/admin/bouquet/show/', '/admin/bouquet/index');
 Route::get('/admin/bouquet/show/{id}', 'App\Http\Controllers\Bouquet\BouquetController@show')->name('bouquet.show');
 Route::get('/admin/bouquet/edit/{id}','App\Http\Controllers\Bouquet\BouquetController@edit')->name('bouquet.edit');
-Route::get('/admin/bouquet/delete/{id}', 'App\Http\Controllers\Bouquet\BouuetController@delete')->name("bouquet.delete");
+Route::get('/admin/bouquet/delete/{id}', 'App\Http\Controllers\Bouquet\BouquetController@delete')->name("bouquet.delete");
 Route::post('/admin/bouquet/update', 'App\Http\Controllers\Bouquet\BouquetController@update')->name('bouquet.update');
 
 
