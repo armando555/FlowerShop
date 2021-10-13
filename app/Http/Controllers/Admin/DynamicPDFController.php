@@ -84,6 +84,17 @@ class DynamicPDFController extends Controller
                             <td>'.$item->getSubtotal().'</td>
                         </tr>';
             }
+            if($item->getType() == "candy") {
+                $combo = $item->candy()->get();
+                $output.='
+                        <tr>
+                            <td>'.$combo[0]->getName().'</td>
+                            <td>'.$item->getType().'</td>
+                            <td>'.$combo[0]->getPrice().'</td>
+                            <td>'.$item->getAmount().'</td>
+                            <td>'.$item->getSubtotal().'</td>
+                        </tr>';
+            }
                 
         }            
             $output.='</table>';
