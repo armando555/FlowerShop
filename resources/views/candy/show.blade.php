@@ -5,6 +5,14 @@
 @section('header-title') {{ __('messages.candy') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('detailsCandy', $data['candy']) }}
+        </div>
+    </div>
+
+
     <div class="row justify-content-center">
 
         <br>
@@ -19,7 +27,8 @@
                     <h6>{{ __('messages.price') }}</h6>
                     <p>{{ $data['candy']->getPrice() }}</p>
                     <h6>{{ __('messages.image') }}</h6>
-                    <img class="img imagen-items" src="{{ asset('/storage/img/combos/' . $data['candy']->getUrlImg()) }}" />
+                    <img class="img imagen-items"
+                        src="{{ asset('/storage/img/combos/' . $data['candy']->getUrlImg()) }}" />
                     @can('candy.edit')
                         <a href="{{ route('candy.edit', $data['candy']->getId()) }}"
                             class="btn btn-success">{{ __('messages.edit') }}</a>

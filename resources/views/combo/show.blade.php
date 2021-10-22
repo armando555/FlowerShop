@@ -5,6 +5,14 @@
 @section('header-title') {{ __('messages.combo') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('detailsCombo', $data['combo']) }}
+        </div>
+    </div>
+
+
     <div class="row justify-content-center">
 
         <br>

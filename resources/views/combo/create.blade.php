@@ -6,12 +6,21 @@
 
 @section('content')
 
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('createCombo') }}
+        </div>
+    </div>
+
+
     <div class="row justify-content-center">
         <br>
         <div class="col-md-8">
             @include('util.message')
             <div class="card margin-top margin-bottom">
-                <div class="card-header"><h3>{{ __('messages.createCombo') }}</h3></div>
+                <div class="card-header">
+                    <h3>{{ __('messages.createCombo') }}</h3>
+                </div>
                 <div class="card-body">
                     @if ($errors->any())
 

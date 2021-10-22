@@ -7,6 +7,13 @@
 
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('showCandy') }}
+        </div>
+    </div>
+
     <div class="row justify-content-center">
 
         <br>

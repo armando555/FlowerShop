@@ -5,19 +5,27 @@
 @section('header-title') {{ __('messages.generatePdf') }} @endsection
 
 @section('content')
+
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('bill') }}
+        </div>
+    </div>
+
     <div class="row justify-content-center">
 
         <br>
         <div class="col-md-8">
-            <h1 class="masthead-heading text-uppercase mb-0">{{ __('messages.generatePdf') }}</h1>
             @include('util.message')
-            <div class="card">
-                <div class="card-header">{{ __('messages.generatePdf') }}</div>
+            <div class="card margin-bottom">
+                <div class="card-header">
+                    <h3>{{ __('messages.generatePdf') }}</h3>
+                </div>
                 <div class="card-body">
                     <a class="btn btn-warning"
                         href="{{ route('cart.generatePdf', $order->getId()) }}">{{ __('messages.generatePdf') }}</a>
-                        <a class="btn btn-info"
-                        href="#">{{ __('messages.generateExcel') }}</a>
+                    <a class="btn btn-info" href="#">{{ __('messages.generateExcel') }}</a>
                     <div class="container">
                         <h1 align="center"> {{ __('messages.generatePdf') }}</h1>
                         <div class="row">
