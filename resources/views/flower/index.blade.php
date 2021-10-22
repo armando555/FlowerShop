@@ -5,12 +5,16 @@
 @section('header-title') {{ __('messages.flower') }} @endsection
 
 @section('content')
+    
+    {{Breadcrumbs::render('show',__('messages.flower'))}}
+
     <div class="row justify-content-center">
 
         <br>
         <div class="col-md-8">
             @include('util.message')
             <div class="card margin-top margin-bottom">
+                
                 <div class="card-header">
                     <h3> {{ __('messages.listFlowers') }}</h3>
                 </div>

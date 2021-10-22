@@ -5,6 +5,9 @@
 @section('header-title') {{ __('messages.flower') }} @endsection
 
 @section('content')
+
+    {{Breadcrumbs::render('Show',__('messages.flower')}}
+
     <div class="row justify-content-center">
 
         <br>
