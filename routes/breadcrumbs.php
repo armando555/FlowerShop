@@ -39,6 +39,6 @@ Breadcrumbs::for('detailsFlower', function ($trail,$data) {
 });
 
 Breadcrumbs::for('editFlower', function ($trail,$data) {
-    $trail->parent('detailsFlower');
+    $trail->parent('detailsFlower', $data);
     $trail->push(__('messages.edit'), route('flower.edit',$data->getId()));
 });
