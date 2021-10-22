@@ -5,6 +5,13 @@
 @section('header-title') {{ __('messages.combo') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('editCombo', $data['combo']) }}
+        </div>
+    </div>
+
     <div class="row justify-content-center">
 
         <br>
@@ -60,13 +67,13 @@
 
                             <label for="exampleInputUrlImg">{{ __('messages.flower') }}</label>
                             <select name="flower1" class="form-control form-control-sm">
-                                @foreach ($data["flowers"] as $flower)
+                                @foreach ($data['flowers'] as $flower)
                                     <option>{{ $flower->getName() }}</option>
                                 @endforeach
                             </select>
                             <br>
                             <select name="flower2" class="form-control form-control-sm">
-                                @foreach ($data["flowers"] as $flower)
+                                @foreach ($data['flowers'] as $flower)
                                     <option>{{ $flower->getName() }}</option>
                                 @endforeach
                             </select>

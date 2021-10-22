@@ -5,11 +5,19 @@
 @section('header-title') {{ __('messages.flower') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('createFlower') }}
+        </div>
+    </div>
+
+
     <div class="row justify-content-center">
 
         <br>
         <div class="col-md-8">
-            
+
             @include('util.message')
             <div class="card margin-top margin-bottom">
                 <div class="card-header">

@@ -5,6 +5,14 @@
 @section('header-title') {{ __('messages.bouquets') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('detailsBouquet', $data['bouquet']) }}
+        </div>
+    </div>
+
+
     <div class="row justify-content-center">
         <br>
         <div class="col-md-8">
@@ -26,7 +34,8 @@
                             class="btn btn-danger">{{ __('messages.delete') }}</a>
                     @endcan
                     <h6>{{ __('messages.image') }}</h6>
-                    <img class="img imagen-items" src="{{ asset('/storage/img/combos/' . $data['bouquet']->getUrlImg()) }}" />
+                    <img class="img imagen-items"
+                        src="{{ asset('/storage/img/combos/' . $data['bouquet']->getUrlImg()) }}" />
                     <h6>{{ __('messages.flower') }}</h6>
                     <ul>
                         @foreach ($data['flowers'] as $flower)

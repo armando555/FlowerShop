@@ -8,6 +8,18 @@
   margin: 1rem;
 }
 
+.list-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card-item-cart {
+  display: flex;
+  flex-direction: row;
+}
 
 .card-content{
   display: flex;
@@ -58,6 +70,12 @@
 .bread-crumbs-container{
   width: 80%;
   margin-top: 2rem;
+}
+
+
+.ul-list-cart{
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 1400px) {

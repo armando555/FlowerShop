@@ -5,6 +5,13 @@
 @section('header-title') {{ __('messages.candy') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('editCandy', $data['candy']) }}
+        </div>
+    </div>
+
     <div class="row justify-content-center">
 
         <br>
