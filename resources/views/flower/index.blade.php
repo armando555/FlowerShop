@@ -33,24 +33,30 @@
                         @endcan
                         <ul class="ul-list">
                             @foreach ($data['flowers'] as $item)
-                                <li class="card card-item">
+                                <li class="card card-item ">
                                     <h5 class="card-header"> {{ $item->getName() }}</h5>
-                                    <div class="card-body card-content">
-                                        <b>{{ $item->getPrice() }}$ </b>
+                                    <div class="card-body card-item-cart">
+
                                         <img class="img imagen-items"
                                             src="{{ asset('/storage/img/combos/' . $item->getUrlImg()) }}" />
-                                        <a class="btn btn-success"
-                                            href="{{ route('flower.show', $item->getId()) }}">{{ __('messages.details') }}</a>
-                                        <!--<a class="btn btn-primary" href="{{ route('cart.addFlower', ['id' => $item->getId()]) }}">{{ __('messages.addCart') }}</a>-->
-                                        <form method="POST"
+
+                                        <form class="list-column padding-item" method="POST"
                                             action="{{ route('cart.addFlower', ['id' => $item->getId()]) }}">
                                             @csrf
+                                            <b>{{ $item->getPrice() }}$ </b>
+
+                                            <!--<a class="btn btn-primary" href="{{ route('cart.addFlower', ['id' => $item->getId()]) }}">{{ __('messages.addCart') }}</a>-->
                                             <label for="exampleInputName"
                                                 class="font-weight-bold">{{ __('messages.quantity') }}</label>
-                                            <input name="quantity" type="numeric" value="1">
-                                            <button type="submit"
-                                                class="btn btn-primary">{{ __('messages.addCart') }}</button>
+                                            <input class="form-control" name="quantity" type="numeric" value="1">
+                                            <div class="btn-group margin-top" role="group" aria-label="Basic example">
+                                                <a class="btn btn-success"
+                                                    href="{{ route('flower.show', $item->getId()) }}">{{ __('messages.details') }}</a>
+                                                <button type="submit"
+                                                    class="btn btn-primary">{{ __('messages.addCart') }}</button>
+                                            </div>
                                         </form>
+
                                     </div>
                                 </li>
                             @endforeach

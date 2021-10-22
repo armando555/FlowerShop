@@ -32,23 +32,29 @@
                         @foreach ($data['bouquet'] as $bouquet)
                             <li class="card card-item">
                                 <h5 class="card-header">{{ $bouquet->getName() }}</h5>
-                                <div class="card-body card-content">
-                                    <b>
-                                        {{ $bouquet->getPrice() }}$
-                                    </b>
+                                <div class="card-body card-item-cart">
                                     <img class="img imagen-items"
                                         src="{{ asset('/storage/img/combos/' . $bouquet->getUrlImg()) }}" />
-                                    <a class="btn btn-success"
-                                        href="{{ route('bouquet.show', $bouquet->getId()) }}">{{ __('messages.details') }}</a>
-                                    <!--<a class="btn btn-primary" href="{{ route('cart.addBouquet', ['id' => $bouquet->getId()]) }}">{{ __('messages.addCart') }}</a>-->
-                                    <form method="POST"
+
+                                    <form class="list-column padding-item" method="POST"
                                         action="{{ route('cart.addBouquet', ['id' => $bouquet->getId()]) }}">
                                         @csrf
+                                        <b>
+                                            {{ $bouquet->getPrice() }}$
+                                        </b>
+
                                         <label for="exampleInputName"
                                             class="font-weight-bold">{{ __('messages.quantity') }}</label>
-                                        <input name="quantity" type="numeric" value="1">
-                                        <button type="submit"
-                                            class="btn btn-primary">{{ __('messages.addCart') }}</button>
+                                        <input class="form-control" name="quantity" type="numeric" value="1">
+
+                                        <div class="btn-group margin-top" role="group" aria-label="Basic example">
+                                            <button type="submit"
+                                                class="btn btn-primary">{{ __('messages.addCart') }}</button>
+                                            <a class="btn btn-success"
+                                                href="{{ route('bouquet.show', $bouquet->getId()) }}">{{ __('messages.details') }}</a>
+                                            <!--<a class="btn btn-primary" href="{{ route('cart.addBouquet', ['id' => $bouquet->getId()]) }}">{{ __('messages.addCart') }}</a>-->
+                                        </div>
+
                                     </form>
                                     <div>
                             </li>

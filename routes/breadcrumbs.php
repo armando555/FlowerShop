@@ -29,7 +29,7 @@ Breadcrumbs::for('showCombo', function ($trail) {
 // Home > Flowers
 Breadcrumbs::for('showFlower', function ($trail) {
     $trail->parent('home');
-    $trail->push(__('messages.listFlowers'), route('flower.show'));
+    $trail->push(__('messages.listFlowers'), route('flower.index'));
 });
 
 // Home > Flowers > details
