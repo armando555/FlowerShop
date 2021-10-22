@@ -49,6 +49,16 @@
   margin-bottom: 2rem;
 }
 
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bread-crumbs-container{
+  width: 80%;
+  margin-top: 2rem;
+}
 
 @media screen and (max-width: 1400px) {
   .ul-list {

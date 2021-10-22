@@ -6,7 +6,12 @@
 
 @section('content')
 
-    {{Breadcrumbs::render('Show',__('messages.flower')}}
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('detailsFlower',$data['flower']) }}
+        </div>
+    </div>
+
 
     <div class="row justify-content-center">
 

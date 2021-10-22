@@ -4,7 +4,13 @@
     
 
 @section('content')
-{{ Breadcrumbs::render('home') }}
+
+<div class="center">
+    <div class="bread-crumbs-container">
+        {{ Breadcrumbs::render('home') }}
+    </div>
+</div>
+
 
     <div class="d-flex justify-content-center">
         <img src="{{ asset('/img/portfolio/flowershop.jpeg') }}">

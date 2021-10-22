@@ -4,29 +4,41 @@ use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
 // Home
 Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Inicio', route('home'));
+    $trail->push(__('messages.home'), route('home'));
 });
 
-// Home > About
-Breadcrumbs::for('show', function ($trail) {
+// Home > Bouquet
+Breadcrumbs::for('indexBouquet', function ($trail) {
     $trail->parent('home');
-    $trail->push(__('messages.details'), route('flower.index'));
+    $trail->push(__('messages.listBouquet'), route('bouquet.index'));
 });
 
-// Home > Blog
-Breadcrumbs::for('blog', function ($trail) {
+
+// Home > Candy
+Breadcrumbs::for('showCandy', function ($trail) {
     $trail->parent('home');
-    $trail->push('Blog', route('blog'));
+    $trail->push(__('messages.listCandy'), route('candy.index'));
 });
 
-// Home > Blog > [Category]
-Breadcrumbs::for('category', function ($trail, $category) {
-    $trail->parent('blog');
-    $trail->push($category->title, route('category', $category->id));
+// Home > Combo
+Breadcrumbs::for('showCombo', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__('messages.listCombos'), route('combo.index'));
 });
 
-// Home > Blog > [Category] > [Post]
-Breadcrumbs::for('post', function ($trail, $post) {
-    $trail->parent('category', $post->category);
-    $trail->push($post->title, route('post', $post->id));
+// Home > Flowers
+Breadcrumbs::for('showFlower', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__('messages.listFlowers'), route('flower.index'));
+});
+
+// Home > Flowers > details
+Breadcrumbs::for('detailsFlower', function ($trail,$data) {
+    $trail->parent('showFlower');
+    $trail->push($data->getName(), route('flower.show',$data->getId()));
+});
+
+Breadcrumbs::for('editFlower', function ($trail,$data) {
+    $trail->parent('detailsFlower');
+    $trail->push(__('messages.edit'), route('flower.edit',$data->getId()));
 });

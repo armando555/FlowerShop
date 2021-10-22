@@ -5,6 +5,13 @@
 @section('header-title') {{ __('messages.bouquet') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('showBouquet') }}
+        </div>
+    </div>
+
     <div class="row justify-content-center">
         <br>
         <div class="col-md-8">
