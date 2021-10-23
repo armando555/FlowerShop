@@ -8,7 +8,7 @@
 
     <div class="center">
         <div class="bread-crumbs-container">
-            {{ Breadcrumbs::render('detailsFlower',$data['flower']) }}
+            {{ Breadcrumbs::render('detailsFlower', $data['flower']) }}
         </div>
     </div>
 
@@ -35,12 +35,16 @@
                     <p>{{ $data['flower']->getDescription() }}</p>
                     <h6>{{ __('messages.price') }}</h6>
                     <p>{{ $data['flower']->getPrice() }}$</p>
-                    @can('flower.edit')
-                        <a href="{{ route('flower.edit', $data['flower']->getId()) }}"
-                            class="btn btn-success">{{ __('messages.edit') }}</a>
+
+                    <div class="btn-group margin-top" role="group" aria-label="Basic example">
+                        @can('flower.edit')
+                            <a href="{{ route('flower.edit', $data['flower']->getId()) }}"
+                                class="btn btn-success">{{ __('messages.edit') }}</a>
+                        @endcan
                         <a href="{{ route('flower.delete', $data['flower']->getId()) }}"
                             class="btn btn-danger">{{ __('messages.delete') }}</a>
-                    @endcan
+                    </div>
+
                 </div>
             </div>
         </div>

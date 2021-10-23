@@ -33,12 +33,16 @@
                     <h3>{{ __('messages.price') }}</h3>
                     <p>{{ $data['combo']->getPrice() }}$</p>
                     <h3>{{ __('messages.image') }}</h3>
-                    @can('combo.edit')
-                        <a href="{{ route('combo.edit', $data['combo']->getId()) }}"
-                            class="btn btn-success">{{ __('messages.edit') }}</a>
+
+                    <div class="btn-group margin-top" role="group" aria-label="Basic example">
+                        @can('combo.edit')
+                            <a href="{{ route('combo.edit', $data['combo']->getId()) }}"
+                                class="btn btn-success">{{ __('messages.edit') }}</a>
+                        @endcan
                         <a href="{{ route('combo.delete', $data['combo']->getId()) }}"
                             class="btn btn-danger">{{ __('messages.delete') }}</a>
-                    @endcan
+                    </div>
+
                     <h3>{{ __('messages.flower') }}</h3>
                     <ul>
                         @foreach ($data['flowers'] as $flower)

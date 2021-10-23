@@ -27,12 +27,14 @@
                     <p>{{ $data['bouquet']->getRate() }}</p>
                     <h6> {{ __('messages.price') }}</h6>
                     <p>{{ $data['bouquet']->getPrice() }}</p>
-                    @can('bouquet.edit')
-                        <a href="{{ route('bouquet.edit', $data['bouquet']->getId()) }}"
-                            class="btn btn-success">{{ __('messages.edit') }}</a>
+                    <div class="btn-group margin-top" role="group" aria-label="Basic example">
+                        @can('bouquet.edit')
+                            <a href="{{ route('bouquet.edit', $data['bouquet']->getId()) }}"
+                                class="btn btn-success">{{ __('messages.edit') }}</a>
+                        @endcan
                         <a href="{{ route('bouquet.delete', $data['bouquet']->getId()) }}"
                             class="btn btn-danger">{{ __('messages.delete') }}</a>
-                    @endcan
+                    </div>
                     <h6>{{ __('messages.image') }}</h6>
                     <img class="img imagen-items"
                         src="{{ asset('/storage/img/combos/' . $data['bouquet']->getUrlImg()) }}" />
