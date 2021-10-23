@@ -118,3 +118,11 @@ Breadcrumbs::for('bill', function ($trail) {
     $trail->parent('cart');
     $trail->push(__('messages.generatePdf'), route('cart.show'));
 });
+
+
+// Panel
+
+Breadcrumbs::for('panel', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__('messages.panel'), route('panel.index'));
+});
