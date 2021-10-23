@@ -29,12 +29,15 @@
                     <h6>{{ __('messages.image') }}</h6>
                     <img class="img imagen-items"
                         src="{{ asset('/storage/img/combos/' . $data['candy']->getUrlImg()) }}" />
-                    @can('candy.edit')
-                        <a href="{{ route('candy.edit', $data['candy']->getId()) }}"
-                            class="btn btn-success">{{ __('messages.edit') }}</a>
+
+                    <div class="btn-group margin-top" role="group" aria-label="Basic example">
+                        @can('candy.edit')
+                            <a href="{{ route('candy.edit', $data['candy']->getId()) }}"
+                                class="btn btn-success">{{ __('messages.edit') }}</a>
+                        @endcan
                         <a href="{{ route('candy.delete', $data['candy']->getId()) }}"
                             class="btn btn-danger">{{ __('messages.delete') }}</a>
-                    @endcan
+                    </div>
                 </div>
             </div>
         </div>
