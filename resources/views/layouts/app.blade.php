@@ -35,46 +35,7 @@
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">{{ __('messages.home') }}</a>
             <!---  -------------------------------------------------------------------------------------------------------------------    -->
-            <div class="nav-item mx-0 mx-lg-1 dropdown">
-                <a class="nav-link nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ __('messages.productsHome') }}
-                </a>
 
-                @guest
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('flower.index.user') }}">{{ __('messages.flower') }} </a>
-                        <a class="dropdown-item"
-                            href="{{ route('bouquet.index.user') }}">{{ __('messages.bouquet') }}</a>
-                        <a class="dropdown-item" href="{{ route('combo.index.user') }}">{{ __('messages.combo') }}</a>
-                        <a class="dropdown-item" href="{{ route('candy.index.user') }}">{{ __('messages.candy') }}</a>
-                    </div>
-                @else
-                    @if (auth()->user()->role == 'User')
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item"
-                                href="{{ route('flower.index.user') }}">{{ __('messages.flower') }} </a>
-                            <a class="dropdown-item"
-                                href="{{ route('bouquet.index.user') }}">{{ __('messages.bouquet') }}</a>
-                            <a class="dropdown-item"
-                                href="{{ route('combo.index.user') }}">{{ __('messages.combo') }}</a>
-                            <a class="dropdown-item"
-                                href="{{ route('candy.index.user') }}">{{ __('messages.candy') }}</a>
-                        </div>
-                    @else
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ route('flower.index') }}">{{ __('messages.flower') }}
-                            </a>
-                            <a class="dropdown-item"
-                                href="{{ route('bouquet.index') }}">{{ __('messages.bouquet') }}</a>
-                            <a class="dropdown-item" href="{{ route('combo.index') }}">{{ __('messages.combo') }}</a>
-                            <a class="dropdown-item" href="{{ route('candy.index') }}">{{ __('messages.candy') }}</a>
-                        </div>
-                    @endif
-                @endguest
-
-
-            </div>
             <!---  -------------------------------------------------------------------------------------------------------------------    -->
             <button
                 class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
@@ -85,7 +46,57 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
+
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1 dropdown">
+                            <a class="nav-link nav-link py-3 px-0 px-lg-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ __('messages.productsHome') }}
+                            </a>
+
+                            @guest
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item"
+                                        href="{{ route('flower.index.user') }}">{{ __('messages.flower') }} </a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('bouquet.index.user') }}">{{ __('messages.bouquet') }}</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('combo.index.user') }}">{{ __('messages.combo') }}</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('candy.index.user') }}">{{ __('messages.candy') }}</a>
+                                </div>
+                            @else
+                                @if (auth()->user()->role == 'User')
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item"
+                                            href="{{ route('flower.index.user') }}">{{ __('messages.flower') }} </a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('bouquet.index.user') }}">{{ __('messages.bouquet') }}</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('combo.index.user') }}">{{ __('messages.combo') }}</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('candy.index.user') }}">{{ __('messages.candy') }}</a>
+                                    </div>
+                                @else
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item"
+                                            href="{{ route('flower.index') }}">{{ __('messages.flower') }}
+                                        </a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('bouquet.index') }}">{{ __('messages.bouquet') }}</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('combo.index') }}">{{ __('messages.combo') }}</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('candy.index') }}">{{ __('messages.candy') }}</a>
+                                    </div>
+                                @endif
+                            @endguest
+
+                    </li>
+
+
+
+
                     @guest
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                                 href="{{ route('cart.show') }}">{{ __('messages.cart') }}</a></li>
@@ -139,7 +150,7 @@
                         @endcan
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                                 href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
+                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
