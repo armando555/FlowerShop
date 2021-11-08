@@ -34,11 +34,6 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 
-
-
-COPY  . /var/www/html/
-WORKDIR /var/www/html/
-
 RUN php artisan key:generate
 RUN php artisan migrate
 RUN php artisan migrate:refresh --seed
