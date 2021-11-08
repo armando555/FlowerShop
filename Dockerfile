@@ -39,6 +39,9 @@ RUN php artisan migrate
 RUN php artisan migrate:refresh --seed
 RUN php artisan storage:link
 
+
+RUN chmod -R 777 /var/www/html
+
 RUN a2enmod rewrite 
 RUN service apache2 restart
 
