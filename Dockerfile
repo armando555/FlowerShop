@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y \
         && docker-php-ext-install pdo pdo_mysql zip intl xmlrpc soap opcache \
         && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
         
+RUN apt-get update -y 
+
+
 RUN composer install \ 
     --ignore-platform-reqs \ 
     --no-interaction \
@@ -24,21 +27,25 @@ RUN composer install \
     --no-scripts \ 
     --prefer-dist 
 
-RUN apt-get update -y 
+
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-COPY  docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY  docker/.env-pro /var/www/html/.env
-COPY  docker/php.ini /usr/local/etc/php/php.ini
-
 ENV COMPOSER_ALLOW_SUPERUSER 1
+
+
+
 
 COPY  . /var/www/html/
 WORKDIR /var/www/html/
 
+RUN php artisan key:generate
+RUN php artisan migrate
+RUN php artisan migrate --seed
+RUN php artisan storage:link
+
 RUN chown -R www-data:www-data /var/www/html  \
     && composer install  && composer dumpautoload 
-RUN php artisan storage:link
+    
 RUN service apache2 restart
 
