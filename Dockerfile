@@ -37,7 +37,6 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-EXPOSE 8080
 
 RUN php artisan key:generate
 RUN php artisan migrate
@@ -45,7 +44,7 @@ RUN php artisan migrate:refresh --seed
 RUN php artisan storage:link
 
 RUN php artisan serve &
-RUN systemctl disable apache2
+
 
 
 
