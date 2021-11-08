@@ -47,6 +47,6 @@ RUN php artisan storage:link
 RUN chown -R www-data:www-data /var/www/html  \
     && composer install  && composer dumpautoload 
 
-RUN chmod -R ./
+RUN chmod -R 777 ./
 RUN service apache2 restart
 
