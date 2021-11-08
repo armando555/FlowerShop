@@ -1,6 +1,10 @@
 FROM php:7.4-apache 
 RUN apt-get update -y && apt-get install -y openssl zip unzip git 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+EXPOSE 80
+COPY --from=build /app /var/www/
+COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY . /var/www/html 
 WORKDIR /var/www/html
 
@@ -33,6 +37,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+EXPOSE 8080
 
 RUN php artisan key:generate
 RUN php artisan migrate
@@ -43,5 +48,7 @@ RUN chown -R www-data:www-data /var/www/html  \
     && composer install  && composer dumpautoload 
 
 RUN chmod -R 777 ./
+RUN chmod -R 775 ./storage
+
 RUN service apache2 restart
 
