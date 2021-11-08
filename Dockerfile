@@ -44,7 +44,8 @@ RUN php artisan migrate
 RUN php artisan migrate:refresh --seed
 RUN php artisan storage:link
 
-RUN php artisan serve
+RUN php artisan serve &
+RUN systemctl disable apache2
 
 
 
