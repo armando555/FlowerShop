@@ -41,7 +41,7 @@ WORKDIR /var/www/html/
 
 RUN php artisan key:generate
 RUN php artisan migrate
-RUN php artisan migrate --seed
+RUN php artisan migrate:refresh --seed
 RUN php artisan storage:link
 
 RUN chown -R www-data:www-data /var/www/html  \
