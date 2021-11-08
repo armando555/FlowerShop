@@ -18,7 +18,7 @@ COPY . /var/www/html
 WORKDIR /var/www/html
 
 
-RUN a2enmod rewrite 
+
 
 RUN chmod -R 777 ./
 RUN chmod -R 775 ./storage
@@ -43,7 +43,11 @@ RUN php artisan migrate
 RUN php artisan migrate:refresh --seed
 RUN php artisan storage:link
 
-RUN php artisan serve &
+RUN a2enmod rewrite 
+RUN service apache2 restart
+
+
+
 
 
 
