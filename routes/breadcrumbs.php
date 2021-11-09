@@ -45,7 +45,7 @@ Breadcrumbs::for('editFlower', function ($trail, $data) {
 
 Breadcrumbs::for('createFlower', function ($trail) {
     $trail->parent('showFlower');
-    $trail->push(__('messages.createFlower'), route('flower.create'));
+    $trail->push(__('messages.createFlowers'), route('flower.create'));
 });
 
 
