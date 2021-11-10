@@ -26,6 +26,8 @@ RUN chmod -R 777 bootstrap/cache
 RUN chmod -R 777 app
 RUN chmod -R 777 app/Console/Commands
 RUN chmod -R 777 stubs/charts/Default
+RUN chmod -R 777 stubs/charts/Json
+RUN chmod -R 777 stubs/charts/Vue
 RUN a2enmod rewrite
 RUN service apache2 restart
 
