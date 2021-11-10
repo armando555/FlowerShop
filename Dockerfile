@@ -15,6 +15,8 @@ RUN composer require davejamesmiller/laravel-breadcrumbs:5.x
 RUN composer require barryvdh/laravel-dompdf
 RUN composer require spatie/laravel-permission
 RUN php artisan key:generate
+RUN composer require arielmejiadev/larapex-charts
+RUN php artisan migrate --seed
 RUN php artisan storage:link
 RUN php artisan migrate
 RUN chown -R $USER:www-data storage
