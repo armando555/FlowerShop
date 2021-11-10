@@ -21,9 +21,10 @@ RUN php artisan migrate:refresh
 RUN php artisan migrate --seed
 RUN chown -R $USER:www-data storage
 RUN chown -R $USER:www-data bootstrap/cache
-RUN chmod -R 775 storage
-RUN chmod -R 775 bootstrap/cache
-RUN chmod -R 775 app
+RUN chmod -R 777 storage
+RUN chmod -R 777 bootstrap/cache
+RUN chmod -R 777 app
+RUN chmod -R 777 app/Console/Commands
 RUN a2enmod rewrite
 RUN service apache2 restart
 
