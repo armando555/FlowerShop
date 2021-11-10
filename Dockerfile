@@ -16,9 +16,9 @@ RUN composer require barryvdh/laravel-dompdf
 RUN composer require spatie/laravel-permission
 RUN php artisan key:generate
 RUN composer require arielmejiadev/larapex-charts
-RUN php artisan migrate --seed
 RUN php artisan storage:link
-RUN php artisan migrate
+RUN php artisan migrate:refresh
+RUN php artisan migrate --seed
 RUN chown -R $USER:www-data storage
 RUN chown -R $USER:www-data bootstrap/cache
 RUN chmod -R 775 storage
