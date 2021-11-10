@@ -15,8 +15,8 @@ RUN composer require davejamesmiller/laravel-breadcrumbs:5.x
 RUN php artisan key:generate
 RUN php artisan storage:link
 RUN php artisan migrate
-RUN sudo chown -R $USER:www-data storage
-RUN sudo chown -R $USER:www-data bootstrap/cache
+RUN chown -R $USER:www-data storage
+RUN chown -R $USER:www-data bootstrap/cache
 RUN chmod -R 775 storage
 RUN chmod -R 775 bootstrap/cache
 RUN a2enmod rewrite
