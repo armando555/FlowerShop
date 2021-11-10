@@ -27,7 +27,6 @@ composer require arielmejiadev/larapex-charts
 
 composer require davejamesmiller/laravel-breadcrumbs:5.x
 
-composer require farhanwazir/laravelgooglemaps
 
 
 php artisan migrate --seed
