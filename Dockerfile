@@ -11,7 +11,7 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-
+RUN composer require davejamesmiller/laravel-breadcrumbs:5.x
 RUN php artisan key:generate
 RUN php artisan storage:link
 RUN php artisan migrate
