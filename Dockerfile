@@ -24,7 +24,7 @@ RUN chown -R $USER:www-data bootstrap/cache
 RUN chmod -R 777 storage
 RUN chmod -R 777 bootstrap/cache
 RUN chmod -R 777 app
-RUN chmod -R 777 app/Console/Commands
+RUN chmod -R 777 app/Console/Commands/ChartMakeCommand.php
 RUN a2enmod rewrite
 RUN service apache2 restart
 
