@@ -12,6 +12,8 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 RUN composer require davejamesmiller/laravel-breadcrumbs:5.x
+RUN composer require barryvdh/laravel-dompdf
+RUN composer require spatie/laravel-permission
 RUN php artisan key:generate
 RUN php artisan storage:link
 RUN php artisan migrate
