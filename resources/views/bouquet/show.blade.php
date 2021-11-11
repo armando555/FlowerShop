@@ -21,6 +21,8 @@
                     <h3> {{ __('messages.detailsBouquet') }}{{ ' ' }}{{ $data['bouquet']->getName() }}</h3>
                 </div>
                 <div class="card-body">
+                    <img class="img imagen-items"
+                        src="{{ asset('/storage/img/combos/' . $data['bouquet']->getUrlImg()) }}" />
                     <h6> {{ __('messages.bouquetType') }}</h6>
                     <p>{{ $data['bouquet']->getBouquetType() }}</p>
                     <h6> {{ __('messages.rate') }}</h6>
@@ -35,9 +37,7 @@
                         <a href="{{ route('bouquet.delete', $data['bouquet']->getId()) }}"
                             class="btn btn-danger">{{ __('messages.delete') }}</a>
                     </div>
-                    <h6>{{ __('messages.image') }}</h6>
-                    <img class="img imagen-items"
-                        src="{{ asset('/storage/img/combos/' . $data['bouquet']->getUrlImg()) }}" />
+                    
                     <h6>{{ __('messages.flower') }}</h6>
                     <ul>
                         @foreach ($data['flowers'] as $flower)

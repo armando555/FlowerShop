@@ -51,7 +51,7 @@
                                             <input class="form-control" name="quantity" type="numeric" value="1">
                                             <div class="btn-group margin-top" role="group" aria-label="Basic example">
                                                 <a class="btn btn-success"
-                                                    href="{{ route('flower.show.user', $item->getId()) }}">{{ __('messages.details') }}</a>
+                                                    href="{{ route('flower.show', $item->getId()) }}">{{ __('messages.details') }}</a>
                                                 <button type="submit"
                                                     class="btn btn-primary">{{ __('messages.addCart') }}</button>
                                             </div>
