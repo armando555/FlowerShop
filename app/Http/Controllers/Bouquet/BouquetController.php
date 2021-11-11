@@ -10,9 +10,9 @@ class BouquetController extends Controller
     public function index()
     {
         $data = [];
-        $data["bouquets"] = Bouquet::all();
-        $data["candies"] = Candy::all();
-        return view('bouquet.userindex')->with("data", $data);
+        $data['bouquet'] = Bouquet::all();
+        $data['candies'] = Candy::all();
+        return view('bouquet.userIndex')->with("data", $data);
     }
 
     public function home()
@@ -23,11 +23,11 @@ class BouquetController extends Controller
     public function show($id)
     {
         $data = [];
-        $bouquet = Bouquet::findOrFail($id);
-        $data['bouquet'] = $bouquet;
-        $data['flowers'] = $bouquet->flowers()->get();
-        $data['candies'] = $bouquet->candies()->get();
-        return view('bouquet.show')->with("data", $data);
+        
+        $data['bouquet'] = Bouquet::findOrFail($id);
+        $data['flowers'] = $data['bouquet']->flowers()->get();
+        $data['candies'] = $data['bouquet']->candies()->get();
+        return view('bouquet.userShow')->with("data", $data);
     }
 
 
