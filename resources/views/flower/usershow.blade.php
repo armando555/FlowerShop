@@ -11,7 +11,7 @@
         <div class="col-md-8">
             <div class="card margin-top margin-bottom">
                 <div class="card-header">
-                    <h3>{{ __('messages.details') }}{{ ' ' }} $data['flower']->getName()</h3>
+                    <h3>{{ __('messages.details') }}{{ ' ' }} {{$data['flower']->getName()}}</h3>
                 </div>
                 <div class="card-body">
                     <h3>{{ __('messages.spice') }}</h3>
