@@ -26,12 +26,14 @@ RUN composer install \
     --no-scripts \ 
     --prefer-dist 
 
-
+RUN composer dump-autoload
+RUN composer update
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+expose 80
 RUN chmod -R 777 /var/www/html
 
 RUN php artisan key:generate
