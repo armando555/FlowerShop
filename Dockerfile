@@ -17,8 +17,6 @@ RUN apt-get update -y
 COPY . /var/www/html 
 WORKDIR /var/www/html
 
-
-RUN chmod -R 777 /var/www/html
 RUN composer install \ 
     --ignore-platform-reqs \ 
     --no-interaction \
@@ -26,7 +24,6 @@ RUN composer install \
     --no-scripts \ 
     --prefer-dist 
 
-RUN composer dump-autoload
 RUN composer update
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -34,7 +31,6 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 expose 80
-RUN chmod -R 777 /var/www/html
 
 RUN php artisan key:generate
 RUN php artisan migrate
