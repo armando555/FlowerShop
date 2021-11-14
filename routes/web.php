@@ -117,6 +117,9 @@ Route::redirect('/bouquet/show/', '/bouquet/index');
 Route::get('/bouquet/show/{id}', 'App\Http\Controllers\Bouquet\BouquetController@show')->name('bouquet.show.user');
 
 
+//API ROUTES
+Route::get('/api/equipo4', 'App\Http\Controllers\Api\Equipo4Api@index')->name('api.index');
+
 
 //AUTH ROUTES
 Auth::routes();
