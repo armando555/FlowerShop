@@ -5,13 +5,25 @@
 @section('header-title') {{ __('messages.combo') }} @endsection
 
 @section('content')
+
+    <div class="center">
+        <div class="bread-crumbs-container">
+            {{ Breadcrumbs::render('detailsCombo', $data['combo']) }}
+        </div>
+    </div>
+
+
     <div class="row justify-content-center">
 
         <br>
         <div class="col-md-8">
             <div class="card margin-top margin-bottom">
-                <div class="card-header">{{ __('messages.detailsCombo') }}{{' '}}{{ $data['combo']->getName() }}</div>
+                <div class="card-header">
+                    <h3>{{ __('messages.detailsCombo') }}{{ ' ' }}{{ $data['combo']->getName() }}</h3>
+                </div>
                 <div class="card-body">
+                    <img class="img imagen-items"
+                        src="{{ asset('/storage/img/combos/' . $data['combo']->getUrlImg()) }}" />
                     <h3>{{ __('messages.name') }}</h3>
                     <p>{{ $data['combo']->getName() }}</p>
                     <h3>{{ __('messages.bouquetType') }}</h3>
@@ -21,16 +33,18 @@
                     <h3>{{ __('messages.price') }}</h3>
                     <p>{{ $data['combo']->getPrice() }}$</p>
                     <h3>{{ __('messages.image') }}</h3>
-                    <img src="{{ asset($data['combo']->getUrlImg()) }}" />
 
-                    <img class="img" src="{{ asset('/storage/img/combos/' . $data['combo']->getUrlImg()) }}" />
+                    <div class="btn-group margin-top" role="group" aria-label="Basic example">
+
+                       
+                    </div>
+
                     <h3>{{ __('messages.flower') }}</h3>
                     <ul>
                         @foreach ($data['flowers'] as $flower)
                             <li>{{ $flower->getName() }}</li>
                         @endforeach
                     </ul>
-
                     <h3>{{ __('messages.candies') }}</h3>
                     <ul>
                         @foreach ($data['candies'] as $candy)
