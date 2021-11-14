@@ -28,6 +28,8 @@ composer require arielmejiadev/larapex-charts
 composer require davejamesmiller/laravel-breadcrumbs:5.x
 
 
+composer require guzzlehttp/guzzle
+
 
 php artisan migrate --seed
 
