@@ -31,5 +31,8 @@ composer require davejamesmiller/laravel-breadcrumbs:5.x
 composer require guzzlehttp/guzzle
 
 
+composer require maatwebsite/excel
+
+
 php artisan migrate --seed
 
