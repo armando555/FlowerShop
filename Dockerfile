@@ -16,7 +16,8 @@ RUN apt-get update -y
 
 COPY . /var/www/html 
 WORKDIR /var/www/html
-
+RUN composer update
+RUN composer require guzzlehttp/guzzle:^7.0 --with all-dependencies
 RUN composer install \ 
     --ignore-platform-reqs \ 
     --no-interaction \
@@ -30,7 +31,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-expose 80
+EXPOSE 80
 
 RUN php artisan key:generate
 RUN php artisan migrate
