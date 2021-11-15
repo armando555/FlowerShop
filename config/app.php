@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //my providers
+        App\Providers\BillFileServiceProvider::class,
+        //external providers
         Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
