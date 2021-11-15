@@ -45,12 +45,12 @@ class PaypalController extends Controller
         $access_token = $this->getAccessToken();
 
 
-        $response = $this->client->request('GET', '/v2/checkout/orders' . $orderId, [
+        $response = $this->client->request('GET', '/v2/checkout/orders/' . $orderId, [
             'headers' => [
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . $access_token
             ],
         ]);
-        return (string)(json_decode($response->getBody()));
+        return (json_decode($response->getBody()));
     }
 }
