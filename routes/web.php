@@ -48,6 +48,8 @@ Route::post('/cart/addCombo/{id}', 'App\Http\Controllers\Cart\CartController@add
 Route::post('/cart/addCandy/{id}', 'App\Http\Controllers\Cart\CartController@addCandy')->name('cart.addCandy');
 Route::post('/cart/buy', 'App\Http\Controllers\Cart\CartController@buy')->name('cart.buy');
 
+Route::get('/cart/process/{orderId}', 'App\Http\Controllers\Paypal\PaypalController@process')->name('cart.process');
+
 
 //BOUQUET ROUTES
 
