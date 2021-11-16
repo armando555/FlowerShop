@@ -17,11 +17,10 @@ COPY . /var/www/html
 WORKDIR /var/www/html
 
 
-RUN composer require maatwebsite/excel
-RUN composer require phpoffice/phpspreadsheet
-
 RUN composer update
 RUN composer require guzzlehttp/guzzle:^7.0 --with-all-dependencies
+RUN composer require maatwebsite/excel
+RUN composer require phpoffice/phpspreadsheet
 RUN composer install \ 
     --ignore-platform-reqs \ 
     --no-interaction \
