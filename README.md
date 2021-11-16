@@ -8,35 +8,43 @@ if you are going to download and test it in local way, you have  to run these co
 
 
     php artisan storage:link
+<br>
 
-
-    composer install
-
+    composer install<br>
+<br>
 
     composer require barryvdh/laravel-dompdf
+<br>
 
 
     composer require spatie/laravel-permission
+<br>
 
 
-    php artisan key:generate
+    php artisan key:generate<br>
+<br>
 
-
-    composer require arielmejiadev/larapex-charts 
+    composer require arielmejiadev/larapex-charts
+<br>
 
 
     composer require davejamesmiller/laravel-breadcrumbs:5.x
+<br>
 
 
     composer require guzzlehttp/guzzle
+<br>
 
 
     composer require maatwebsite/excel
+<br>
 
 
     composer require phpoffice/phpspreadsheet
+<br>
 
 
 
     php artisan migrate --seed
+<br>
 
