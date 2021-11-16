@@ -129,6 +129,9 @@ class CartController extends Controller
     }
     public function show(Request $request)
     {
+
+        
+
         $products = [];
         $idFlowers = $request->session()->get('flowers');
         $idBouquets = $request->session()->get('bouquets');
@@ -176,6 +179,7 @@ class CartController extends Controller
         if(gettype($idCandies) == "array") {
             $products["candies"] = Candy::find(array_values($idCandies));
         }
+
         return view('cart.index')->with("data", $products)->with("quantityFlower", $quantityFlower)->with("quantityBouquet", $quantityBouquet)->with("quantityCombo", $quantityCombo)->with("acu", $acu)->with("quantityCandy", $quantityCandy);
         //dd($products);
     }

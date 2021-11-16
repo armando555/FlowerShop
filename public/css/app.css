@@ -76,6 +76,10 @@
   margin-top: 2rem;
 }
 
+.column{
+  display: flex;
+  flex-direction: column;
+}
 
 .ul-list-cart{
   display: flex;
