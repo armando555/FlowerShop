@@ -16,11 +16,12 @@ RUN apt-get update -y
 COPY . /var/www/html 
 WORKDIR /var/www/html
 
+RUN composer require maatwebsite/excel --with-all-dependencies
+RUN composer require phpoffice/phpspreadsheet --with-all-dependencies
 
 RUN composer update
 RUN composer require guzzlehttp/guzzle:^7.0 --with-all-dependencies
-RUN composer require maatwebsite/excel --with-all-dependencies
-RUN composer require phpoffice/phpspreadsheet --with-all-dependencies
+
 RUN composer install \ 
     --ignore-platform-reqs \ 
     --no-interaction \
