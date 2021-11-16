@@ -19,7 +19,9 @@ jobs:
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: update
-      run: composer update
+      run: |
+        composer update --with-all-dependencies
+        composer require guzzlehttp/guzzle:^7.0 --with-all-dependencies
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Generate key
