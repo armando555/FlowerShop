@@ -14,7 +14,7 @@ class BillXlsxFile implements BillFile
 
     public function generate($id, Request $request)
     {
-        return Excel::download(new OrdersExport, 'users.xlsx');
+        return Excel::download(new OrdersExport, 'factura.xlsx');
     }
 
 }

@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use App\Interfaces\BillFile;
-
+use App\Util\BillXlsxFile;
 use App\Util\BillPdfFile;
 
 class BillFileServiceProvider extends ServiceProvider
@@ -28,8 +28,8 @@ class BillFileServiceProvider extends ServiceProvider
 
         $this->app->bind(BillFile::class, function () {
 
-            return new BillPdfFile();
-            //return new BillXlsxFile();
+            //return new BillPdfFile();
+            return new BillXlsxFile();
         });
     }
 }
