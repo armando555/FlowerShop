@@ -16,17 +16,4 @@ class HomeTest extends TestCase
         $this->assertTrue(true);
     }
 
-
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    /*
-     public function test_home()
-    {
-            
-
-    }*/
-
 }
