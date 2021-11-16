@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
         && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
 
 RUN apt-get update -y 
-RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install gd
 
