@@ -16,16 +16,11 @@ class BillController extends Controller
     {
         $items = Item::all();
     }
-    public function generatePdf($id, Request $request)
+    public function generateFile($id, Request $request)
     {
         $billInterface = app(BillFile::class);
 
         return $billInterface->generate($id,$request);
-
-        
-    }
-    public function generateXlsx($id, Request $request){
-        return Excel::download(new OrdersExport, 'users.xlsx');
     }
 
 }

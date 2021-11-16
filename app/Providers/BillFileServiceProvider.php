@@ -29,6 +29,7 @@ class BillFileServiceProvider extends ServiceProvider
         $this->app->bind(BillFile::class, function () {
 
             return new BillPdfFile();
+            //return new BillXlsxFile();
         });
     }
 }
