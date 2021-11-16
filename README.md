@@ -7,36 +7,36 @@ http://flowershop-tes.tk/
 if you are going to download and test it in local way, you have  to run these commands and create a file called .env with the data
 
 
-php artisan storage:link
+    php artisan storage:link
 
 
-composer install
+    composer install
 
 
-composer require barryvdh/laravel-dompdf
+    composer require barryvdh/laravel-dompdf
 
 
-composer require spatie/laravel-permission
+    composer require spatie/laravel-permission
 
 
-php artisan key:generate
+    php artisan key:generate
 
 
-composer require arielmejiadev/larapex-charts 
+    composer require arielmejiadev/larapex-charts 
 
 
-composer require davejamesmiller/laravel-breadcrumbs:5.x
+    composer require davejamesmiller/laravel-breadcrumbs:5.x
 
 
-composer require guzzlehttp/guzzle
+    composer require guzzlehttp/guzzle
 
 
-composer require maatwebsite/excel
+    composer require maatwebsite/excel
 
 
-composer require phpoffice/phpspreadsheet
+    composer require phpoffice/phpspreadsheet
 
 
 
-php artisan migrate --seed
+    php artisan migrate --seed
 
