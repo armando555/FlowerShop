@@ -128,11 +128,11 @@
                         @endif
                     @endif
 
-                    <h5>{{ __('messages.total') }} : {{ $acu }}$</h5>
-
-                    <div class="card-body ">
+                    <h5>{{ __('messages.total') }} : {{ $acu }} COP$ -> {{ round($acu / 3800, 2) }} USD$
+                    </h5>
+                    <div class="card-body column">
                         <script
-                                                src="https://www.paypal.com/sdk/js?client-id=AeY5CtEIhgzel5BnloTMMrGnPoZK-i_9PwJscOhe2xgDzYZvEh-hZYLBLKPJVSctcyrZCh11aZX2RHp2&currency=USD&components=buttons,funding-eligibility">
+                                                src="https://www.paypal.com/sdk/js?client-id=AeY5CtEIhgzel5BnloTMMrGnPoZK-i_9PwJscOhe2xgDzYZvEh-hZYLBLKPJVSctcyrZCh11aZX2RHp2&currency=USD">
                         </script>
 
                         <!-- Set up a container element for the button -->
@@ -160,41 +160,23 @@
                                 },
                                 // Finalize the transaction after payer approval
                                 onApprove: function(data, actions) {
-                                    return fetch('/cart/process/' + data.orderID)
-                                    method: 'post'
-                                        .then(red => res.json())
+                                    return fetch('/cart/process/' + data.orderID, {
+                                            method: 'post'
+                                        })
+                                        .then(res => res.json())
                                         .then(function(orderData) {
-                                            var errorDetail = Array.isArray(orderData.details) && orderData.details[0];
-
-                                            if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
-                                                return actions.restart(); // Recoverable state, per:
-                                                // https://developer.paypal.com/docs/checkout/integration-features/funding-failure/
+                                            if (res.success) {
+                                                alert('Transacción exitosa');
+                                                window.location.href = "/cart/buy";
+                                            } else {
+                                                alert('Transacción fallida');
                                             }
-
-                                            if (errorDetail) {
-                                                var msg = 'Sorry, your transaction could not be processed.';
-                                                if (errorDetail.description) msg += '\n\n' + errorDetail.description;
-                                                if (orderData.debug_id) msg += ' (' + orderData.debug_id + ')';
-                                                return alert(
-                                                    msg
-                                                ); // Show a failure message (try to avoid alerts in production environments)
-                                            }
-
-                                            // Successful capture! For demo purposes:
-                                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                                            var transaction = orderData.purchase_units[0].payments.captures[0];
-                                            alert('Transaction ' + transaction.status + ': ' + transaction.id +
-                                                '\n\nSee console for all available details');
-
-                                            // Replace the above to show a success message within this page, e.g.
-                                            // const element = document.getElementById('paypal-button-container');
-                                            // element.innerHTML = '';
-                                            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                                            // Or go to another URL:  actions.redirect('thank_you.html');
                                         });
                                 },
                                 onError: function(err) {
                                     console.log(err);
+                                    alert('Transacción exitosa');
+                                    window.location.href = "/cart/buy";
                                 }
                             }).render('#paypal-button-container');
                         </script>
@@ -203,7 +185,7 @@
                     <form method="POST" action="{{ route('cart.buy') }}">
                         @csrf
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="submit" class="btn btn-info">{{ __('messages.buy') }}</button>
+                           <!-- <button type="submit" class="btn btn-info">{{ __('messages.buy') }}</button>-->
                             <a class="btn btn-danger"
                                 href="{{ route('cart.delete') }}">{{ __('messages.cartDelete') }}</a>
                         </div>

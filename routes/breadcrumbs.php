@@ -111,7 +111,7 @@ Breadcrumbs::for('createCombo', function ($trail) {
 
 Breadcrumbs::for('cart', function ($trail) {
     $trail->parent('home');
-    $trail->push(__('messages.createCombo'), route('cart.show'));
+    $trail->push(__('messages.cart'), route('cart.show'));
 });
 
 Breadcrumbs::for('bill', function ($trail) {

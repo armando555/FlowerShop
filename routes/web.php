@@ -46,7 +46,7 @@ Route::post('/cart/addFlower/{id}', 'App\Http\Controllers\Cart\CartController@ad
 Route::post('/cart/addBouquet/{id}', 'App\Http\Controllers\Cart\CartController@addBouquet')->name('cart.addBouquet');
 Route::post('/cart/addCombo/{id}', 'App\Http\Controllers\Cart\CartController@addCombo')->name('cart.addCombo');
 Route::post('/cart/addCandy/{id}', 'App\Http\Controllers\Cart\CartController@addCandy')->name('cart.addCandy');
-Route::post('/cart/buy', 'App\Http\Controllers\Cart\CartController@buy')->name('cart.buy');
+Route::get('/cart/buy', 'App\Http\Controllers\Cart\CartController@buy')->name('cart.buy');
 
 Route::get('/cart/process/{orderId}', 'App\Http\Controllers\Paypal\PaypalController@process')->name('cart.process');
 
