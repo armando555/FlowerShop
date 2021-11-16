@@ -16,7 +16,7 @@ RUN apt-get update -y
 COPY . /var/www/html 
 WORKDIR /var/www/html
 
-RUN composer require "ext-gd:*" --ignore-platform-reqs --with-all-dependencies
+RUN composer require "ext-gd:*" --ignore-platform-reqs
 
 RUN composer require maatwebsite/excel --with-all-dependencies \ 
     --ignore-platform-reqs \ 
@@ -24,6 +24,7 @@ RUN composer require maatwebsite/excel --with-all-dependencies \
     --no-plugins \ 
     --no-scripts \ 
     --prefer-dist 
+    
 RUN composer require phpoffice/phpspreadsheet --with-all-dependencies \ 
     --ignore-platform-reqs \ 
     --no-interaction \
