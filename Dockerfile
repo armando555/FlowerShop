@@ -16,6 +16,9 @@ RUN apt-get update -y
 
 COPY . /var/www/html 
 WORKDIR /var/www/html
+
+RUN composer require phpoffice/phpspreadsheet
+
 RUN composer update
 RUN composer require guzzlehttp/guzzle:^7.0 --with-all-dependencies
 RUN composer install \ 
