@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
         && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
 
 RUN apt-get update -y 
-RUN ap-get install php-gd
 
 COPY . /var/www/html 
 WORKDIR /var/www/html
