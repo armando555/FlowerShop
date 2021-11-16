@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
         libpq-dev \
         libzip-dev \
         && docker-php-ext-install pdo pdo_mysql zip intl xmlrpc soap opcache \
-        && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
+        && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd php-gd
 
 RUN apt-get update -y 
 
@@ -18,6 +18,8 @@ COPY . /var/www/html
 WORKDIR /var/www/html
 
 RUN composer require phpoffice/phpspreadsheet
+RUN composer require maatwebsite/excel
+
 
 RUN composer update
 RUN composer require guzzlehttp/guzzle:^7.0 --with-all-dependencies
