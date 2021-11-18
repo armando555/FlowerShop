@@ -10,7 +10,7 @@ if you are going to download and test it in local way, you have  to run these co
     php artisan storage:link
 <br>
 
-    composer install<br>
+    composer install
 <br>
 
     composer require barryvdh/laravel-dompdf
